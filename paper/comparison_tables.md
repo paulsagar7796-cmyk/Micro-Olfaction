@@ -1,7 +1,7 @@
 # Comparison tables — UCI Gas Sensor Array Drift dataset
 
 Generated from `benchmark_literature_comparison.py`, `improve_system2.py`, `combine_system2.py`,
-`sweep_system2_budget.py`, `tune_system2.py`, `literature_table.py`, `deep_model_cost.py`,
+`sweep_system2_budget.py`, `sequential_system2plus.py`, `tune_system2.py`, `literature_table.py`, `deep_model_cost.py`,
 `check_temporal_confound.py`, `presence_test.py` and `energy_proxy.py` (results in `results/`).
 `./reproduce.sh` reruns all of them and checks every number below against the results
 (`check_paper_numbers.py`). Published numbers, transcribed in `literature/published_results.csv`:
@@ -125,10 +125,13 @@ SVM-comgfk 64.0, ML-comgfk 67.3; Setting 2 — SVM-rbf 68.0, SVM-comgfk 69.4, ML
 ensemble 80.0 (label use not stated for most). Batches 2–10 averages for System 2 are in
 `results/literature_comparison.csv`; they include the tuning batches.
 
-**Sequential maintenance protocol (System 2, not yet run with the System 2+ additions).** The model is
-carried and recalibrated batch after batch (≈28 / 55 / 80 labels per batch for 5 / 10 / 15 per gas):
-Batches 6–10 83.2 / 88.3 / 91.6 %. 12 labels per gas reach 91.3 % (95 % CI 90.3–92.3 %, 15 seeds;
-89.9 %, CI 87.7–92.1 %, on the 5 standard seeds); class 4 (ethylene) recall 66.7 %.
+**Sequential maintenance protocol.** The model, its alignment statistics and its pseudo-label updates
+carry over from batch to batch, with recalibration at each visit. Batches 6–10 (15 seeds): System 2+
+reaches 91.5 / 92.7 / 93.7 % at 10 / 12 / 15 labels per gas (System 2: 90.0 / 91.3 / 92.3 %), and
+88.6 % at 5. Pseudo-labelling shows no confirmation bias over nine maintenance cycles: 84–100 % of
+pseudo-labels are correct in each batch, and their effect (+0.3 to +0.6 points) does not decline across
+batches. Pseudo-labelling was tested between regular recalibrations, not over long periods without
+labels.
 
 ## 3. Post-2015 methods
 
@@ -286,10 +289,10 @@ is class 4 vs class 5 (ethylene vs ammonia).
   seeds, so the Setting 2 lead at 50 labels (+1.7) is not robust.
 - The 20-label advantage holds with balanced calibration only; with the source's gas-agnostic selection
   System 2+ trails. Budgets below 20 were not compared: the sources give no numbers there.
-- System 2+ was evaluated in Settings 1 and 2 and in one multi-source run (Batches 1 + 2 → K), which was
-  not tuned: it scores below Setting 1 at the same budget (74.6 vs 80.2 at 20 labels). In the sequential
-  protocol, pseudo-labels would carry over between batches, so errors could accumulate; this needs
-  testing before claiming it there.
+- System 2+ was evaluated in Settings 1 and 2, in the sequential protocol (section 2) and in one
+  multi-source run (Batches 1 + 2 → K), which was not tuned: it scores below Setting 1 at the same budget
+  (74.6 vs 80.2 at 20 labels). In the sequential protocol, pseudo-labelling was tested with recalibration
+  at every batch, not over long periods without labels.
 - Few-shot accuracies are optimistic by an estimated 7–11 points on Batches 6–10 when labels cannot come
   from the scored concentration levels (section 4). Same-session proximity cannot be ruled out: the
   dataset has no timestamps, and Dennler et al.'s pre-exposure test cannot be run on it.

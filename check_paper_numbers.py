@@ -5,8 +5,8 @@ appear in the section (or table row) that reports it. Exits with status 1 if any
 
     python3 check_paper_numbers.py          # after reproduce.sh, or on the committed results
 
-Not covered (printed by the scripts, checked through their logs by check_reproduction.py): the ±
-spreads of System 2 in the sequential protocol and the class 4 recall there.
+Numbers the scripts only print (not written to results/) are covered through their logs by
+check_reproduction.py.
 """
 
 from __future__ import annotations
@@ -23,7 +23,6 @@ import pandas as pd
 import benchmark_literature_comparison as L
 import deep_model_cost as M
 import improve_system2 as I
-from benchmark_batch1 import DEFAULT_SEEDS
 
 DOC = Path("paper/comparison_tables.md")
 FULL = "K=3 + class weight + pseudo-labels"
@@ -147,17 +146,28 @@ def improvements_checks(doc: Doc) -> None:
 
 
 def sequential_checks(doc: Doc, pub: dict) -> None:
-    lit = pd.read_csv("results/literature_comparison.csv")
-    nat = lit[lit.setting == "native"].sort_values("labels_per_batch")
-    doc.expect("2.", " / ".join(f"{v:.0f}" for v in nat.labels_per_batch) + " labels per batch for 5 / 10 / 15 per gas",
-               "Batches 6–10 " + " / ".join(f"{v:.1f}" for v in nat.average_6_10) + " %")
-    sw = pd.read_csv("results/system2_budget_sweep.csv")
-    sw = sw[(sw.budget == 12) & sw.batch.isin(I.TEST)].groupby("seed").accuracy.mean() * 100
-    for seeds, text in ((sorted(sw.index), "{m:.1f} % (95 % CI {lo:.1f}–{hi:.1f} %, {n} seeds"),
-                        (DEFAULT_SEEDS, "{m:.1f} %, CI {lo:.1f}–{hi:.1f} %, on the {n} standard seeds")):
-        v = sw.loc[seeds].to_numpy()
-        half = T_975[len(v) - 1] * v.std(ddof=1) / np.sqrt(len(v))
-        doc.expect("2.", text.format(m=v.mean(), lo=v.mean() - half, hi=v.mean() + half, n=len(v)))
+    df = pd.read_csv("results/sequential_system2plus.csv", float_precision="round_trip")
+    test = df[df.batch.isin(I.TEST)]
+    acc = lambda cond, b: 100 * test[(test.condition == cond) & (test.budget == b)].groupby("seed").accuracy.mean().mean()  # noqa: E731
+    doc.expect("2.", f"Batches 6–10 ({test.seed.nunique()} seeds): System 2+ reaches "
+               + " / ".join(f"{acc('System 2+', b):.1f}" for b in (10, 12, 15)) + " % at 10 / 12 / 15 labels per gas",
+               "(System 2: " + " / ".join(f"{acc('System 2', b):.1f}" for b in (10, 12, 15)) + " %)",
+               f"{acc('System 2+', 5):.1f} % at 5")
+    p = df[df.condition == "System 2+"].groupby(["budget", "batch"])[["pseudo_updates", "pseudo_correct"]].sum()
+    precision = 100 * p.pseudo_correct / p.pseudo_updates
+    doc.expect("2.", f"{precision.min():.0f}–{precision.max():.0f} % of pseudo-labels are correct in each batch")
+    wide = df.pivot_table(index=["budget", "seed", "batch"], columns="condition", values="accuracy")
+    gap = (100 * (wide["System 2+"] - wide["System 2+ without pseudo-labels"])).rename("gap").reset_index()
+    effects = []
+    for b in sorted(gap.budget.unique()):
+        g = gap[gap.budget == b]
+        effects.append(g[g.batch.isin(I.TEST)].groupby("seed").gap.mean().mean())
+        slope = np.array([np.polyfit(s.batch, s.gap, 1)[0] for _, s in g.groupby("seed")])
+        half = T_975[len(slope) - 1] * slope.std(ddof=1) / np.sqrt(len(slope))
+        doc.n += 1
+        if slope.mean() + half < 0:
+            doc.failed.append(f"[2.] pseudo-label effect declines across batches at {b} labels per gas")
+    doc.expect("2.", f"their effect ({min(effects):+.1f} to {max(effects):+.1f} points) does not decline")
     avg = lambda m, s: float(np.nanmean(pub[(m, s)]["per_batch"]))  # noqa: E731
     doc.expect("2.", "Setting 1 — " + ", ".join(f"{n} {avg(m, '1'):.1f}" for n, m in (
         ("SVM-rbf", "SVM-rbf"), ("CC-PCA", "CC-PCA"), ("SVM-comgfk", "SVM-comgfk"), ("ML-comgfk", "ML-comgfk"))),

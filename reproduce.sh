@@ -11,11 +11,12 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-STEPS=(tune budget literature improve combine confound table costs presence presence_nobias presence_tracking energy)
+STEPS=(tune budget sequential literature improve combine confound table costs presence presence_nobias presence_tracking energy)
 step_command() {
   case $1 in
     tune)              echo "tune_system2.py" ;;                               # validation choice of System 2
     budget)            echo "sweep_system2_budget.py --extra-seeds 10" ;;      # sequential protocol, 15 seeds
+    sequential)        echo "sequential_system2plus.py" ;;                     # System 2+ sequential (reads budget's CSV)
     literature)        echo "benchmark_literature_comparison.py" ;;            # System 2, Settings 1-2 + sequential
     improve)           echo "improve_system2.py" ;;                            # candidate improvements
     combine)           echo "combine_system2.py" ;;                            # System 2+ (reads improve's CSV)

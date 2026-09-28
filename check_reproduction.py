@@ -22,7 +22,8 @@ from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 
 OUTPUTS = [f"results/{name}" for name in (
-    "system2_tuning.csv", "system2_budget_sweep.csv", "literature_comparison.csv", "system2_improvements.csv",
+    "system2_tuning.csv", "system2_budget_sweep.csv", "sequential_system2plus.csv", "literature_comparison.csv",
+    "system2_improvements.csv",
     "system2_combined.csv", "temporal_confound.csv", "temporal_confound_file_order.csv",
     "temporal_confound_baseline.csv", "literature_table.csv", "presence_test.csv", "presence_test_nobias.csv",
     "presence_test_tracking.csv")]

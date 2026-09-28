@@ -32,6 +32,7 @@ seed spreads reported in the paper indicate how large such changes can be.
 | `fetch_data.py`, `dataset_adapter.py` | download and load the UCI dataset (gas naming explained in the paper, section 1) |
 | `tune_system2.py`, `sweep_system2_budget.py`, `benchmark_literature_comparison.py` | System 2: tuning on Batches 2–5, label budgets, Settings 1 and 2 |
 | `improve_system2.py`, `combine_system2.py` | System 2+: candidate improvements and their combination |
+| `sequential_system2plus.py` | System 2+ in the sequential maintenance protocol (pseudo-labels carried over) |
 | `literature_table.py`, `literature/published_results.csv` | published results and the unified comparison |
 | `check_temporal_confound.py` | file-order and concentration-level hold-out checks |
 | `deep_model_cost.py` | compute and memory estimates for all compared methods |
