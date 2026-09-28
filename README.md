@@ -39,5 +39,21 @@ seed spreads reported in the paper indicate how large such changes can be.
 | `snn_input.py`, `lif_neurons.py`, `presence_test.py`, `energy_proxy.py` | simulated sensor front end and presence detector |
 | `device_reference.py` | NumPy specification of System 2+ as it runs on a microcontroller (single precision) |
 | `check_device_reference.py` | the specification against scikit-learn and the paper, and what single precision changes |
-| `firmware/` | the C library (`s2p.c`, `s2p.h`) and a host test harness; `check_firmware.py` compares it with the specification bit for bit |
+| `firmware/` | the C library (`s2p.c`, `s2p.h`), the scenario harness and cycle benchmarks, host and Cortex-M4F builds; `check_firmware.py [--target cm4]` compares it with the specification bit for bit |
+| `cm4_profile.py` | cycle counts on a Cortex-M4F: exact instruction profile under QEMU, cycles from the Cortex-M4 timing tables |
+
+## Cortex-M4 builds
+
+The Cortex-M4F builds use the xPack Arm GCC and QEMU (Apple-silicon archives from
+github.com/xpack-dev-tools, unpacked in `~/opt`; no installer needed). Target: the STM32F405 memory
+map (1 MB flash, 128 KB SRAM), emulated as QEMU's `netduinoplus2`; the firmware reads its test cases
+from the host through Arm semihosting.
+
+```bash
+python3 check_firmware.py --target cm4   # the Arm binary against the specification, bit for bit
+python3 cm4_profile.py                   # instruction counts (exact) and cycles (Cortex-M4 timing model)
+```
+
+QEMU is not cycle-accurate: instruction counts are exact, cycles come from applying the Cortex-M4
+timing tables to the exact profile (zero-wait-state memory; taken-branch refill P = 1–3 as bounds).
 | other scripts, older files in `results/` | exploration before the gas naming was harmonised; not used by the paper |

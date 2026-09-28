@@ -3,9 +3,10 @@
 
 #include <string.h>
 
-/* ── bit-level helpers (exact, instead of libm's frexpf / ldexpf / floorf) ── */
-static inline uint32_t as_bits(float x) { uint32_t u; memcpy(&u, &x, 4); return u; }
-static inline float as_float(uint32_t u) { float x; memcpy(&x, &u, 4); return x; }
+/* ── bit-level helpers (exact, instead of libm's frexpf / ldexpf / floorf); __builtin_memcpy so that a
+ * freestanding build still compiles these to a register move rather than a call ── */
+static inline uint32_t as_bits(float x) { uint32_t u; __builtin_memcpy(&u, &x, 4); return u; }
+static inline float as_float(uint32_t u) { float x; __builtin_memcpy(&x, &u, 4); return x; }
 static inline float pow2(int n) { return as_float((uint32_t)(n + 127) << 23); }   /* normal range only */
 static inline float floor_small(float x) {                                       /* |x| < 2^23 */
     float i = (float)(int32_t)x;
