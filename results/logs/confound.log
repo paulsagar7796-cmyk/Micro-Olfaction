@@ -1,0 +1,33 @@
+A. File order within each batch (5-NN on the sample's position; 5-fold stratified CV)
+ batch  samples  same_gas_runs  concentration_sorted_within_runs  index_5nn_accuracy  majority_share  chance_1_over_k  permutation_null_mean  permutation_null_95
+     1      445              9                             0.858               0.984           0.220            0.167                  0.194                0.228
+     2     1244             14                             0.953               0.990           0.428            0.167                  0.326                0.344
+     3     1586              8                             0.968               0.996           0.309            0.200                  0.250                0.266
+     4      161              7                             0.994               0.975           0.398            0.200                  0.321                0.391
+     5      197              5                             0.984               0.985           0.320            0.200                  0.243                0.294
+     6     2300             11                             0.873               0.993           0.263            0.167                  0.239                0.260
+     7     3613           1823                             0.394               0.359           0.206            0.167                  0.177                0.189
+     8      294            145                             0.906               0.575           0.486            0.167                  0.387                0.424
+     9      470             54                             0.995               0.896           0.215            0.167                  0.175                0.214
+    10     3600           3600                               NaN               0.150           0.167            0.167                  0.168                0.179
+
+B. Candidate baseline resistances from the provided features — a true pre-exposure baseline would show ρ ≈ 0 with the current concentration
+                 candidate  median_rho_with_concentration  min_rho  max_rho
+              DR / DR_norm                          +0.59    +0.04    +0.80
+DR·DR_norm / (DR_norm − 1)                          +0.70    +0.25    +0.91
+        DR / (DR_norm − 1)                          +0.27    -0.02    +0.62
+                DR·DR_norm                          +0.63    +0.38    +0.90
+        DR / (DR_norm + 1)                          +0.65    +0.10    +0.85
+
+C. System 2+ (balanced labels): calibration from all concentration levels vs only from levels never scored, and no calibration — same scored samples, mean ± std over seeds. 'gain kept' = share of the usual draw's gain over no labels that survives with held-out levels
+ setting  labels   batches     no labels      usual draw   held-out levels   change  seeds lower  gain kept  scored/seed
+       1      20      6–10    63.0 ± 2.8      83.3 ± 2.2       72.5 ± 10.0    -10.7          5/5       47%        4,960
+       1      20      2–10    62.1 ± 2.4      86.0 ± 1.9        73.1 ± 5.2    -12.9          5/5       46%        6,567
+       1      50      6–10    63.1 ± 2.7      83.3 ± 1.7        76.7 ± 6.3     -6.6          4/5       67%        4,907
+       1      50      2–10    62.4 ± 2.7      86.9 ± 2.0        76.8 ± 3.8    -10.1          5/5       59%        6,465
+       2      20      6–10    62.2 ± 8.5      82.2 ± 2.5        75.3 ± 5.3     -7.0          5/5       65%        4,960
+       2      20      2–10    67.1 ± 8.0      85.7 ± 1.5        78.5 ± 3.2     -7.2          5/5       61%        6,567
+       2      50      6–10    62.4 ± 8.8      88.9 ± 2.7        79.5 ± 4.9     -9.4          5/5       64%        4,907
+       2      50      2–10    67.2 ± 8.1      89.6 ± 1.5        79.8 ± 2.7     -9.8          5/5       56%        6,465
+
+wrote results/temporal_confound.csv

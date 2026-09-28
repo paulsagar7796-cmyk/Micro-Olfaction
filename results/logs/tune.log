@@ -1,0 +1,39 @@
+self-check: default configuration matches benchmark_system2 prediction for prediction; CORAL with λ = 1 agrees with EMA on 98.8% of predictions (equal up to rounding)
+
+Stage 1 [… s] — validation accuracy (Batches 2–5), mean ± std over 5 seeds
+features   alignment  selection        5 labels     20 labels
+all+ratio  ema        first          91.3 ± 3.0    97.2 ± 0.7
+all+ratio  ema        spread         89.8 ± 2.1    97.2 ± 0.6
+all        ema        first          87.5 ± 2.8    94.6 ± 1.4
+all        ema        spread         86.8 ± 2.4    94.4 ± 0.9
+all+ratio  coral      first          83.1 ± 3.4    94.4 ± 1.4
+all        coral      first          83.5 ± 2.6    94.0 ± 2.0
+all+ratio  coral      spread         82.3 ± 2.4    93.2 ± 3.9
+all        coral      spread         83.3 ± 3.8    90.7 ± 6.6
+ratio      ema        first          80.9 ± 4.7    88.5 ± 4.9
+ratio      ema        spread         80.9 ± 3.6    87.3 ± 3.1
+ratio      coral      first          74.0 ± 4.3    83.5 ± 5.7
+ratio      coral      spread         72.1 ± 3.2    83.6 ± 6.9
+
+Stage 2 [… s] — top 5 of 36 settings by validation
+   95.2%  features=all+ratio, sgd_alpha=1e-05, epochs=50, ema_alpha=0.995
+   94.9%  features=all+ratio, sgd_alpha=1e-05, epochs=50
+   94.8%  features=all+ratio, sgd_alpha=1e-05, ema_alpha=0.995
+   94.8%  features=all+ratio, ema_alpha=0.995
+   94.7%  features=all+ratio, epochs=50, ema_alpha=0.995
+
+Final — test = Batches 6–10 (never used for any choice); mean ± std over 5 seeds
+                               labels   validation 2–5     test 6–10      all 2–10      ethylene (test)
+baseline (current System 2)         5       87.5 ± 2.8    77.1 ± 4.7    81.7 ± 3.4                46.0%
+baseline (current System 2)        20       94.6 ± 1.4    85.2 ± 2.3    89.4 ± 1.0                63.9%
+stage-1 winner                      5       91.3 ± 3.0    82.4 ± 2.2    86.3 ± 1.6                51.2%
+stage-1 winner                     20       97.2 ± 0.7    93.7 ± 1.2    95.2 ± 0.9                83.9%
+tuned                               5       92.8 ± 2.8    83.2 ± 2.6    87.5 ± 2.6                54.4%
+tuned                              20       97.5 ± 0.6    93.1 ± 1.5    95.0 ± 0.7                76.9%
+
+stage-1 winner: features=all+ratio
+tuned: features=all+ratio, sgd_alpha=1e-05, epochs=50, ema_alpha=0.995
+tuned vs baseline, test, 5 labels: +6.1 points (better on 5/5 seeds); on the common test samples +6.1
+tuned vs baseline, test, 20 labels: +7.9 points (better on 5/5 seeds); on the common test samples +7.9
+
+wrote results/system2_tuning.csv [… s]

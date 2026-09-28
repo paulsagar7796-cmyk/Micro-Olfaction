@@ -1,0 +1,53 @@
+published rows: 31 from literature/published_results.csv; every row's per-batch values reproduce its reported average (±0.02)
+our runs done [… s]
+
+Setting 1: train on Batch 1, test on each Batch K — accuracy (%); labels = labelled target samples per batch
+method                               labels     B2     B3     B4     B5     B6     B7     B8     B9    B10 avg 2–10    ± avg 6–10
+CC-PCA [published]                      n/s   67.0   48.5   41.0   35.5   55.0   31.0   56.5   46.5   30.5    45.7          43.9
+SVM-rbf [published]                       0   74.4   61.0   50.9   18.3   28.3   28.8   20.1   34.3   34.5    38.9          29.2
+SVM-gfk [published]                     n/s   72.8   70.1   60.8   75.1   73.8   54.5   55.4   69.6   41.8    63.8          59.0
+SVM-comgfk [published]                  n/s   74.5   70.2   59.8   75.1   74.0   54.6   55.9   70.2   41.9    64.0          59.3
+ML-rbf [published]                      n/s   42.2   73.7   75.5   66.8   77.5   54.4   33.5   23.6   34.9    53.6          44.8
+ML-comgfk [published]                   n/s   80.2   75.0   78.8   67.4   77.8   71.7   50.0   50.8   53.8    67.3          60.8
+ELM-rbf [published]                     n/s   70.6   66.4   66.8   63.5   69.7   51.2   49.8   49.8   33.5    57.9          50.8
+DAELM-S(20) [published]                  20   87.6   96.5   82.6   81.5   85.0   71.9   78.1   87.0   57.4    80.8          75.9
+DAELM-S(30) [published]                  30   88.0   95.7   85.2   96.0   94.1   83.5   86.9  100.0   53.6    87.0          83.6
+DAELM-T(40) [published]                  40   83.5   96.3   88.2   99.5   78.4   80.9   87.4  100.0   56.2    85.6          80.6
+DAELM-T(50) [published]                  50   98.0   95.3   99.3   99.2   97.0   83.1   95.3  100.0   59.5    91.9          87.0
+Ours: EMA alignment only                  0   76.8   69.8   59.9   66.4   84.1   69.6   31.5   47.4   52.3    62.0   1.7    57.0
+Ours, labels chosen as in DAELM          20   82.5   83.4   85.4   95.0   80.5   71.4   56.7   79.5   59.8    77.1   0.8    69.6
+Ours, labels balanced per gas            20   87.8   89.0   81.1   89.2   87.0   76.0   79.3   70.0   64.9    80.5   1.0    75.4
+Ours, labels chosen as in DAELM          30   85.0   80.3   99.4   97.8   83.6   73.0   64.5   83.1   60.5    80.8   1.6    73.0
+Ours, labels balanced per gas            30   88.0   89.9   86.7   92.9   85.8   77.4   85.8   75.1   66.4    83.1   1.8    78.1
+Ours, labels chosen as in DAELM          50   93.9   89.1   99.8   99.0   88.4   75.7   88.0   91.2   66.6    88.0   1.2    82.0
+Ours, labels balanced per gas            50   91.0   90.8   91.0   95.0   86.4   79.8   87.7   76.8   69.9    85.4   1.4    80.1
+
+Setting 2: train on Batch K−1, test on Batch K — accuracy (%); labels = labelled target samples per batch
+method                               labels     B2     B3     B4     B5     B6     B7     B8     B9    B10 avg 2–10    ± avg 6–10
+SVM-rbf [published]                       0   74.4   87.8   90.1   56.4   42.5   83.5   91.8   63.0   22.6    68.0          60.7
+SVM-gfk [published]                     n/s   72.8   74.0   77.8   63.9   70.3   77.6   78.6   86.2   15.8    68.6          65.7
+SVM-comgfk [published]                  n/s   74.5   73.8   78.5   64.3   70.0   77.7   82.7   85.5   17.8    69.4          66.7
+ML-rbf [published]                      n/s   42.2   58.5   75.8   29.1   53.2   69.2   55.1   37.9   12.4    48.2          45.6
+ML-comgfk [published]                   n/s   80.2   98.5   84.9   89.8   75.5   91.2   61.2   95.5   39.6    79.6          72.6
+Ensemble [published]                    n/s   74.4   88.0   92.5   94.0   69.0   69.5   91.0   77.0   65.0    80.0          74.3
+ELM-rbf [published]                     n/s   70.6   40.4   64.2   64.4   72.7   80.8   88.2   67.0   22.0    63.4          66.1
+DAELM-S(20) [published]                  20   87.6   96.9   85.6   95.9   80.5   91.6   88.7   88.4   45.6    84.5          79.0
+DAELM-S(30) [published]                  30   88.0   96.6   89.8   99.0   84.4   91.8   89.8  100.0   58.4    88.6          84.9
+DAELM-T(40) [published]                  40   83.5   96.4   81.4   96.5   85.1   80.5   85.7  100.0   56.8    85.1          81.6
+DAELM-T(50) [published]                  50   98.0   95.6   99.6   98.2   97.1   83.1   94.9  100.0   59.9    91.8          87.0
+Ours: EMA alignment only                  0   76.8   73.1   69.7   76.8   65.4   66.8   78.2   82.0   32.3    69.0   1.5    65.0
+Ours, labels chosen as in DAELM          20   82.5   85.5   95.2   94.4   67.6   78.4   73.2   94.4   49.2    80.0   0.8    72.6
+Ours, labels balanced per gas            20   87.8   84.9   87.1   95.5   80.5   81.8   87.1   90.1   59.3    83.8   1.6    79.8
+Ours, labels chosen as in DAELM          30   85.0   84.2   98.8   93.4   73.6   80.3   90.2   98.1   59.0    84.7   1.2    80.3
+Ours, labels balanced per gas            30   88.0   86.5   92.4   95.1   79.8   82.9   89.5   91.0   65.7    85.7   2.2    81.8
+Ours, labels chosen as in DAELM          50   93.9   89.6   99.8   99.3   73.8   80.7   96.4   98.5   60.7    88.1   1.4    82.0
+Ours, labels balanced per gas            50   91.0   86.9   93.5   95.8   88.9   83.7   90.6   93.2   65.4    87.7   1.4    84.4
+
+Native sequential protocol (ours only; model carried and recalibrated batch after batch, trained on 80 % of Batch 1)
+method                               labels     B2     B3     B4     B5     B6     B7     B8     B9    B10 avg 2–10    ± avg 6–10
+Ours, 5 per gas                         ≈28   90.5   88.6   94.3   98.0   84.0   85.4   87.7   87.3   71.6    87.5   2.6    83.2
+Ours, 10 per gas                        ≈55   93.4   94.9   97.3   96.7   88.4   89.7   91.1   92.8   79.6    91.6   0.9    88.3
+Ours, 15 per gas                        ≈80   95.1   95.0   98.8   98.6   92.4   92.7   91.2   95.5   86.1    93.9   0.3    91.6
+
+Published: Zhang & Zhang, IEEE Trans. Instrum. Meas. 2015 (arXiv:1505.06405), Tables II–III; 'n/s' = label count not stated there. Ours: mean over seeds, ± = std of the 2–10 average.
+wrote results/literature_comparison.csv

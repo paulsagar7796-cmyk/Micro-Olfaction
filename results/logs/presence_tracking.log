@@ -1,0 +1,76 @@
+self-check: recording loop matches ingest + LIF layers spike for spike (encoder 1778, LIF 15 mV 1436 spikes); spikes are identical with the LED bias removed
+configuration: LED bias 0 µA, baseline tracking on (τ = 120 s, max freeze 300 s)
+calibrated thresholds K (spikes per 1-s window): nominal: encoder 1, LIF 15 mV 1; noisy: encoder 2, LIF 15 mV 1; harsh: encoder 3, LIF 15 mV 1  [… s]
+clean-air test runs done [… s]
+pulse runs done [… s]
+
+Clean air (2 h × 5 test seeds per condition)
+condition tap             K  false alarms / h   spikes / s  busiest 1-s window
+nominal   encoder         1              0.00        0.000                   0
+nominal   LIF 15 mV       1              0.00        0.000                   0
+noisy     encoder         2              0.00        0.004                   1
+noisy     LIF 15 mV       1              0.00        0.000                   0
+harsh     encoder         3              0.00        0.047                   2
+harsh     LIF 15 mV       1              0.00        0.000                   0
+
+Detection of a single 10-s pulse: detected / 5 seeds, median time to alarm (s)
+
+  nominal, encoder (K = 1)
+  gas                  0.03 ppm        0.1 ppm        0.3 ppm          1 ppm          3 ppm
+  ethanol              5/5 8.4s       5/5 5.7s       5/5 4.1s       5/5 3.0s       5/5 2.3s
+  acetone             5/5 10.5s       5/5 6.3s       5/5 4.4s       5/5 3.1s       5/5 2.3s
+  toluene                   0/5      5/5 21.2s      5/5 12.9s       5/5 8.1s       5/5 5.6s
+  formaldehyde         5/5 8.4s       5/5 5.5s       5/5 4.0s       5/5 2.9s       5/5 2.2s
+  ammonia             5/5 10.4s       5/5 6.7s       5/5 4.8s       5/5 3.4s       5/5 2.6s
+
+  nominal, LIF 15 mV (K = 1)
+  gas                  0.03 ppm        0.1 ppm        0.3 ppm          1 ppm          3 ppm
+  ethanol                   0/5            0/5            0/5            0/5       5/5 6.4s
+  acetone                   0/5            0/5            0/5            0/5      5/5 10.1s
+  toluene                   0/5            0/5            0/5            0/5            0/5
+  formaldehyde              0/5            0/5            0/5            0/5       5/5 6.3s
+  ammonia                   0/5            0/5            0/5            0/5       5/5 9.3s
+
+  noisy, encoder (K = 2)
+  gas                  0.03 ppm        0.1 ppm        0.3 ppm          1 ppm          3 ppm
+  ethanol              5/5 8.9s       5/5 6.0s       5/5 4.4s       5/5 3.2s       5/5 2.4s
+  acetone             5/5 10.9s       5/5 6.7s       5/5 4.6s       5/5 3.3s       5/5 2.5s
+  toluene                   0/5      2/5 21.2s      5/5 12.9s       5/5 8.7s       5/5 6.4s
+  formaldehyde        5/5 11.3s       5/5 6.2s       5/5 4.4s       5/5 3.2s       5/5 2.4s
+  ammonia             4/5 15.1s       5/5 9.3s       5/5 6.1s       5/5 4.0s       5/5 2.9s
+
+  noisy, LIF 15 mV (K = 1)
+  gas                  0.03 ppm        0.1 ppm        0.3 ppm          1 ppm          3 ppm
+  ethanol                   0/5            0/5            0/5            0/5       5/5 6.4s
+  acetone                   0/5            0/5            0/5            0/5      5/5 10.0s
+  toluene                   0/5            0/5            0/5            0/5            0/5
+  formaldehyde              0/5            0/5            0/5            0/5       5/5 6.3s
+  ammonia                   0/5            0/5            0/5            0/5       5/5 9.2s
+
+  harsh, encoder (K = 3)
+  gas                  0.03 ppm        0.1 ppm        0.3 ppm          1 ppm          3 ppm
+  ethanol             5/5 11.7s       5/5 6.3s       5/5 4.5s       5/5 3.2s       5/5 2.5s
+  acetone             3/5 10.4s       5/5 7.5s       5/5 4.9s       5/5 3.5s       5/5 2.6s
+  toluene                   0/5      1/5 23.4s      3/5 17.7s       5/5 8.6s       5/5 6.4s
+  formaldehyde        5/5 13.5s       5/5 7.8s       5/5 4.8s       5/5 3.4s       5/5 2.6s
+  ammonia                   0/5       5/5 9.6s       5/5 6.2s       5/5 4.1s       5/5 3.0s
+
+  harsh, LIF 15 mV (K = 1)
+  gas                  0.03 ppm        0.1 ppm        0.3 ppm          1 ppm          3 ppm
+  ethanol                   0/5            0/5            0/5            0/5       5/5 6.3s
+  acetone                   0/5            0/5            0/5            0/5       5/5 9.0s
+  toluene                   0/5            0/5            0/5            0/5            0/5
+  formaldehyde              0/5            0/5            0/5            0/5       5/5 6.2s
+  ammonia                   0/5            0/5            0/5            0/5       5/5 9.0s
+
+'!' marks cells with an alarm before the pulse started (a false alarm).
+
+Late pulses (10 per run after 30 min of drift, 5 seeds; 180 s after each onset unscored)
+condition tap           detected  alarm already on  median time to alarm  false alarms / clean h
+nominal   encoder         50/50                  0                 3.0 s                    0.00
+nominal   LIF 15 mV        0/50                  0                     —                    0.00
+noisy     encoder         48/50                  0                 4.7 s                    0.00
+noisy     LIF 15 mV        0/50                  0                     —                    0.00
+harsh     encoder         47/50                  0                 4.6 s                    0.00
+harsh     LIF 15 mV        0/50                  0                     —                    0.00
+wrote results/presence_test_tracking.csv

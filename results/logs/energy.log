@@ -1,0 +1,32 @@
+Energy per operation (first-order literature values; override with the options above):
+  synop   2.36e-11 J per synaptic event — Intel Loihi, Davies et al., IEEE Micro 2018
+  mac     4.6e-12 J per FP32 multiply-accumulate — Horowitz, ISSCC 2014 (45 nm): 3.7 pJ mult + 0.9 pJ add
+  op      9e-13 J per FP32 add / compare — Horowitz, ISSCC 2014 (45 nm)
+  sram    5e-12 J per 32-bit SRAM read — Horowitz, ISSCC 2014: ~10 pJ per 64-bit read, 8 KB SRAM
+  adc     4e-10 J per 12-bit ADC conversion — ~100 fJ per conversion step × 4096 (low-power SAR)
+  led_vf  3 V forward voltage, 450 nm InGaN microLED — typical for blue InGaN LEDs
+  heater  0.01 W per MOx sensor heater — order of magnitude for MEMS micro-hotplates (datasheet-dependent)
+
+A. Always-on presence detection (simulator, 12 sensors), average power
+configuration            condition detector           clean air  1 ppm pulse   microLED    spikes   tracking
+LED bias 0.5 µA          nominal   encoder                18 µW        42 µW      18 µW  0.108 pW       0 pW
+LED bias 0.5 µA          nominal   LIF 15 mV              18 µW        42 µW      18 µW  0.108 pW       0 pW
+LED bias 0.5 µA          noisy     encoder              18.2 µW        42 µW    18.2 µW   3.72 pW       0 pW
+LED bias 0.5 µA          noisy     LIF 15 mV            18.2 µW        42 µW    18.2 µW   3.72 pW       0 pW
+LED bias 0.5 µA          harsh     encoder              21.5 µW      42.2 µW    21.5 µW   54.6 pW       0 pW
+LED bias 0.5 µA          harsh     LIF 15 mV            21.5 µW      42.2 µW    21.5 µW   54.6 pW       0 pW
+LED bias 0 µA            nominal   encoder              7.64 nW      24.1 µW    7.64 nW  0.108 pW       0 pW
+LED bias 0 µA            nominal   LIF 15 mV            7.64 nW      24.1 µW    7.64 nW  0.108 pW       0 pW
+LED bias 0 µA            noisy     encoder               237 nW      24.1 µW     237 nW   3.72 pW       0 pW
+LED bias 0 µA            noisy     LIF 15 mV             237 nW      24.1 µW     237 nW   3.72 pW       0 pW
+LED bias 0 µA            harsh     encoder              3.47 µW      24.3 µW    3.47 µW   54.6 pW       0 pW
+LED bias 0 µA            harsh     LIF 15 mV            3.47 µW      24.3 µW    3.47 µW   54.6 pW       0 pW
+LED bias 0 µA, tracking  nominal   encoder              5.32 nW      23.2 µW     465 pW      0 pW    4.85 nW
+LED bias 0 µA, tracking  nominal   LIF 15 mV            5.32 nW      23.2 µW     465 pW      0 pW    4.85 nW
+LED bias 0 µA, tracking  noisy     encoder              11.7 nW      23.2 µW    6.89 nW 0.0885 pW    4.85 nW
+LED bias 0 µA, tracking  noisy     LIF 15 mV            11.7 nW      23.2 µW    6.89 nW 0.0885 pW    4.85 nW
+LED bias 0 µA, tracking  harsh     encoder              76.8 nW      23.5 µW    71.9 nW   1.11 pW    4.85 nW
+LED bias 0 µA, tracking  harsh     LIF 15 mV            76.8 nW      23.5 µW    71.9 nW   1.11 pW    4.85 nW
+conventional             any       10 Hz ADC              49 nW        49 nW
+conventional             any       100 Hz ADC            490 nW       490 nW
+Reference, not simulated: MOx heaters ≈ 120 mW (12 × 10 mW), for either detector.

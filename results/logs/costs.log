@@ -1,0 +1,35 @@
+System 2+: inference 3,299 MACs (2,816 + pseudo-label updates), 10.2 nJ; model + running state 10.3 KB FP32
+  calibration, 20 labels × 50 passes: 4.6 M MACs, 14.3 µJ; labelled buffer 20.5 KB; state + buffer 30.7 KB
+  calibration, 50 labels × 50 passes: 11.5 M MACs, 35.7 µJ; labelled buffer 51.2 KB; state + buffer 61.5 KB
+DA-ELM: inference 134,128 MACs, 416 nJ (41× System 2+); model 0.54 MB FP32 / 0.14 MB int8
+  DAELM-S adaptation, source Batch 1 + 50 labels: 0.89 G MACs, 2.8 mJ; stored source 0.23 MB + hidden outputs 1.98 MB + solve 4.00 MB
+  DAELM-S adaptation, source Batch 7 + 50 labels: 4.47 G MACs, 13.8 mJ; stored source 1.85 MB + hidden outputs 14.65 MB + solve 4.00 MB
+  DAELM-T extra, Batch 7 target: unlabelled batch 1.85 MB + hidden outputs 14.45 MB
+  label selection (farthest point), Batch 7: 0.84 G MACs, 2.6 mJ; buffer 1.85 MB
+SRAM-inclusive inference: System 2 (no pseudo-label updates) 29.4 nJ, DA-ELM 1.4 µJ (48×)
+
+TDACNN (UCI configuration)
+  block A ×16                              512 MACs        96 params
+  block B ×16                            2,048 MACs       320 params
+  block C ×16                            6,144 MACs       864 params
+  block D (3× 3×3×6)                   110,592 MACs       882 params
+  classifier 1 (after A)                36,200 MACs    36,406 params
+  classifier 2 (after B)                61,800 MACs    62,006 params
+  classifier 3 (after D)                87,400 MACs    87,606 params
+  classifier 4 (after C)                87,400 MACs    87,606 params
+  network                              392,096 MACs   275,786 params   1.2 µJ, 1.10 MB FP32 / 0.28 MB int8
+  + MMD ensemble, source Batch 1: ≈29,600 MACs per sample; stored source embeddings 178,000 values = 0.71 MB FP32
+  + MMD ensemble, source Batch 7: ≈240,800 MACs per sample; stored source embeddings 1,445,200 values = 5.78 MB FP32
+
+AMDS-PFFA (UCI configuration; inference passes the target through S, G1, G2, P1, P2, both pairs)
+  S head (128 → 128 → 128)                    32,768 MACs    33,024 params
+  G1, G2 heads (128 → 128 → 64) ×2            49,152 MACs    49,536 params
+  P1, P2 conv 128@1 → 64@1 ×2                 16,384 MACs    16,512 params
+  iAFF ×2 (2 MS-CAM, 64 ↔ 16)                 16,384 MACs    17,024 params
+  classifiers C1, C2 (64 → 25 → 6) ×2          3,500 MACs     3,562 params
+  specified parts                            118,188 MACs   119,658 params
+  + 3 encoders, N = 1, 16 sensor tokens × 8 wide    52,224 MACs     2,520 params → total 170,412 MACs, 528 nJ, 0.49 MB FP32 / 0.12 MB int8
+  + 3 encoders, N = 1, 1 token × 128 wide         639,744 MACs   639,360 params → total 757,932 MACs, 2.3 µJ, 3.04 MB FP32 / 0.76 MB int8
+
+ODAELM: inference as DA-ELM (134,128 MACs, 416 nJ); the online update keeps K⁻¹ (1000×1000) = 4.00 MB FP32 and costs ≈2,000,000 MACs (6.2 µJ) per update; ≤250 nodes would need 0.25 MB
+Raw samples AMDS-PFFA must hold to adapt to Batch 7 (Batches 1, 2 and 7): 2.71 MB FP32
