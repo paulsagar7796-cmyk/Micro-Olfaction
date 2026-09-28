@@ -1,0 +1,1501 @@
+mode,protocol,spec,predictions,identical,updates_equal,state_bitwise,state_max_diff
+own shuffle,sequential,"(5, 7, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 42, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 100, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 999, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 1234, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2001, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2002, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2003, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2004, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2005, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2006, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2007, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2008, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2009, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2010, 3.0, True, True)",13213,13213,True,True,0.0
+own shuffle,sequential,"(10, 7, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 42, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 100, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 999, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 1234, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2001, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2002, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2003, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2004, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2005, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2006, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2007, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2008, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2009, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2010, 3.0, True, True)",12972,12972,True,True,0.0
+own shuffle,sequential,"(12, 7, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 42, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 100, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 999, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 1234, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2001, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2002, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2003, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2004, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2005, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2006, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2007, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2008, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2009, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2010, 3.0, True, True)",12880,12880,True,True,0.0
+own shuffle,sequential,"(15, 7, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 42, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 100, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 999, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 1234, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2001, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2002, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2003, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2004, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2005, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2006, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2007, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2008, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2009, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2010, 3.0, True, True)",12744,12744,True,True,0.0
+own shuffle,sequential,"(5, 7, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 42, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 100, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 999, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 1234, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2001, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2002, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2003, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2004, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2005, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2006, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2007, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2008, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2009, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(5, 2010, 3.0, True, False)",13213,13213,True,True,0.0
+own shuffle,sequential,"(10, 7, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 42, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 100, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 999, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 1234, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2001, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2002, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2003, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2004, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2005, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2006, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2007, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2008, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2009, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(10, 2010, 3.0, True, False)",12972,12972,True,True,0.0
+own shuffle,sequential,"(12, 7, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 42, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 100, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 999, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 1234, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2001, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2002, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2003, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2004, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2005, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2006, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2007, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2008, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2009, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(12, 2010, 3.0, True, False)",12880,12880,True,True,0.0
+own shuffle,sequential,"(15, 7, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 42, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 100, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 999, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 1234, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2001, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2002, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2003, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2004, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2005, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2006, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2007, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2008, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2009, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,sequential,"(15, 2010, 3.0, True, False)",12744,12744,True,True,0.0
+own shuffle,settings,"(1, 2, 7, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(1, 2, 7, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 7, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 7, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 7, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 7, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(1, 2, 7, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(1, 2, 42, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(1, 2, 42, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 42, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 42, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 42, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 42, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(1, 2, 42, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(1, 2, 100, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(1, 2, 100, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 100, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 100, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 100, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 100, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(1, 2, 100, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(1, 2, 999, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(1, 2, 999, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 999, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 999, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 999, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 999, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(1, 2, 999, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(1, 2, 1234, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(1, 2, 1234, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 1234, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(1, 2, 1234, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 1234, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(1, 2, 1234, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(1, 2, 1234, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(1, 3, 7, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(1, 3, 7, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 7, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 7, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 7, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 7, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 7, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 42, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(1, 3, 42, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 42, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 42, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 42, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 42, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 42, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 100, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(1, 3, 100, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 100, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 100, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 100, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 100, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 100, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 999, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(1, 3, 999, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 999, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 999, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 999, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 999, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 999, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 1234, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(1, 3, 1234, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 1234, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(1, 3, 1234, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 1234, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(1, 3, 1234, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 3, 1234, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(1, 4, 7, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(1, 4, 7, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 7, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 7, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 7, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 7, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 7, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 42, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(1, 4, 42, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 42, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 42, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 42, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 42, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 42, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 100, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(1, 4, 100, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 100, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 100, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 100, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 100, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 100, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 999, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(1, 4, 999, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 999, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 999, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 999, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 999, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 999, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 1234, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(1, 4, 1234, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 1234, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(1, 4, 1234, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 1234, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(1, 4, 1234, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 4, 1234, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(1, 5, 7, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(1, 5, 7, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 7, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 7, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 7, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 7, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 7, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 42, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(1, 5, 42, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 42, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 42, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 42, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 42, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 42, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 100, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(1, 5, 100, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 100, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 100, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 100, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 100, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 100, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 999, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(1, 5, 999, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 999, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 999, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 999, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 999, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 999, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 1234, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(1, 5, 1234, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 1234, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(1, 5, 1234, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 1234, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(1, 5, 1234, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 5, 1234, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(1, 6, 7, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(1, 6, 7, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 7, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 7, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 7, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 7, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 7, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 42, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(1, 6, 42, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 42, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 42, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 42, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 42, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 42, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 100, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(1, 6, 100, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 100, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 100, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 100, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 100, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 100, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 999, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(1, 6, 999, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 999, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 999, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 999, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 999, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 999, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 1234, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(1, 6, 1234, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 1234, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(1, 6, 1234, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 1234, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(1, 6, 1234, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 6, 1234, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(1, 7, 7, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(1, 7, 7, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 7, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 7, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 7, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 7, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 7, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 42, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(1, 7, 42, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 42, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 42, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 42, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 42, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 42, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 100, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(1, 7, 100, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 100, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 100, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 100, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 100, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 100, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 999, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(1, 7, 999, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 999, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 999, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 999, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 999, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 999, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 1234, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(1, 7, 1234, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 1234, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(1, 7, 1234, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 1234, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(1, 7, 1234, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 7, 1234, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(1, 8, 7, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(1, 8, 7, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 7, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 7, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 7, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 7, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 7, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 42, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(1, 8, 42, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 42, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 42, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 42, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 42, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 42, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 100, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(1, 8, 100, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 100, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 100, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 100, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 100, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 100, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 999, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(1, 8, 999, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 999, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 999, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 999, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 999, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 999, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 1234, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(1, 8, 1234, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 1234, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(1, 8, 1234, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 1234, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(1, 8, 1234, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 8, 1234, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(1, 9, 7, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(1, 9, 7, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 7, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 7, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 7, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 7, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 7, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 42, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(1, 9, 42, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 42, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 42, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 42, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 42, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 42, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 100, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(1, 9, 100, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 100, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 100, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 100, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 100, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 100, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 999, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(1, 9, 999, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 999, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 999, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 999, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 999, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 999, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 1234, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(1, 9, 1234, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 1234, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(1, 9, 1234, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 1234, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(1, 9, 1234, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 9, 1234, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(1, 10, 7, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(1, 10, 7, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 7, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 7, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 7, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 7, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 7, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 42, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(1, 10, 42, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 42, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 42, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 42, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 42, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 42, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 100, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(1, 10, 100, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 100, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 100, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 100, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 100, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 100, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 999, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(1, 10, 999, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 999, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 999, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 999, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 999, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 999, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 1234, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(1, 10, 1234, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 1234, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(1, 10, 1234, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 1234, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(1, 10, 1234, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(1, 10, 1234, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 2, 7, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(2, 2, 7, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 7, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 7, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 7, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 7, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(2, 2, 7, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(2, 2, 42, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(2, 2, 42, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 42, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 42, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 42, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 42, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(2, 2, 42, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(2, 2, 100, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(2, 2, 100, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 100, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 100, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 100, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 100, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(2, 2, 100, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(2, 2, 999, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(2, 2, 999, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 999, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 999, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 999, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 999, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(2, 2, 999, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(2, 2, 1234, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+own shuffle,settings,"(2, 2, 1234, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 1234, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+own shuffle,settings,"(2, 2, 1234, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 1234, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+own shuffle,settings,"(2, 2, 1234, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+own shuffle,settings,"(2, 2, 1234, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+own shuffle,settings,"(2, 3, 7, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(2, 3, 7, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 7, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 7, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 7, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 7, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 7, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 42, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(2, 3, 42, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 42, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 42, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 42, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 42, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 42, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 100, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(2, 3, 100, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 100, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 100, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 100, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 100, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 100, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 999, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(2, 3, 999, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 999, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 999, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 999, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 999, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 999, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 1234, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+own shuffle,settings,"(2, 3, 1234, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 1234, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+own shuffle,settings,"(2, 3, 1234, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 1234, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+own shuffle,settings,"(2, 3, 1234, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 3, 1234, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+own shuffle,settings,"(2, 4, 7, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(2, 4, 7, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 7, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 7, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 7, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 7, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 7, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 42, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(2, 4, 42, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 42, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 42, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 42, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 42, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 42, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 100, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(2, 4, 100, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 100, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 100, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 100, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 100, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 100, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 999, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(2, 4, 999, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 999, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 999, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 999, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 999, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 999, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 1234, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+own shuffle,settings,"(2, 4, 1234, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 1234, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+own shuffle,settings,"(2, 4, 1234, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 1234, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+own shuffle,settings,"(2, 4, 1234, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 4, 1234, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+own shuffle,settings,"(2, 5, 7, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(2, 5, 7, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 7, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 7, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 7, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 7, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 7, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 42, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(2, 5, 42, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 42, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 42, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 42, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 42, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 42, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 100, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(2, 5, 100, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 100, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 100, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 100, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 100, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 100, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 999, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(2, 5, 999, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 999, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 999, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 999, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 999, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 999, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 1234, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+own shuffle,settings,"(2, 5, 1234, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 1234, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+own shuffle,settings,"(2, 5, 1234, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 1234, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+own shuffle,settings,"(2, 5, 1234, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 5, 1234, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+own shuffle,settings,"(2, 6, 7, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(2, 6, 7, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 7, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 7, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 7, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 7, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 7, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 42, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(2, 6, 42, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 42, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 42, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 42, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 42, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 42, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 100, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(2, 6, 100, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 100, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 100, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 100, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 100, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 100, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 999, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(2, 6, 999, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 999, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 999, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 999, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 999, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 999, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 1234, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+own shuffle,settings,"(2, 6, 1234, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 1234, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+own shuffle,settings,"(2, 6, 1234, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 1234, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+own shuffle,settings,"(2, 6, 1234, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 6, 1234, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+own shuffle,settings,"(2, 7, 7, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(2, 7, 7, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 7, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 7, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 7, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 7, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 7, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 42, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(2, 7, 42, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 42, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 42, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 42, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 42, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 42, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 100, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(2, 7, 100, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 100, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 100, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 100, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 100, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 100, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 999, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(2, 7, 999, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 999, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 999, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 999, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 999, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 999, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 1234, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+own shuffle,settings,"(2, 7, 1234, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 1234, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+own shuffle,settings,"(2, 7, 1234, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 1234, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+own shuffle,settings,"(2, 7, 1234, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 7, 1234, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+own shuffle,settings,"(2, 8, 7, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(2, 8, 7, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 7, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 7, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 7, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 7, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 7, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 42, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(2, 8, 42, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 42, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 42, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 42, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 42, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 42, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 100, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(2, 8, 100, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 100, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 100, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 100, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 100, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 100, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 999, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(2, 8, 999, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 999, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 999, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 999, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 999, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 999, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 1234, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+own shuffle,settings,"(2, 8, 1234, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 1234, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+own shuffle,settings,"(2, 8, 1234, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 1234, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+own shuffle,settings,"(2, 8, 1234, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 8, 1234, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+own shuffle,settings,"(2, 9, 7, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(2, 9, 7, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 7, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 7, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 7, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 7, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 7, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 42, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(2, 9, 42, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 42, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 42, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 42, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 42, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 42, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 100, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(2, 9, 100, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 100, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 100, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 100, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 100, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 100, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 999, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(2, 9, 999, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 999, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 999, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 999, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 999, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 999, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 1234, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+own shuffle,settings,"(2, 9, 1234, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 1234, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+own shuffle,settings,"(2, 9, 1234, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 1234, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+own shuffle,settings,"(2, 9, 1234, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 9, 1234, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+own shuffle,settings,"(2, 10, 7, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(2, 10, 7, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 7, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 7, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 7, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 7, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 7, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 42, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(2, 10, 42, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 42, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 42, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 42, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 42, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 42, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 100, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(2, 10, 100, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 100, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 100, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 100, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 100, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 100, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 999, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(2, 10, 999, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 999, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 999, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 999, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 999, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 999, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 1234, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+own shuffle,settings,"(2, 10, 1234, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 1234, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+own shuffle,settings,"(2, 10, 1234, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 1234, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+own shuffle,settings,"(2, 10, 1234, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+own shuffle,settings,"(2, 10, 1234, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,sequential,"(5, 7, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 42, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 100, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 999, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 1234, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2001, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2002, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2003, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2004, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2005, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2006, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2007, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2008, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2009, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2010, 3.0, True, True)",13213,13213,True,True,0.0
+paper order,sequential,"(10, 7, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 42, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 100, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 999, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 1234, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2001, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2002, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2003, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2004, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2005, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2006, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2007, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2008, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2009, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2010, 3.0, True, True)",12972,12972,True,True,0.0
+paper order,sequential,"(12, 7, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 42, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 100, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 999, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 1234, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2001, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2002, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2003, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2004, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2005, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2006, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2007, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2008, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2009, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2010, 3.0, True, True)",12880,12880,True,True,0.0
+paper order,sequential,"(15, 7, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 42, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 100, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 999, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 1234, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2001, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2002, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2003, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2004, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2005, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2006, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2007, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2008, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2009, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2010, 3.0, True, True)",12744,12744,True,True,0.0
+paper order,sequential,"(5, 7, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 42, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 100, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 999, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 1234, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2001, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2002, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2003, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2004, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2005, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2006, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2007, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2008, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2009, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(5, 2010, 3.0, True, False)",13213,13213,True,True,0.0
+paper order,sequential,"(10, 7, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 42, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 100, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 999, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 1234, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2001, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2002, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2003, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2004, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2005, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2006, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2007, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2008, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2009, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(10, 2010, 3.0, True, False)",12972,12972,True,True,0.0
+paper order,sequential,"(12, 7, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 42, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 100, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 999, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 1234, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2001, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2002, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2003, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2004, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2005, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2006, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2007, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2008, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2009, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(12, 2010, 3.0, True, False)",12880,12880,True,True,0.0
+paper order,sequential,"(15, 7, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 42, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 100, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 999, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 1234, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2001, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2002, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2003, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2004, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2005, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2006, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2007, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2008, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2009, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,sequential,"(15, 2010, 3.0, True, False)",12744,12744,True,True,0.0
+paper order,settings,"(1, 2, 7, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(1, 2, 7, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 7, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 7, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 7, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 7, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(1, 2, 7, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(1, 2, 42, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(1, 2, 42, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 42, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 42, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 42, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 42, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(1, 2, 42, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(1, 2, 100, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(1, 2, 100, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 100, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 100, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 100, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 100, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(1, 2, 100, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(1, 2, 999, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(1, 2, 999, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 999, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 999, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 999, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 999, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(1, 2, 999, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(1, 2, 1234, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(1, 2, 1234, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 1234, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(1, 2, 1234, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 1234, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(1, 2, 1234, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(1, 2, 1234, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(1, 3, 7, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(1, 3, 7, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 7, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 7, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 7, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 7, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 7, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 42, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(1, 3, 42, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 42, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 42, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 42, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 42, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 42, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 100, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(1, 3, 100, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 100, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 100, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 100, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 100, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 100, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 999, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(1, 3, 999, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 999, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 999, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 999, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 999, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 999, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 1234, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(1, 3, 1234, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 1234, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(1, 3, 1234, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 1234, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(1, 3, 1234, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 3, 1234, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(1, 4, 7, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(1, 4, 7, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 7, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 7, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 7, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 7, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 7, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 42, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(1, 4, 42, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 42, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 42, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 42, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 42, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 42, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 100, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(1, 4, 100, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 100, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 100, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 100, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 100, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 100, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 999, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(1, 4, 999, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 999, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 999, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 999, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 999, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 999, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 1234, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(1, 4, 1234, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 1234, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(1, 4, 1234, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 1234, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(1, 4, 1234, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 4, 1234, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(1, 5, 7, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(1, 5, 7, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 7, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 7, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 7, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 7, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 7, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 42, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(1, 5, 42, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 42, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 42, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 42, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 42, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 42, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 100, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(1, 5, 100, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 100, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 100, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 100, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 100, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 100, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 999, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(1, 5, 999, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 999, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 999, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 999, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 999, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 999, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 1234, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(1, 5, 1234, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 1234, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(1, 5, 1234, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 1234, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(1, 5, 1234, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 5, 1234, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(1, 6, 7, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(1, 6, 7, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 7, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 7, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 7, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 7, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 7, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 42, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(1, 6, 42, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 42, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 42, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 42, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 42, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 42, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 100, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(1, 6, 100, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 100, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 100, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 100, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 100, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 100, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 999, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(1, 6, 999, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 999, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 999, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 999, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 999, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 999, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 1234, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(1, 6, 1234, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 1234, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(1, 6, 1234, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 1234, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(1, 6, 1234, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 6, 1234, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(1, 7, 7, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(1, 7, 7, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 7, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 7, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 7, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 7, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 7, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 42, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(1, 7, 42, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 42, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 42, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 42, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 42, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 42, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 100, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(1, 7, 100, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 100, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 100, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 100, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 100, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 100, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 999, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(1, 7, 999, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 999, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 999, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 999, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 999, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 999, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 1234, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(1, 7, 1234, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 1234, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(1, 7, 1234, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 1234, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(1, 7, 1234, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 7, 1234, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(1, 8, 7, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(1, 8, 7, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 7, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 7, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 7, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 7, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 7, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 42, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(1, 8, 42, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 42, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 42, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 42, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 42, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 42, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 100, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(1, 8, 100, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 100, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 100, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 100, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 100, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 100, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 999, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(1, 8, 999, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 999, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 999, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 999, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 999, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 999, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 1234, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(1, 8, 1234, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 1234, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(1, 8, 1234, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 1234, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(1, 8, 1234, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 8, 1234, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(1, 9, 7, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(1, 9, 7, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 7, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 7, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 7, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 7, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 7, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 42, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(1, 9, 42, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 42, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 42, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 42, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 42, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 42, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 100, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(1, 9, 100, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 100, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 100, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 100, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 100, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 100, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 999, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(1, 9, 999, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 999, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 999, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 999, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 999, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 999, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 1234, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(1, 9, 1234, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 1234, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(1, 9, 1234, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 1234, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(1, 9, 1234, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 9, 1234, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(1, 10, 7, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(1, 10, 7, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 7, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 7, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 7, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 7, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 7, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 42, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(1, 10, 42, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 42, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 42, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 42, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 42, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 42, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 100, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(1, 10, 100, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 100, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 100, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 100, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 100, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 100, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 999, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(1, 10, 999, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 999, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 999, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 999, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 999, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 999, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 1234, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(1, 10, 1234, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 1234, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(1, 10, 1234, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 1234, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(1, 10, 1234, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(1, 10, 1234, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 2, 7, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(2, 2, 7, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 7, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 7, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 7, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 7, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(2, 2, 7, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(2, 2, 42, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(2, 2, 42, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 42, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 42, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 42, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 42, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(2, 2, 42, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(2, 2, 100, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(2, 2, 100, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 100, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 100, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 100, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 100, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(2, 2, 100, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(2, 2, 999, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(2, 2, 999, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 999, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 999, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 999, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 999, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(2, 2, 999, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(2, 2, 1234, 0, 'none', 3.0, True, True)",1244,1244,True,True,0.0
+paper order,settings,"(2, 2, 1234, 20, 'balanced', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 1234, 20, 'ssa', 3.0, True, True)",1224,1224,True,True,0.0
+paper order,settings,"(2, 2, 1234, 30, 'balanced', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 1234, 30, 'ssa', 3.0, True, True)",1214,1214,True,True,0.0
+paper order,settings,"(2, 2, 1234, 50, 'balanced', 3.0, True, True)",1197,1197,True,True,0.0
+paper order,settings,"(2, 2, 1234, 50, 'ssa', 3.0, True, True)",1194,1194,True,True,0.0
+paper order,settings,"(2, 3, 7, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(2, 3, 7, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 7, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 7, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 7, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 7, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 7, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 42, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(2, 3, 42, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 42, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 42, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 42, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 42, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 42, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 100, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(2, 3, 100, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 100, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 100, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 100, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 100, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 100, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 999, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(2, 3, 999, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 999, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 999, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 999, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 999, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 999, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 1234, 0, 'none', 3.0, True, True)",1586,1586,True,True,0.0
+paper order,settings,"(2, 3, 1234, 20, 'balanced', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 1234, 20, 'ssa', 3.0, True, True)",1566,1566,True,True,0.0
+paper order,settings,"(2, 3, 1234, 30, 'balanced', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 1234, 30, 'ssa', 3.0, True, True)",1556,1556,True,True,0.0
+paper order,settings,"(2, 3, 1234, 50, 'balanced', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 3, 1234, 50, 'ssa', 3.0, True, True)",1536,1536,True,True,0.0
+paper order,settings,"(2, 4, 7, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(2, 4, 7, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 7, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 7, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 7, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 7, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 7, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 42, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(2, 4, 42, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 42, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 42, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 42, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 42, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 42, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 100, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(2, 4, 100, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 100, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 100, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 100, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 100, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 100, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 999, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(2, 4, 999, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 999, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 999, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 999, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 999, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 999, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 1234, 0, 'none', 3.0, True, True)",161,161,True,True,0.0
+paper order,settings,"(2, 4, 1234, 20, 'balanced', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 1234, 20, 'ssa', 3.0, True, True)",141,141,True,True,0.0
+paper order,settings,"(2, 4, 1234, 30, 'balanced', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 1234, 30, 'ssa', 3.0, True, True)",131,131,True,True,0.0
+paper order,settings,"(2, 4, 1234, 50, 'balanced', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 4, 1234, 50, 'ssa', 3.0, True, True)",111,111,True,True,0.0
+paper order,settings,"(2, 5, 7, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(2, 5, 7, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 7, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 7, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 7, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 7, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 7, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 42, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(2, 5, 42, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 42, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 42, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 42, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 42, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 42, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 100, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(2, 5, 100, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 100, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 100, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 100, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 100, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 100, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 999, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(2, 5, 999, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 999, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 999, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 999, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 999, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 999, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 1234, 0, 'none', 3.0, True, True)",197,197,True,True,0.0
+paper order,settings,"(2, 5, 1234, 20, 'balanced', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 1234, 20, 'ssa', 3.0, True, True)",177,177,True,True,0.0
+paper order,settings,"(2, 5, 1234, 30, 'balanced', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 1234, 30, 'ssa', 3.0, True, True)",167,167,True,True,0.0
+paper order,settings,"(2, 5, 1234, 50, 'balanced', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 5, 1234, 50, 'ssa', 3.0, True, True)",147,147,True,True,0.0
+paper order,settings,"(2, 6, 7, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(2, 6, 7, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 7, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 7, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 7, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 7, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 7, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 42, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(2, 6, 42, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 42, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 42, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 42, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 42, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 42, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 100, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(2, 6, 100, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 100, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 100, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 100, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 100, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 100, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 999, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(2, 6, 999, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 999, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 999, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 999, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 999, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 999, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 1234, 0, 'none', 3.0, True, True)",2300,2300,True,True,0.0
+paper order,settings,"(2, 6, 1234, 20, 'balanced', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 1234, 20, 'ssa', 3.0, True, True)",2280,2280,True,True,0.0
+paper order,settings,"(2, 6, 1234, 30, 'balanced', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 1234, 30, 'ssa', 3.0, True, True)",2270,2270,True,True,0.0
+paper order,settings,"(2, 6, 1234, 50, 'balanced', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 6, 1234, 50, 'ssa', 3.0, True, True)",2250,2250,True,True,0.0
+paper order,settings,"(2, 7, 7, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(2, 7, 7, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 7, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 7, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 7, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 7, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 7, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 42, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(2, 7, 42, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 42, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 42, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 42, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 42, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 42, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 100, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(2, 7, 100, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 100, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 100, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 100, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 100, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 100, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 999, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(2, 7, 999, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 999, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 999, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 999, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 999, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 999, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 1234, 0, 'none', 3.0, True, True)",3613,3613,True,True,0.0
+paper order,settings,"(2, 7, 1234, 20, 'balanced', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 1234, 20, 'ssa', 3.0, True, True)",3593,3593,True,True,0.0
+paper order,settings,"(2, 7, 1234, 30, 'balanced', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 1234, 30, 'ssa', 3.0, True, True)",3583,3583,True,True,0.0
+paper order,settings,"(2, 7, 1234, 50, 'balanced', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 7, 1234, 50, 'ssa', 3.0, True, True)",3563,3563,True,True,0.0
+paper order,settings,"(2, 8, 7, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(2, 8, 7, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 7, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 7, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 7, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 7, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 7, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 42, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(2, 8, 42, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 42, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 42, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 42, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 42, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 42, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 100, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(2, 8, 100, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 100, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 100, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 100, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 100, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 100, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 999, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(2, 8, 999, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 999, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 999, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 999, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 999, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 999, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 1234, 0, 'none', 3.0, True, True)",294,294,True,True,0.0
+paper order,settings,"(2, 8, 1234, 20, 'balanced', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 1234, 20, 'ssa', 3.0, True, True)",274,274,True,True,0.0
+paper order,settings,"(2, 8, 1234, 30, 'balanced', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 1234, 30, 'ssa', 3.0, True, True)",264,264,True,True,0.0
+paper order,settings,"(2, 8, 1234, 50, 'balanced', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 8, 1234, 50, 'ssa', 3.0, True, True)",244,244,True,True,0.0
+paper order,settings,"(2, 9, 7, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(2, 9, 7, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 7, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 7, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 7, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 7, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 7, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 42, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(2, 9, 42, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 42, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 42, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 42, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 42, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 42, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 100, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(2, 9, 100, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 100, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 100, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 100, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 100, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 100, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 999, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(2, 9, 999, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 999, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 999, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 999, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 999, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 999, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 1234, 0, 'none', 3.0, True, True)",470,470,True,True,0.0
+paper order,settings,"(2, 9, 1234, 20, 'balanced', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 1234, 20, 'ssa', 3.0, True, True)",450,450,True,True,0.0
+paper order,settings,"(2, 9, 1234, 30, 'balanced', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 1234, 30, 'ssa', 3.0, True, True)",440,440,True,True,0.0
+paper order,settings,"(2, 9, 1234, 50, 'balanced', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 9, 1234, 50, 'ssa', 3.0, True, True)",420,420,True,True,0.0
+paper order,settings,"(2, 10, 7, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(2, 10, 7, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 7, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 7, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 7, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 7, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 7, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 42, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(2, 10, 42, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 42, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 42, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 42, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 42, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 42, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 100, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(2, 10, 100, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 100, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 100, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 100, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 100, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 100, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 999, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(2, 10, 999, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 999, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 999, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 999, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 999, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 999, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 1234, 0, 'none', 3.0, True, True)",3600,3600,True,True,0.0
+paper order,settings,"(2, 10, 1234, 20, 'balanced', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 1234, 20, 'ssa', 3.0, True, True)",3580,3580,True,True,0.0
+paper order,settings,"(2, 10, 1234, 30, 'balanced', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 1234, 30, 'ssa', 3.0, True, True)",3570,3570,True,True,0.0
+paper order,settings,"(2, 10, 1234, 50, 'balanced', 3.0, True, True)",3550,3550,True,True,0.0
+paper order,settings,"(2, 10, 1234, 50, 'ssa', 3.0, True, True)",3550,3550,True,True,0.0

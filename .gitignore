@@ -5,3 +5,5 @@ data/*
 !data/SHA256SUMS
 # Local editor/assistant settings
 .claude/
+# Compiled firmware and test harness
+firmware/build/

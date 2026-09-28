@@ -37,4 +37,7 @@ seed spreads reported in the paper indicate how large such changes can be.
 | `check_temporal_confound.py` | file-order and concentration-level hold-out checks |
 | `deep_model_cost.py` | compute and memory estimates for all compared methods |
 | `snn_input.py`, `lif_neurons.py`, `presence_test.py`, `energy_proxy.py` | simulated sensor front end and presence detector |
+| `device_reference.py` | NumPy specification of System 2+ as it runs on a microcontroller (single precision) |
+| `check_device_reference.py` | the specification against scikit-learn and the paper, and what single precision changes |
+| `firmware/` | the C library (`s2p.c`, `s2p.h`) and a host test harness; `check_firmware.py` compares it with the specification bit for bit |
 | other scripts, older files in `results/` | exploration before the gas naming was harmonised; not used by the paper |
