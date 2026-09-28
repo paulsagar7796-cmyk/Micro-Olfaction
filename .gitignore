@@ -1,0 +1,7 @@
+__pycache__/
+.DS_Store
+# The dataset is downloaded by fetch_data.py and verified against data/SHA256SUMS.
+data/*
+!data/SHA256SUMS
+# Local editor/assistant settings
+.claude/

@@ -1,0 +1,74 @@
+Drift benchmark: train on Batch 1 (months 1–2), test on batches [2, 3, 4, 5, 6, 7, 8, 9, 10] — STDP FROZEN
+kinetics features, channels standardised online with EMA statistics (α = 0.99), per-sample scaling, LIF input threshold 7.5 mV above rest, 64 STDP neurons, 1 epoch(s) × 0.2 s presentations, readouts spiking (class weight balanced, power 0.5); seeds [7, 42, 100, 999, 1234]
+Few-shot calibration: 50 labelled samples per gas per drift batch, 20 readout fine-tuning epochs at learning rate × 1; scored on the remaining samples
+  seed 42: batch 2 calibrated on 252 and scored on 992 samples (84.4%) [109 s]
+  seed 999: batch 2 calibrated on 252 and scored on 992 samples (82.2%) [109 s]
+  seed 7: batch 2 calibrated on 252 and scored on 992 samples (77.9%) [110 s]
+  seed 1234: batch 2 calibrated on 252 and scored on 992 samples (73.4%) [110 s]
+  seed 100: batch 2 calibrated on 252 and scored on 992 samples (79.2%) [111 s]
+  seed 999: batch 3 calibrated on 250 and scored on 1336 samples (77.9%) [180 s]
+  seed 42: batch 3 calibrated on 250 and scored on 1336 samples (81.2%) [180 s]
+  seed 7: batch 3 calibrated on 250 and scored on 1336 samples (74.1%) [181 s]
+  seed 1234: batch 3 calibrated on 250 and scored on 1336 samples (79.8%) [182 s]
+  seed 100: batch 3 calibrated on 250 and scored on 1336 samples (60.3%) [182 s]
+  seed 42: batch 4 calibrated on 80 and scored on 81 samples (87.7%) [188 s]
+  seed 999: batch 4 calibrated on 80 and scored on 81 samples (79.0%) [188 s]
+  seed 7: batch 4 calibrated on 80 and scored on 81 samples (90.1%) [189 s]
+  seed 1234: batch 4 calibrated on 80 and scored on 81 samples (76.5%) [191 s]
+  seed 100: batch 4 calibrated on 80 and scored on 81 samples (81.5%) [191 s]
+  seed 42: batch 5 calibrated on 98 and scored on 99 samples (96.0%) [199 s]
+  seed 999: batch 5 calibrated on 98 and scored on 99 samples (93.9%) [199 s]
+  seed 7: batch 5 calibrated on 98 and scored on 99 samples (92.9%) [201 s]
+  seed 1234: batch 5 calibrated on 98 and scored on 99 samples (97.0%) [202 s]
+  seed 100: batch 5 calibrated on 98 and scored on 99 samples (93.9%) [202 s]
+  seed 42: batch 6 calibrated on 264 and scored on 2036 samples (85.0%) [299 s]
+  seed 999: batch 6 calibrated on 264 and scored on 2036 samples (88.5%) [300 s]
+  seed 7: batch 6 calibrated on 264 and scored on 2036 samples (85.8%) [300 s]
+  seed 1234: batch 6 calibrated on 264 and scored on 2036 samples (82.5%) [303 s]
+  seed 100: batch 6 calibrated on 264 and scored on 2036 samples (85.1%) [303 s]
+  seed 42: batch 7 calibrated on 300 and scored on 3313 samples (77.1%) [452 s]
+  seed 999: batch 7 calibrated on 300 and scored on 3313 samples (78.1%) [454 s]
+  seed 7: batch 7 calibrated on 300 and scored on 3313 samples (80.8%) [456 s]
+  seed 1234: batch 7 calibrated on 300 and scored on 3313 samples (75.4%) [458 s]
+  seed 100: batch 7 calibrated on 300 and scored on 3313 samples (77.5%) [459 s]
+  seed 42: batch 8 calibrated on 125 and scored on 169 samples (78.7%) [468 s]
+  seed 999: batch 8 calibrated on 125 and scored on 169 samples (86.4%) [469 s]
+  seed 7: batch 8 calibrated on 125 and scored on 169 samples (82.2%) [471 s]
+  seed 1234: batch 8 calibrated on 125 and scored on 169 samples (82.8%) [474 s]
+  seed 100: batch 8 calibrated on 125 and scored on 169 samples (82.8%) [475 s]
+  seed 42: batch 9 calibrated on 233 and scored on 237 samples (92.4%) [493 s]
+  seed 999: batch 9 calibrated on 233 and scored on 237 samples (93.2%) [495 s]
+  seed 7: batch 9 calibrated on 233 and scored on 237 samples (84.4%) [496 s]
+  seed 1234: batch 9 calibrated on 233 and scored on 237 samples (93.2%) [500 s]
+  seed 100: batch 9 calibrated on 233 and scored on 237 samples (79.7%) [501 s]
+  seed 42: batch 10 calibrated on 300 and scored on 3300 samples (63.8%) [646 s]
+  seed 42: done [646 s]
+  seed 999: batch 10 calibrated on 300 and scored on 3300 samples (66.5%) [647 s]
+  seed 999: done [648 s]
+  seed 7: batch 10 calibrated on 300 and scored on 3300 samples (64.2%) [649 s]
+  seed 7: done [650 s]
+  seed 1234: batch 10 calibrated on 300 and scored on 3300 samples (63.4%) [652 s]
+  seed 1234: done [653 s]
+  seed 100: batch 10 calibrated on 300 and scored on 3300 samples (66.1%) [655 s]
+  seed 100: done [655 s]
+
+ batch  months        scored calib │      spiking       silent       active │   LR on inputs
+    1*  1,2               90     0 │   87.8 ± 3.2    0.0 ± 0.0   64.0 ± 0.0 │     96.4 ± 3.6
+     2  3,4,8,9,10       992   252 │   79.4 ± 4.2    0.1 ± 0.1   64.0 ± 0.0 │     56.4 ± 9.6
+     3  11,12,13        1336   250 │   74.7 ± 8.4    0.0 ± 0.0   64.0 ± 0.0 │     65.5 ± 4.8
+     4  14,15             81    80 │   83.0 ± 5.8    0.0 ± 0.0   63.8 ± 0.4 │     65.2 ± 6.1
+     5  16                99    98 │   94.7 ± 1.7    0.0 ± 0.0   63.4 ± 0.9 │     60.6 ± 2.6
+     6  17,18,19,20     2036   264 │   85.4 ± 2.1    0.0 ± 0.0   64.0 ± 0.0 │     65.8 ± 3.5
+     7  21              3313   300 │   77.8 ± 2.0    0.0 ± 0.0   64.0 ± 0.0 │     51.0 ± 3.3
+     8  22,23            169   125 │   82.6 ± 2.7    0.0 ± 0.0   64.0 ± 0.0 │     54.4 ± 5.4
+     9  24,30            237   233 │   88.6 ± 6.2    0.0 ± 0.0   64.0 ± 0.0 │     39.7 ± 8.7
+    10  36              3300   300 │   64.8 ± 1.4    0.0 ± 0.0   64.0 ± 0.0 │     46.2 ± 3.0
+mean of batches 2–10               │   81.2 ± 1.9                           │     56.1 ± 2.7
+all 11,563 scored samples          │   75.7 ± 1.5                           │     54.4 ± 2.5
+* Batch 1 row: its held-out 20% (in-distribution). silent: samples on which the spiking readout emitted no spikes. active: STDP neurons (of 64) that fired on the batch. calib: labelled samples used to fine-tune the readout (50 per gas, 20 epochs), never scored; LR on inputs stays frozen.
+Values are mean ± std over 5 seeds; summary rows average each seed's batches first.
+
+Recall per gas over the drift batches (spiking readout (trained LIF output layer)): ethanol 86% (9130/10670), ethylene 92% (11527/12475), ammonia 76% (4658/6110), acetaldehyde 43% (3458/8005), acetone 70% (9018/12815), toluene 77% (5957/7740)
+Frozen check: STDP weights and thresholds unchanged throughout; the readout was fine-tuned on the calibration samples only
+wrote results/label_budget/snn_predictions_b50.csv
+wrote results/label_budget/snn_drift_b50.csv
