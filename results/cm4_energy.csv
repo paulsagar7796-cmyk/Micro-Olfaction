@@ -1,0 +1,45 @@
+operation,chip,variant,cycles,cycles_min,cycles_max,pj_per_cycle,energy_joules
+"front end (features + alignment), per sample",STM32L476,base,32865.631,31085.222,34646.04,408.0,1.3409177448e-05
+"front end (features + alignment), per sample",STM32L476,opt,21575.701,21239.86,21911.542,408.0,8.802886008000001e-06
+"front end (features + alignment), per sample",Apollo3 Blue,base,32865.631,31085.222,34646.04,33.99,1.1171027976900002e-06
+"front end (features + alignment), per sample",Apollo3 Blue,opt,21575.701,21239.86,21911.542,33.99,7.3335807699e-07
+"scores + argmax, per sample",STM32L476,base,15566.0,14023.0,17109.0,408.0,6.3509279999999995e-06
+"scores + argmax, per sample",STM32L476,opt,6090.0,6019.0,6161.0,408.0,2.48472e-06
+"scores + argmax, per sample",Apollo3 Blue,base,15566.0,14023.0,17109.0,33.99,5.290883400000001e-07
+"scores + argmax, per sample",Apollo3 Blue,opt,6090.0,6019.0,6161.0,33.99,2.069991e-07
+"inference, per sample",STM32L476,base,48431.631,45108.222,51755.04,408.0,1.9760105448e-05
+"inference, per sample",STM32L476,opt,27665.701,27258.86,28072.542,408.0,1.1287606008e-05
+"inference, per sample",Apollo3 Blue,base,48431.631,45108.222,51755.04,33.99,1.6461911376900002e-06
+"inference, per sample",Apollo3 Blue,opt,27665.701,27258.86,28072.542,33.99,9.4035717699e-07
+"pseudo-label confidence test, per sample",STM32L476,base,464.569,443.127,486.011,408.0,1.89544152e-07
+"pseudo-label confidence test, per sample",STM32L476,opt,397.318,388.139,406.497,408.0,1.62105744e-07
+"pseudo-label confidence test, per sample",Apollo3 Blue,base,464.569,443.127,486.011,33.99,1.5790700310000002e-08
+"pseudo-label confidence test, per sample",Apollo3 Blue,opt,397.318,388.139,406.497,33.99,1.350483882e-08
+"pseudo-label update, per update",STM32L476,base,48934.235074626864,44276.585820895525,53591.88432835821,408.0,1.9965167910447763e-05
+"pseudo-label update, per update",STM32L476,opt,30666.858208955226,30048.611940298506,31285.10447761194,408.0,1.251207814925373e-05
+"pseudo-label update, per update",Apollo3 Blue,base,48934.235074626864,44276.585820895525,53591.88432835821,33.99,1.663274650186567e-06
+"pseudo-label update, per update",Apollo3 Blue,opt,30666.858208955226,30048.611940298506,31285.10447761194,33.99,1.0423665105223881e-06
+deployed average per sample (updates on 16.1 % of samples),STM32L476,base,56782.666239744605,52687.16707818439,60878.16540130481,408.0,2.31673278258158e-05
+deployed average per sample (updates on 16.1 % of samples),STM32L476,opt,33005.43082221656,32489.771411931026,33521.09023250209,408.0,1.3466215775464356e-05
+deployed average per sample (updates on 16.1 % of samples),Apollo3 Blue,base,56782.666239744605,52687.16707818439,60878.16540130481,33.99,1.9300428254889192e-06
+deployed average per sample (updates on 16.1 % of samples),Apollo3 Blue,opt,33005.43082221656,32489.771411931026,33521.09023250209,33.99,1.1218545936471407e-06
+"calibration visit, 20 labels",STM32L476,base,36185142.0,32877534.0,39426250.0,408.0,0.014763537936
+"calibration visit, 20 labels",STM32L476,opt,23704366.0,23192491.0,24149741.0,408.0,0.009671381328
+"calibration visit, 20 labels",Apollo3 Blue,base,36185142.0,32877534.0,39426250.0,33.99,0.0012299329765800002
+"calibration visit, 20 labels",Apollo3 Blue,opt,23704366.0,23192491.0,24149741.0,33.99,0.00080571140034
+"of which the 50 calibration passes, 20 labels",STM32L476,base,35490776.0,32223927.0,38691125.0,408.0,0.014480236608
+"of which the 50 calibration passes, 20 labels",STM32L476,opt,23235776.0,22735782.0,23669270.0,408.0,0.009480196607999999
+"of which the 50 calibration passes, 20 labels",Apollo3 Blue,base,35490776.0,32223927.0,38691125.0,33.99,0.00120633147624
+"of which the 50 calibration passes, 20 labels",Apollo3 Blue,opt,23235776.0,22735782.0,23669270.0,33.99,0.0007897840262399999
+"calibration visit, 50 labels",STM32L476,base,89410427.0,81251993.0,97397361.0,408.0,0.036479454216
+"calibration visit, 50 labels",STM32L476,opt,58674099.0,57404358.0,59772340.0,408.0,0.023939032392
+"calibration visit, 50 labels",Apollo3 Blue,base,89410427.0,81251993.0,97397361.0,33.99,0.00303906041373
+"calibration visit, 50 labels",Apollo3 Blue,opt,58674099.0,57404358.0,59772340.0,33.99,0.00199433262501
+"of which the 50 calibration passes, 50 labels",STM32L476,base,87674341.0,79617936.0,95559246.0,408.0,0.035771131128
+"of which the 50 calibration passes, 50 labels",STM32L476,opt,57502561.0,56262589.0,58571033.0,408.0,0.023461044888
+"of which the 50 calibration passes, 50 labels",Apollo3 Blue,base,87674341.0,79617936.0,95559246.0,33.99,0.00298005085059
+"of which the 50 calibration passes, 50 labels",Apollo3 Blue,opt,57502561.0,56262589.0,58571033.0,33.99,0.00195451204839
+"DA-ELM inference, per sample",STM32L476,base,1509850.134,1373719.133,1645981.135,408.0,0.000616018854672
+"DA-ELM inference, per sample",STM32L476,opt,921315.524,903294.523,939336.525,408.0,0.000375896733792
+"DA-ELM inference, per sample",Apollo3 Blue,base,1509850.134,1373719.133,1645981.135,33.99,5.1319806054660004e-05
+"DA-ELM inference, per sample",Apollo3 Blue,opt,921315.524,903294.523,939336.525,33.99,3.131551466076e-05

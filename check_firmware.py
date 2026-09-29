@@ -4,6 +4,7 @@ in single precision, bit for bit.
 
     python3 check_firmware.py                 # the host build (firmware/build/host_harness), ~3 minutes
     python3 check_firmware.py --target cm4    # the Cortex-M4 build under QEMU (-M netduinoplus2)
+    python3 check_firmware.py --variant opt   # the optimised kernels (s2p_opt.c), either target
 
 Every System 2+ run behind the paper (the Settings 1–2 runs of system2_combined.csv and the sequential
 runs, with and without pseudo-labels) is exported as a scenario, run through the compiled C code on
@@ -35,11 +36,14 @@ from benchmark_batch1 import DEFAULT_SEEDS
 from dataset_adapter import load_batch
 
 FIRMWARE = Path("firmware")
-HARNESS = FIRMWARE / "build" / "host_harness"
 MAGIC = 0x31503253
 MODES = {"own shuffle": R.CHIP32_DEVICE, "paper order": R.CHIP32}
 SDKS = Path("/Library/Developer/CommandLineTools/SDKs")
-CM4_HARNESS = FIRMWARE / "build" / "cm4_harness.elf"
+
+
+def harness(target: str, variant: str) -> Path:
+    suffix = "_opt" if variant == "opt" else ""
+    return FIRMWARE / "build" / (f"host_harness{suffix}" if target == "host" else f"cm4_harness{suffix}.elf")
 
 
 def newest(pattern: str) -> Path:
@@ -61,25 +65,32 @@ def qemu_command(qemu: Path, elf: Path, extra: list[str] | None = None) -> list[
             "-semihosting-config", "enable=on,target=native", *(extra or []), "-kernel", str(elf.resolve())]
 
 
-def build_cm4(t: dict) -> None:
-    r = subprocess.run(["make", "-C", str(FIRMWARE), str(CM4_HARNESS.relative_to(FIRMWARE)), f"ARM_TOOLS={t['arm']}"],
-                       capture_output=True, text=True)
+def build_cm4(t: dict, variant: str = "base") -> None:
+    target = harness("cm4", variant)
+    r = subprocess.run(["make", "-C", str(FIRMWARE), str(target.relative_to(FIRMWARE)), f"ARM_TOOLS={t['arm']}",
+                        f"VARIANT={variant}"], capture_output=True, text=True)
     if r.returncode:
         raise RuntimeError(r.stdout[-3000:] + r.stderr[-3000:])
-    print(f"built {CM4_HARNESS}")
+    print(f"built {target}")
 
 
-def build() -> None:
-    """make; if the default macOS SDK does not link (a linker older than the SDK), try older SDKs."""
+def host_make(target: str, variant: str = "base") -> None:
+    """make a host target; if the default macOS SDK does not link (a linker older than the SDK), try
+    older SDKs."""
     candidates = [None] + (sorted((p for p in SDKS.glob("MacOSX*.*.sdk")), reverse=True) if SDKS.exists() else [])
     for sdk in candidates:
         env = dict(os.environ, **({"SDKROOT": str(sdk)} if sdk else {}))
-        subprocess.run(["make", "-C", str(FIRMWARE), "clean"], capture_output=True)
-        r = subprocess.run(["make", "-C", str(FIRMWARE)], capture_output=True, text=True, env=env)
+        (FIRMWARE / target).unlink(missing_ok=True)
+        r = subprocess.run(["make", "-C", str(FIRMWARE), target, f"VARIANT={variant}"], capture_output=True, text=True,
+                           env=env)
         if r.returncode == 0:
-            print(f"built {HARNESS}" + (f" (SDK {sdk.name})" if sdk else ""))
+            print(f"built firmware/{target}" + (f" (SDK {sdk.name})" if sdk else ""))
             return
-    raise RuntimeError(f"cannot build the harness:\n{r.stdout}{r.stderr}")
+    raise RuntimeError(f"cannot build {target}:\n{r.stdout}{r.stderr}")
+
+
+def build(variant: str = "base") -> None:
+    host_make(str(harness("host", variant).relative_to(FIRMWARE)), variant)
 
 
 def write_scenario(sc: R.Scenario, ar: R.Arith, path: Path) -> None:
@@ -130,7 +141,7 @@ def read_output(path: Path, visits: list, n_classes: int) -> tuple[list[np.ndarr
 
 
 def job(args: tuple) -> dict:
-    mode, spec, tmp, qemu = args
+    mode, spec, tmp, qemu, exe = args
     ar = MODES[mode]
     sc = R.sequential_scenario(*spec[1:]) if spec[0] == "sequential" else R.settings_scenario(*spec[1:])
     rows, dev = R.run(sc, ar, keep=True)
@@ -139,11 +150,11 @@ def job(args: tuple) -> dict:
     scen, out = work / "scenario.bin", work / "output.bin"
     write_scenario(sc, ar, scen)
     if qemu:                                           # the Cortex-M4 build reads scenario.bin, writes output.bin
-        r = subprocess.run(qemu_command(Path(qemu), CM4_HARNESS), cwd=work, capture_output=True, text=True)
+        r = subprocess.run(qemu_command(Path(qemu), Path(exe)), cwd=work, capture_output=True, text=True)
         if r.returncode:
             raise RuntimeError(f"{spec}: {r.stdout}{r.stderr}")
     else:
-        subprocess.run([str(HARNESS), str(scen), str(out)], check=True)
+        subprocess.run([str(exe), str(scen), str(out)], check=True)
     preds, updates, state = read_output(out, sc.visits, len(dev.readout.classes))
     for f in work.iterdir():
         f.unlink()
@@ -165,22 +176,25 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
     parser.add_argument("--jobs", type=int, default=os.cpu_count())
     parser.add_argument("--target", choices=["host", "cm4"], default="host")
+    parser.add_argument("--variant", choices=["base", "opt"], default="base")
     parser.add_argument("--out", type=Path, default=None)
     args = parser.parse_args()
-    args.out = args.out or Path(f"results/firmware_check{'_cm4' if args.target == 'cm4' else ''}.csv")
+    args.out = args.out or Path(f"results/firmware_check{'_cm4' if args.target == 'cm4' else ''}"
+                                f"{'_opt' if args.variant == 'opt' else ''}.csv")
     qemu = None
     if args.target == "cm4":
         t = arm_tools()
-        build_cm4(t)
+        build_cm4(t, args.variant)
         qemu = str(t["qemu"])
     else:
-        build()
+        build(args.variant)
+    exe = str(harness(args.target, args.variant).resolve())
     specs = [("sequential", b, s, 3.0, True, pl) for pl in (True, False) for b in S.BUDGETS for s in K.SEQ_SEEDS]
     specs += [("settings", st, tg, s, b, sel, 3.0, True, True) for st in I.SETTINGS for tg in I.TARGETS
               for s in DEFAULT_SEEDS for b, sel in I.COMBOS]
     t0 = time.time()
     with tempfile.TemporaryDirectory() as tmp, ProcessPoolExecutor(max_workers=args.jobs) as pool:
-        df = pd.DataFrame(pool.map(job, [(m, sp, tmp, qemu) for m in MODES for sp in specs], chunksize=4))
+        df = pd.DataFrame(pool.map(job, [(m, sp, tmp, qemu, exe) for m in MODES for sp in specs], chunksize=4))
     df.to_csv(args.out, index=False)
     print(f"{len(df):,} scenarios [{time.time() - t0:.0f} s]; wrote {args.out}")
     for (mode, protocol), d in df.groupby(["mode", "protocol"], sort=False):
@@ -189,7 +203,8 @@ def main() -> None:
               f"final state bit-identical {int(d.state_bitwise.sum())}/{len(d)} (max |Δ| {d.state_max_diff.max():.1e})")
     ok = bool((df.identical == df.predictions).all() and df.updates_equal.all() and df.state_bitwise.all())
     where = "on the emulated Cortex-M4F" if qemu else "on the host"
-    print(f"\nC library {where} {'matches' if ok else 'DOES NOT match'} the single-precision reference bit for bit")
+    which = "optimised C library (s2p_opt.c)" if args.variant == "opt" else "C library (s2p.c)"
+    print(f"\n{which} {where} {'matches' if ok else 'DOES NOT match'} the single-precision reference bit for bit")
 
 
 if __name__ == "__main__":
