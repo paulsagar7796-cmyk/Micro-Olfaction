@@ -1,0 +1,8 @@
+built firmware/build/host_harness
+1,500 scenarios [… s]; wrote results/firmware_check.csv
+  own shuffle  sequential   120 scenarios: predictions identical 1,554,270/1,554,270; pseudo-label counts equal 120/120; final state bit-identical 120/120 (max |Δ| 0.0e+00)
+  own shuffle  settings     630 scenarios: predictions identical 924,580/924,580; pseudo-label counts equal 630/630; final state bit-identical 630/630 (max |Δ| 0.0e+00)
+  paper order  sequential   120 scenarios: predictions identical 1,554,270/1,554,270; pseudo-label counts equal 120/120; final state bit-identical 120/120 (max |Δ| 0.0e+00)
+  paper order  settings     630 scenarios: predictions identical 924,580/924,580; pseudo-label counts equal 630/630; final state bit-identical 630/630 (max |Δ| 0.0e+00)
+
+C library (s2p.c) on the host matches the single-precision reference bit for bit

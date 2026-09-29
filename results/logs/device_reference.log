@@ -1,0 +1,48 @@
+1. Elementary functions (float32 Cephes vs float64)
+  exp inputs are clamped to [-87.3365478515625, 88.0] (the chip only needs σ and e^−x there); within it:
+  exp: max error 0.97 ulp (numpy's own float32 exp: 0.51 ulp) over 2,000,000 inputs
+  log: max error 0.81 ulp (numpy's own float32 log: 0.53 ulp) over 2,000,000 inputs
+2. Features
+  float64, chip path vs tune_system2.raw_features: max |difference| 0.0e+00 (all 10 batches)
+  float32, chip path: max relative difference 2.4e-03
+3. Readout vs scikit-learn (float64, paper arithmetic)
+  after 50 calibration passes (62 samples): max |Δ coef| 1.3e-13, max |Δ intercept| 0.0e+00, t equal: True
+  after the pseudo-labelled stream (1182 samples, 251 updates): predictions identical: True, max |Δ coef| 1.3e-13, updates equal: True
+
+6,840 runs through the reference [… s]; wrote results/device_reference.csv
+4. Paper reproduction (float64, paper arithmetic) vs the committed results
+  sequential: 1045/1080 batch results identical (accuracy and pseudo-label count); max |Δ accuracy| 2.5 points
+  Settings 1–2: 630/630 batch results identical (accuracy and pseudo-label count); max |Δ accuracy| 0 points
+
+5. Paper cells (Batches 6–10, % accuracy, mean over the paper's seeds) and change from the paper
+cell                                                   paper  chip64 Δ  chip32 Δ  chip32, own shuffle Δ
+Setting 1, 0 labels                                     56.4     +0.00     +0.00                  +0.00
+Setting 1, 20 labels, balanced                          80.2     +0.00     -0.04                  +0.09
+Setting 1, 20 labels, DAELM selection                   71.8     +0.00     -0.03                  +0.99
+Setting 1, 30 labels, balanced                          82.1     +0.00     -0.02                  -0.35
+Setting 1, 30 labels, DAELM selection                   76.4     +0.00     +0.07                  +1.17
+Setting 1, 50 labels, balanced                          83.4     +0.00     -0.14                  +0.01
+Setting 1, 50 labels, DAELM selection                   85.2     +0.00     -0.02                  -0.65
+Setting 2, 0 labels                                     65.4     +0.00     +0.00                  +0.00
+Setting 2, 20 labels, balanced                          83.3     +0.00     -0.00                  +1.51
+Setting 2, 20 labels, DAELM selection                   73.8     +0.00     +0.00                  -0.16
+Setting 2, 30 labels, balanced                          86.8     +0.00     +0.00                  +0.82
+Setting 2, 30 labels, DAELM selection                   82.2     +0.00     +0.00                  +0.18
+Setting 2, 50 labels, balanced                          88.7     +0.00     -0.02                  -0.05
+Setting 2, 50 labels, DAELM selection                   86.1     +0.00     -0.01                  -1.15
+Sequential, 5/gas, System 2+                            88.6     +0.00     +0.19                  -0.17
+Sequential, 10/gas, System 2+                           91.5     +0.00     +0.05                  +0.39
+Sequential, 12/gas, System 2+                           92.7     +0.09     +0.31                  +0.30
+Sequential, 15/gas, System 2+                           93.7     +0.08     +0.24                  +0.03
+Sequential, 5/gas, System 2+ without pseudo-labels      88.3     +0.00     -0.16                  -0.69
+Sequential, 10/gas, System 2+ without pseudo-labels     91.1     +0.00     -0.17                  +0.62
+Sequential, 12/gas, System 2+ without pseudo-labels     92.4     +0.00     +0.02                  +0.45
+Sequential, 15/gas, System 2+ without pseudo-labels     93.2     -0.06     +0.05                  +0.33
+  chip64: mean change +0.00 points, largest |change| 0.09, predictions identical to the float64 reference's 100.0 %
+  chip32: mean change +0.01 points, largest |change| 0.31, predictions identical to the float64 reference's 99.1 %
+  chip32_device: mean change +0.17 points, largest |change| 1.51, predictions identical to the float64 reference's 95.6 %
+
+Step 2 verdict (rule fixed before running): float32 on the chip is acceptable (every cell |Δ| < 0.5: True; mean Δ within ±0.2: True)
+
+6. Supplementary: Settings cells on 20 seeds, float32 vs float64 paired (5 seeds proved too few to show per-cell effects)
+  per cell: largest |Δ| 0.39 (Setting 1, 30 labels, DAELM selection), cells with |Δ| ≥ 0.5: 0/14; mean Δ -0.043 (95 % CI -0.091 to +0.005)

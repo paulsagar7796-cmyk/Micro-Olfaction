@@ -1,0 +1,17 @@
+variant,instruction_class,share_of_inference_cycles
+base,integer,0.09336883575116436
+base,store,0.007970080545088395
+base,load,0.09644523431391357
+base,FP arithmetic / move,0.22521628478710534
+base,branch,0.21025556624347422
+base,load/store multiple,0.21874146670798678
+base,FP divide / square root,0.14800244906061497
+base,load/store,8.259065237757531e-08
+opt,load/store multiple,0.03708584864703049
+opt,integer,0.08476217537375973
+opt,load,0.15072815252358868
+opt,FP arithmetic / move,0.39068563634082504
+opt,branch,0.04731815759882607
+opt,store,0.030326504287746043
+opt,FP divide / square root,0.2590933806448642
+opt,load/store,1.4458335973485725e-07

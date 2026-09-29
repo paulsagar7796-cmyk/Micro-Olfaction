@@ -2,7 +2,8 @@
 
 Generated from `benchmark_literature_comparison.py`, `improve_system2.py`, `combine_system2.py`,
 `sweep_system2_budget.py`, `sequential_system2plus.py`, `tune_system2.py`, `literature_table.py`, `deep_model_cost.py`,
-`check_temporal_confound.py`, `presence_test.py` and `energy_proxy.py` (results in `results/`).
+`check_temporal_confound.py`, `check_pseudo_labels.py`, `presence_test.py`, `energy_proxy.py` and, for the
+microcontroller figures, `cm4_profile.py` with the C port in `firmware/` (results in `results/`).
 `./reproduce.sh` reruns all of them and checks every number below against the results
 (`check_paper_numbers.py`). Published numbers, transcribed in `literature/published_results.csv`:
 - Zhang & Zhang, *Domain Adaptation Extreme Learning Machines for Drift Compensation in E-nose Systems*,
@@ -22,28 +23,37 @@ Differences between methods are taken between the values as displayed (one decim
 
 > "With 20 calibration samples per batch balanced across the six gases, the method exceeds DA-ELM by
 > 4.3 points in both standard settings, and at 50 samples it comes within 1–4 points (and exceeds it in
-> Setting 2), while running online at ≈10 nJ per inference, ~40× less than DA-ELM."
+> Setting 2), while running online on a Cortex-M4 at ≈1 µJ per inference (Apollo3 Blue; ≈11 µJ on an
+> STM32L476), 31× less than DA-ELM on the same core."
 
 Scope: held-out Batches 6–10 (months 17–36), where DA-ELM's figures are averaged from its per-batch
-tables over the same batches; "DA-ELM" = DAELM-S(20) at 20 samples and DAELM-T(50) at 50; energy is a
-first-order count of multiply-accumulates at 3.1 pJ each, not a measurement (section 5). The method
-("System 2+", section 2) is online and causal within each batch. No newer method in section 3 exceeds
-DA-ELM under matched label budgets. DA-ELM's labels are also drawn from the whole target batch, so the
-comparison is like-for-like in where labels come from, but absolute few-shot accuracies are optimistic
-(section 4).
+tables over the same batches; "DA-ELM" = DAELM-S(20) at 20 samples and DAELM-T(50) at 50. Energy is the
+classifier's compute energy on a Cortex-M4F: exact instruction counts from an emulated STM32F405, cycles
+from the Cortex-M4 timing tables, and each chip's datasheet run current; it is modelled, not measured
+(section 5). ≈1 µJ and ≈11 µJ are the optimised kernels (0.94 and 11.3 µJ); 31× compares the portable
+reference implementations of both methods (33× with both optimised). The advantage comes from the
+model's structure, a linear readout of six one-vs-rest units on 256 features against DA-ELM's 1,000
+radial-basis hidden neurons, not from the spiking presence detector, which is not part of these
+figures. The classifier's energy is also small next to the sensors': at one inference per second it
+averages about 1 µW on the Apollo3 Blue, while a heated MOx sensor draws around 10 mW or more. The method ("System 2+",
+section 2) is online and causal within each batch. No newer method in section 3 exceeds DA-ELM under
+matched label budgets. DA-ELM's labels are also drawn from the whole target batch, so the comparison is
+like-for-like in where labels come from, but absolute few-shot accuracies are optimistic (section 4).
 
 ## Hardware claim
 
 > "System 2+ is the only method compared whose adaptation runs online within microcontroller memory
-> (≈60 KB of state, ≈10 nJ per sample including updates)."
+> (≈60 KB of state; ≈1.1 µJ per sample including updates on an Apollo3 Blue, ≈13.5 µJ on an STM32L476)."
 
 Scope: the methods compared are DA-ELM (S and T), ODAELM, TDACNN and AMDS-PFFA. The claim concerns
 adaptation, not inference: the deep models fit a microcontroller for inference alone (TDACNN ≈276 KB
 with int8 weights). ODAELM also adapts online, but its update keeps a 1,000 × 1,000 inverse matrix
-(4.0 MB in FP32, ≈6 µJ per update) at its stated configuration of up to 1,000 hidden nodes. An ODAELM
-with ≤250 nodes would fit in 250 KB, but its accuracy at that size is not reported. The ≈60 KB covers the
-model, running statistics and up to 50 stored labelled samples. All figures are first-order estimates
-(section 5).
+(4.0 MB in FP32; about 2 M multiply-accumulates per update) at its stated configuration of up to 1,000
+hidden nodes. An ODAELM with ≤250 nodes would fit in 250 KB, but its accuracy at that size is not
+reported. The ≈60 KB is measured from the compiled firmware: 59,780 bytes of state with 50 stored
+labelled samples (the readout is 6,232 of them), plus at most 864 bytes of stack; the chips have 128 KB
+(STM32L476) and 384 KB (Apollo3 Blue) of SRAM. The energies are the optimised kernels' deployed average,
+pseudo-label updates included; they are modelled, not measured (section 5).
 
 ## Where the method loses
 
@@ -132,6 +142,14 @@ reaches 91.5 / 92.7 / 93.7 % at 10 / 12 / 15 labels per gas (System 2: 90.0 / 91
 pseudo-labels are correct in each batch, and their effect (+0.3 to +0.6 points) does not decline across
 batches. Pseudo-labelling was tested between regular recalibrations, not over long periods without
 labels.
+
+**Which samples are pseudo-labelled.** The confidence test normalises the six one-vs-rest probabilities,
+so it also passes samples that every unit rejects (all six scores negative) when the least-negative
+unit dominates the rest. On Batches 6–10 such samples give 10.8 % of the pseudo-labels in the
+sequential protocol and 19.1 % in Settings 1–2 (median winning score −151 and −176), and they are right
+only 60.4 % and 54.3 % of the time, against 95.6 % and 88.9 % for the others. Requiring a positive
+winning score would exclude them; it was not tested, since it would change the method chosen on
+Batches 2–5.
 
 ## 3. Post-2015 methods
 
@@ -227,33 +245,69 @@ the published comparison is like-for-like in this respect; DA-ELM was not re-run
 
 ## 5. Operational trade-offs
 
-First-order estimates from each method's definition (`deep_model_cost.py`): multiply-accumulates
-(MACs) × 3.1 pJ, FP32; memory access, activations, logs and square roots excluded; 1 KB = 1,000 bytes.
-Not hardware measurements. (An accounting that adds SRAM reads — 4.6 pJ per MAC plus 5 pJ per weight
-read — gives ≈29 nJ for System 2 without pseudo-label updates vs ≈1.4 µJ for DA-ELM, a similar ratio.)
+**On a Cortex-M4F.** System 2+ and DA-ELM inference were implemented in C (`firmware/`) and run on an
+emulated STM32F405 (QEMU). The C code runs in single precision and reproduces its specification
+(`device_reference.py`) bit for bit: every prediction of the 1,500 runs behind sections 2–3, on the host
+and on the emulated chip. Against the paper's double-precision results, single precision moves the
+accuracy cells by at most 0.31 points (mean +0.01). Instruction counts are exact
+(a QEMU plugin); cycles apply the Cortex-M4 timing tables to them, assuming zero-wait-state memory,
+with the unknown taken-branch refill (1–3 cycles) as the range. Energy = cycles × each chip's datasheet
+run current per MHz × supply voltage, typical values at 25 °C for CoreMark running from flash with the
+cache on: STM32L476, 136 µA/MHz at 3 V (DS10198 Rev 11, Table 33, 80 MHz) = 408 pJ per cycle; Apollo3
+Blue, 10.3 µA/MHz at 3.3 V (DS-A3 v1.3.0, Table 1203, 48 MHz low-power mode) = 34.0 pJ per cycle. These
+are modelled, not measured. Two implementations of each method: the portable reference C compiled with
+-O2 (the algorithmic comparison), and optimised kernels (unrolled and register-blocked, with the same
+arithmetic and bit-identical results), which give the deployment figures.
+
+**Cycles and energy per operation** (`cm4_profile.py`; energy for the optimised kernels)
+
+| Operation | Cycles, reference | Cycles, optimised | STM32L476 | Apollo3 Blue |
+|---|---|---|---|---|
+| System 2+ inference, per sample | 48,432 | 27,666 | 11.3 µJ | 0.94 µJ |
+| Pseudo-label confidence test, per sample | 465 | 397 | 162 nJ | 13.5 nJ |
+| One pseudo-label update | 48,934 | 30,667 | 12.5 µJ | 1.04 µJ |
+| Deployed average per sample (updates on 16.1 % of samples) | 56,783 | 33,005 | 13.5 µJ | 1.12 µJ |
+| Calibration visit, 20 labels (50 passes) | 36.2 M | 23.7 M | 9.67 mJ | 0.81 mJ |
+| Calibration visit, 50 labels (50 passes) | 89.4 M | 58.7 M | 23.9 mJ | 1.99 mJ |
+| DA-ELM inference, per sample | 1,509,850 | 921,316 | 376 µJ | 31.3 µJ |
+
+DA-ELM / System 2+ per inference (confidence test included): 30.9× with the reference implementations,
+32.8× with both optimised; for the deployed average, 26.6× and 27.9×. Optimised inference takes 0.35 ms
+at 80 MHz (STM32L476) and 0.58 ms at 48 MHz (Apollo3 Blue); a 20-label calibration visit 0.30 s and
+0.49 s. The fixed floor is the alignment's square root and division per feature: 26 % of optimised
+inference cycles. Memory: 59,780 bytes of device state with 50 labelled samples (readout 6,232), at most
+864 bytes of library stack; code 2,312 bytes (reference) or 7,112 bytes (optimised).
+
+**DA-ELM's adaptation does not fit on these chips.** Its closed-form solve over the stored source batch
+and the target labels needs at least 4 MB of working memory for the 1,000 × 1,000 system alone, plus
+2.0–15 MB of hidden-layer outputs, against 128 KB of SRAM on the STM32L476 and 384 KB on the Apollo3
+Blue. It would have to run on a more capable host, such as a gateway or a server, with the target batch
+sent over a radio link; that transfer's energy is not included here.
 
 | | System 2+ | DAELM-S | DAELM-T |
 |---|---|---|---|
 | Learning setting | inductive, online (one sample at a time) | inductive, batch | transductive, batch |
 | Causal (each prediction uses only earlier data) | yes | no: labelled samples are chosen from the whole target batch | no: also uses all unlabelled target data |
 | Data needed to adapt | the current visit's labelled samples | stored labelled source batch + labelled target samples | base classifier + labelled target + whole unlabelled target batch |
-| Label selection | first samples per gas to arrive (no buffer) | farthest-point sampling over the whole target batch (≈0.84 G MACs, ≈2.6 mJ, 1.8 MB buffer for Batch 7) | same |
-| Inference per sample | ≈3,300 MACs, ≈10.2 nJ (pseudo-label updates included) | 134,128 MACs, ≈416 nJ (1,000 radial-basis neurons) | ≈416 nJ |
-| Model + running state | ≈10 KB | ≈0.5 MB | ≈0.5 MB |
+| Label selection | first samples per gas to arrive (no buffer) | farthest-point sampling over the whole target batch (≈0.84 G MACs, 1.8 MB buffer for Batch 7) | same |
+| Inference per sample (optimised) | 27,666 cycles: 0.94 µJ (Apollo3 Blue), 11.3 µJ (STM32L476) | 921,316 cycles: 31.3 µJ, 376 µJ | as DAELM-S |
+| Model + running state | 8.4 KB (readout 6.2 KB, running statistics 2 KB) | 0.54 MB of weights (1,000 radial-basis neurons) | 0.54 MB |
 | Adaptation memory | 20–51 KB (20–50 labelled samples) + 6 counters | 0.2–1.8 MB stored source + 2.0–15 MB hidden outputs + 4.0 MB solve | as DAELM-S + 1.8 MB unlabelled batch + 14 MB hidden outputs |
-| Adaptation per batch | 4.6–11.5 M MACs, 14–36 µJ (50 passes) | 0.9–4.5 G MACs, ≈2.8–13.8 mJ (closed-form solve) | higher than DAELM-S |
+| Adaptation per batch | calibration visit on the chip: 23.7 M cycles at 20 labels (0.81 mJ Apollo3 Blue, 9.67 mJ STM32L476) | 0.9–4.5 G MACs (closed-form solve); does not fit on the chip | more than DAELM-S; does not fit on the chip |
 | Always-on trigger | optional spiking presence detector, ≈5–77 nW in clean air (simulator; heaters excluded) | — | — |
 
-**All compared methods** (`deep_model_cost.py`; layer sizes from each paper's text and architecture
-figures: TDACNN Fig. 6, AMDS-PFFA Fig. 2)
+**All compared methods.** System 2+ and DA-ELM as run on the Cortex-M4F above; the others as operation
+counts (`deep_model_cost.py`; layer sizes from each paper's text and architecture figures: TDACNN Fig. 6,
+AMDS-PFFA Fig. 2). Operation counts do not translate one-to-one into cycles: on the Cortex-M4 the
+reference DA-ELM took 11 cycles per multiply-accumulate, the optimised one 7.
 
-| Method | MACs per inference | Energy per inference | Weights, FP32 / int8 | How it adapts | Memory to adapt |
-|---|---|---|---|---|---|
-| System 2+ | 3,299 | ≈10 nJ (updates included) | ≈10 KB | online: calibration at each visit (14–36 µJ) and per-sample pseudo-label steps | ≈31–61 KB (model, running state, 20–50 labelled samples) |
-| DAELM-S / -T | 134,128 | ≈416 nJ | 540 KB / 135 KB | closed-form solve per target batch (0.9–4.5 G MACs) | several MB (table above) |
-| ODAELM-S / -T | 134,128 | ≈416 nJ | 540 KB / 135 KB | online, a Woodbury update per sample (≈2 M MACs, ≈6.2 µJ) | 4.0 MB FP32 (1,000 × 1,000 inverse) |
-| TDACNN | 392,096 + 30k–241k (MMD ensemble) | 1.3–2.0 µJ | 1.1 MB / 276 KB, plus 0.7–5.8 MB of stored source embeddings (FP32) | none in Setting 1; a new source batch means offline retraining (up to 400 epochs) | — (offline) |
-| AMDS-PFFA | 170k–758k | 0.5–2.3 µJ | 0.5–3.0 MB / 0.12–0.76 MB | offline training on both labelled source batches and the whole unlabelled target batch, before predicting | ≥2.7 MB of raw samples for Batch 7, plus training state |
+| Method | Inference cost | Weights, FP32 / int8 | How it adapts | Memory to adapt |
+|---|---|---|---|---|
+| System 2+ | 27,666 cycles (0.94 µJ on the Apollo3 Blue) | 6.2 KB | online: calibration at each visit and per-sample pseudo-label steps | 59.8 KB state with 50 labelled samples |
+| DAELM-S / -T | 921,316 cycles (31.3 µJ) | 540 KB / 135 KB | closed-form solve per target batch (0.9–4.5 G MACs) | several MB (table above) |
+| ODAELM-S / -T | as DA-ELM | 540 KB / 135 KB | online, a Woodbury update per sample (≈2 M MACs) | 4.0 MB FP32 (1,000 × 1,000 inverse) |
+| TDACNN | 392,096 + 30k–241k MACs (MMD ensemble) | 1.1 MB / 276 KB, plus 0.7–5.8 MB of stored source embeddings (FP32) | none in Setting 1; a new source batch means offline retraining (up to 400 epochs) | — (offline) |
+| AMDS-PFFA | 170k–758k MACs | 0.5–3.0 MB / 0.12–0.76 MB | offline training on both labelled source batches and the whole unlabelled target batch, before predicting | ≥2.7 MB of raw samples for Batch 7, plus training state |
 
 TDACNN's test-time ensemble compares each sample with the stored embeddings of the source samples of its
 predicted class (RBF kernel, four classifiers). Its cost is ≈30k MACs with Batch 1 as source and up to
@@ -296,8 +350,11 @@ is class 4 vs class 5 (ethylene vs ammonia).
 - Few-shot accuracies are optimistic by an estimated 7–11 points on Batches 6–10 when labels cannot come
   from the scored concentration levels (section 4). Same-session proximity cannot be ruled out: the
   dataset has no timestamps, and Dennler et al.'s pre-exposure test cannot be run on it.
-- Energy and memory figures are first-order operation counts, not hardware measurements. The deep
-  models' costs rest on details their papers do not state (section 5) and are given as ranges.
+- The microcontroller figures are modelled, not measured: cycles apply the Cortex-M4 timing tables to
+  exact instruction counts, assuming zero-wait-state memory (DA-ELM's 0.54 MB of weights would sit in
+  flash, whose wait states are not charged, so its figures are favourable to DA-ELM), and energies use
+  the datasheets' typical currents for CoreMark, an integer benchmark. The unported deep models are
+  operation counts that rest on details their papers do not state (section 5), given as ranges.
 - Seeds vary the calibration draw and training randomness, not the data. SGD is highly sensitive to
   numerical details: relabelling the gases (which only reorders classes) moved single-seed results and
   changed the validation winner between near-equivalent settings (within 0.5 points). Report curves and

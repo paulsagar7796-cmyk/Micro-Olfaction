@@ -25,6 +25,7 @@ import deep_model_cost as M
 import improve_system2 as I
 
 DOC = Path("paper/comparison_tables.md")
+S2P_FEAT = 256                                         # features per sample (firmware/s2p.h)
 FULL = "K=3 + class weight + pseudo-labels"
 DAELM_ROWS = {0: "SVM-rbf", 20: "DAELM-S(20)", 30: "DAELM-S(30)", 50: "DAELM-T(50)"}
 T_975 = {4: 2.776, 14: 2.145}                          # as sweep_system2_budget.py
@@ -258,45 +259,111 @@ def confound_checks(doc: Doc) -> None:
     doc.expect("4.", f"Spearman ρ {base.median_rho_with_concentration.min():+.2f} to {base.median_rho_with_concentration.max():+.2f}")
 
 
+def fmt_j(joules: float) -> str:
+    """An energy as section 5 writes it: mJ / µJ / nJ, two decimals below 10, one below 100, none above."""
+    for scale, unit in ((1e-3, "mJ"), (1e-6, "µJ"), (1e-9, "nJ")):
+        if joules >= 0.5 * scale or unit == "nJ":
+            v = joules / scale
+            return f"{v:.2f} {unit}" if v < 10 else f"{v:.1f} {unit}" if v < 100 else f"{v:.0f} {unit}"
+
+
 def cost_checks(doc: Doc) -> None:
-    ours, s, t, a = M.ours_inference_macs(), M.system2_and_daelm(), M.tdacnn(), M.amds_pffa()
-    e = lambda macs: macs * M.PJ_PER_MAC  # noqa: E731
-    cal, solve, (m1, m7) = s["calibration"], s["solve"], (t["mmd"][1][0], t["mmd"][7][0])
+    """Headline energy, hardware claim and section 5: the Cortex-M4F results (results/cm4_*.csv, datasheet
+    constants in cm4_profile.py) and, for the methods not ported, deep_model_cost.py's operation counts."""
+    import cm4_profile as P
+    en = pd.read_csv("results/cm4_energy.csv", float_precision="round_trip")
+    mem = pd.read_csv("results/cm4_memory.csv").iloc[0]
+    classes = pd.read_csv("results/cm4_inference_classes.csv")
+    L476, A3 = "STM32L476", "Apollo3 Blue"
+
+    def cyc(op: str, v: str = "opt") -> float:
+        return float(en[en.operation.str.startswith(op) & (en.variant == v) & (en.chip == L476)].cycles.iloc[0])
+
+    def joules(op: str, chip: str, v: str = "opt") -> float:
+        return float(en[en.operation.str.startswith(op) & (en.variant == v) & (en.chip == chip)].energy_joules.iloc[0])
+
+    infer, test, upd, dep, elm = ("inference, per sample", "pseudo-label confidence test", "pseudo-label update",
+                                  "deployed average", "DA-ELM inference")
+    ratio = {v: cyc(elm, v) / (cyc(infer, v) + cyc(test, v)) for v in P.VARIANTS}
+    ratio_dep = {v: cyc(elm, v) / cyc(dep, v) for v in P.VARIANTS}
+    doc.expect("Headline", f"at ≈{joules(infer, A3) * 1e6:.0f} µJ per inference (Apollo3 Blue; "
+                           f"≈{joules(infer, L476) * 1e6:.0f} µJ on an STM32L476), {ratio['base']:.0f}× less than DA-ELM",
+               f"({joules(infer, A3) * 1e6:.2f} and {joules(infer, L476) * 1e6:.1f} µJ)",
+               f"({ratio['opt']:.0f}× with both optimised)",
+               f"averages about {joules(dep, A3) * 1e6:.0f} µW on the Apollo3 Blue")
+    import energy_proxy as E
+    doc.expect("Headline", f"draws around {E.CONSTANTS['heater'][0] * 1e3:.0f} mW or more")
+    doc.expect("Hardware", "≈60 KB of state", f"≈{joules(dep, A3) * 1e6:.1f} µJ per sample including updates on an Apollo3 "
+                                              f"Blue, ≈{joules(dep, L476) * 1e6:.1f} µJ on an STM32L476",
+               f"{mem.state_bytes:,} bytes of state with 50 stored labelled samples (the readout is "
+               f"{mem.readout_bytes:,} of them), plus at most {mem.stack_bytes_opt} bytes of stack")
+    doc.n += 1
+    if not 55e3 <= mem.state_bytes + mem.stack_bytes_opt <= 65e3:
+        doc.failed.append("hardware claim: state + stack is no longer ≈60 KB")
+
+    s, t, a = M.system2_and_daelm(), M.tdacnn(), M.amds_pffa()
+    m1, m7 = t["mmd"][1][0], t["mmd"][7][0]
     lo, hi = (a["macs"] + m for m, _ in a["encoders"].values())
     plo, phi = (a["params"] + p for _, p in a["encoders"].values())
-    state = [s["state"] + s["buffer"][n] for n in M.LABELS]
-    doc.expect("5.",
-               f"≈{round(ours, -2):,} MACs, ≈{e(ours) * 1e9:.1f} nJ", f"{I.DAELM_MACS:,} MACs, ≈{e(I.DAELM_MACS) * 1e9:.0f} nJ",
-               f"| {ours:,} | ≈{e(ours) * 1e9:.0f} nJ", f"| {I.DAELM_MACS:,} | ≈{e(I.DAELM_MACS) * 1e9:.0f} nJ",
-               f"≈{s['state'] / 1e3:.0f} KB", f"≈{s['daelm_model'] / 1e6:.1f} MB",
-               f"{cal[20] / 1e6:.1f}–{cal[50] / 1e6:.1f} M MACs, {e(cal[20]) * 1e6:.0f}–{e(cal[50]) * 1e6:.0f} µJ",
-               f"{solve[1] / 1e9:.1f}–{solve[7] / 1e9:.1f} G MACs, ≈{e(solve[1]) * 1e3:.1f}–{e(solve[7]) * 1e3:.1f} mJ",
-               f"≈{s['farthest_point'] / 1e9:.2f} G MACs, ≈{e(s['farthest_point']) * 1e3:.1f} mJ, "
-               f"{s['unlabelled'] / 1e6:.1f} MB buffer for Batch 7",
+    doc.expect("Hardware", f"TDACNN ≈{t['params'] / 1e3:.0f} KB",
+               f"({s['inverse'] / 1e6:.1f} MB in FP32; about {2 * M.ELM_HIDDEN ** 2 / 1e6:.0f} M multiply-accumulates per update)",
+               f"would fit in {250 * 250 * 4 / 1e3:.0f} KB")
+
+    pj = P.PJ_PER_CYCLE
+    doc.expect("5.", f"{pj[L476] / 3.0:.0f} µA/MHz at 3 V", f"= {pj[L476]:.0f} pJ per cycle",
+               f"{pj[A3] / 3.3:.1f} µA/MHz at 3.3 V", f"= {pj[A3]:.1f} pJ per cycle")
+    seq = pd.read_csv("results/sequential_system2plus.csv")
+    seq = seq[(seq.condition == "System 2+") & (seq.budget == 12)]
+    rate = 100 * seq.pseudo_updates.sum() / seq.scored.sum()
+    rows = [("System 2+ inference, per sample", infer), ("Pseudo-label confidence test, per sample", test),
+            ("One pseudo-label update", upd), (f"Deployed average per sample (updates on {rate:.1f} % of samples)", dep),
+            ("Calibration visit, 20 labels (50 passes)", "calibration visit, 20"),
+            ("Calibration visit, 50 labels (50 passes)", "calibration visit, 50"), ("DA-ELM inference, per sample", elm)]
+    for label, op in rows:
+        big = cyc(op) > 1e7
+        c = (lambda x: f"{x / 1e6:.1f} M") if big else (lambda x: f"{x:,.0f}")
+        doc.expect("5.", f"| {label} | {c(cyc(op, 'base'))} | {c(cyc(op))} | {fmt_j(joules(op, L476))} | "
+                         f"{fmt_j(joules(op, A3))} |")
+    doc.expect("5.", f"{ratio['base']:.1f}× with the reference implementations", f"{ratio['opt']:.1f}× with both optimised",
+               f"for the deployed average, {ratio_dep['base']:.1f}× and {ratio_dep['opt']:.1f}×",
+               f"takes {cyc(infer) / 80e6 * 1e3:.2f} ms at 80 MHz (STM32L476) and {cyc(infer) / 48e6 * 1e3:.2f} ms at 48 MHz",
+               f"a 20-label calibration visit {cyc('calibration visit, 20') / 80e6:.2f} s and "
+               f"{cyc('calibration visit, 20') / 48e6:.2f} s",
+               f"{100 * classes[(classes.variant == 'opt') & (classes.instruction_class == 'FP divide / square root')].share_of_inference_cycles.iloc[0]:.0f} % of optimised",
+               f"{mem.state_bytes:,} bytes of device state with 50 labelled samples (readout {mem.readout_bytes:,}), at most "
+               f"{mem.stack_bytes_base} bytes of library stack; code {mem.code_bytes_base:,} bytes (reference) or "
+               f"{mem.code_bytes_opt:,} bytes (optimised)",
+               f"at least {s['inverse'] / 1e6:.0f} MB of working memory",
+               f"{s['hidden'][1] / 1e6:.1f}–{s['hidden'][7] / 1e6:.0f} MB of hidden-layer outputs",
+               # the System 2+ / DAELM table
+               f"≈{s['farthest_point'] / 1e9:.2f} G MACs, {s['unlabelled'] / 1e6:.1f} MB buffer for Batch 7",
+               f"| {cyc(infer):,.0f} cycles: {fmt_j(joules(infer, A3))} (Apollo3 Blue), {fmt_j(joules(infer, L476))} (STM32L476) | "
+               f"{cyc(elm):,.0f} cycles: {fmt_j(joules(elm, A3))}, {fmt_j(joules(elm, L476))} |",
+               f"| {(mem.state_bytes - 50 * (4 * S2P_FEAT + 4)) / 1e3:.1f} KB (readout {mem.readout_bytes / 1e3:.1f} KB, running "
+               f"statistics {2 * 4 * S2P_FEAT / 1e3:.0f} KB) | {s['daelm_model'] / 1e6:.2f} MB of weights",
                f"{s['buffer'][20] / 1e3:.0f}–{s['buffer'][50] / 1e3:.0f} KB (20–50 labelled samples)",
                f"{s['source'][1] / 1e6:.1f}–{s['source'][7] / 1e6:.1f} MB stored source + "
                f"{s['hidden'][1] / 1e6:.1f}–{s['hidden'][7] / 1e6:.0f} MB hidden outputs + {s['inverse'] / 1e6:.1f} MB solve",
                f"{s['unlabelled'] / 1e6:.1f} MB unlabelled batch + {s['unlabelled_hidden'] / 1e6:.0f} MB hidden outputs",
-               f"≈{s['ours_sram_j'] * 1e9:.0f} nJ for System 2", f"≈{s['daelm_sram_j'] * 1e6:.1f} µJ for DA-ELM",
-               f"≈{state[0] / 1e3:.0f}–{state[1] / 1e3:.0f} KB",
-               f"{s['daelm_model'] / 1e3:.0f} KB / {s['daelm_model'] / 4e3:.0f} KB",
-               f"≈{e(2 * M.ELM_HIDDEN ** 2) * 1e6:.1f} µJ) | {s['inverse'] / 1e6:.1f} MB FP32",
-               f"| {t['macs']:,} + {m1 / 1e3:.0f}k–{m7 / 1e3:.0f}k (MMD ensemble) | "
-               f"{e(t['macs'] + m1) * 1e6:.1f}–{e(t['macs'] + m7) * 1e6:.1f} µJ | "
+               f"{cyc('calibration visit, 20') / 1e6:.1f} M cycles at 20 labels ({fmt_j(joules('calibration visit, 20', A3))} "
+               f"Apollo3 Blue, {fmt_j(joules('calibration visit, 20', L476))} STM32L476)",
+               f"{s['solve'][1] / 1e9:.1f}–{s['solve'][7] / 1e9:.1f} G MACs (closed-form solve)",
+               # all compared methods
+               f"reference DA-ELM took {cyc(elm, 'base') / I.DAELM_MACS:.0f} cycles per multiply-accumulate, the optimised "
+               f"one {cyc(elm) / I.DAELM_MACS:.0f}",
+               f"| System 2+ | {cyc(infer):,.0f} cycles ({fmt_j(joules(infer, A3))} on the Apollo3 Blue) | "
+               f"{mem.readout_bytes / 1e3:.1f} KB |",
+               f"| {mem.state_bytes / 1e3:.1f} KB state with 50 labelled samples |",
+               f"| DAELM-S / -T | {cyc(elm):,.0f} cycles ({fmt_j(joules(elm, A3))}) | {s['daelm_model'] / 1e3:.0f} KB / "
+               f"{s['daelm_model'] / 4e3:.0f} KB |",
+               f"(≈{2 * M.ELM_HIDDEN ** 2 / 1e6:.0f} M MACs) | {s['inverse'] / 1e6:.1f} MB FP32",
+               f"| {t['macs']:,} + {m1 / 1e3:.0f}k–{m7 / 1e3:.0f}k MACs (MMD ensemble) | "
                f"{4 * t['params'] / 1e6:.1f} MB / {t['params'] / 1e3:.0f} KB, plus "
                f"{4 * t['mmd'][1][1] / 1e6:.1f}–{4 * t['mmd'][7][1] / 1e6:.1f} MB",
-               f"| {lo / 1e3:.0f}k–{hi / 1e3:.0f}k | {e(lo) * 1e6:.1f}–{e(hi) * 1e6:.1f} µJ | "
-               f"{4 * plo / 1e6:.1f}–{4 * phi / 1e6:.1f} MB / {plo / 1e6:.2f}–{phi / 1e6:.2f} MB",
+               f"| {lo / 1e3:.0f}k–{hi / 1e3:.0f}k MACs | {4 * plo / 1e6:.1f}–{4 * phi / 1e6:.1f} MB / "
+               f"{plo / 1e6:.2f}–{phi / 1e6:.2f} MB",
                f"≥{sum(L.BATCH_SIZES[b] for b in (1, 2, 7)) * 128 * 4 / 1e6:.1f} MB of raw samples")
-    doc.expect("Hardware", "≈60 KB of state", f"≈{e(ours) * 1e9:.0f} nJ per sample", f"TDACNN ≈{t['params'] / 1e3:.0f} KB",
-               f"({s['inverse'] / 1e6:.1f} MB in FP32, ≈{e(2 * M.ELM_HIDDEN ** 2) * 1e6:.0f} µJ per update)",
-               f"would fit in {250 * 250 * 4 / 1e3:.0f} KB")
-    doc.n += 1
-    if not 55e3 <= s["state"] + s["buffer"][50] <= 65e3:
-        doc.failed.append("hardware claim: model + 50 labelled samples is no longer ≈60 KB")
-    doc.expect("Headline", f"≈{e(ours) * 1e9:.0f} nJ per inference")
 
-    import energy_proxy as E
     out = io.StringIO()
     with contextlib.redirect_stdout(out):
         E.presence_part([Path("results/presence_test_tracking.csv")], {k: v[0] for k, v in E.CONSTANTS.items()})
@@ -308,6 +375,34 @@ def cost_checks(doc: Doc) -> None:
         doc.expect("5.", f"≈{min(clean):.0f}–{max(clean):.0f} nW in clean air")
 
 
+def precision_checks(doc: Doc) -> None:
+    """Section 5: what single precision changes (the paper cells of check_device_reference.py, from
+    results/device_reference.csv against the committed double-precision results)."""
+    import check_device_reference as K
+    df = pd.read_csv("results/device_reference.csv", float_precision="round_trip")
+    comb = pd.read_csv("results/system2_combined.csv", float_precision="round_trip").rename(columns={"updates": "pseudo_updates"})
+    comb = comb[comb.config == "K=3 + class weight + pseudo-labels"]
+    seq = pd.read_csv("results/sequential_system2plus.csv", float_precision="round_trip")
+    committed = pd.concat([comb.assign(protocol="settings", arith="paper", condition="System 2+"),
+                           seq[seq.condition.isin(K.SEQ_CONDITIONS)].assign(protocol="sequential", arith="paper")])
+    c = pd.concat([K.cells(df[df.arith == "chip32"]), K.cells(committed)]).pivot_table(
+        index=["cell", "seed"], columns="arith", values="value")
+    d = (c.chip32 - c.paper).groupby(level=0).mean()
+    doc.expect("5.", f"at most {d.abs().max():.2f} points (mean {d.mean():+.2f})")
+
+
+def pseudo_label_checks(doc: Doc) -> None:
+    """Section 2: pseudo-labels taken from samples that every unit rejects (check_pseudo_labels.py)."""
+    q = pd.read_csv("results/pseudo_label_scores.csv").set_index("protocol")
+    seq, sett = q.loc["sequential"], q.loc["settings"]
+    doc.expect("2.", f"{100 * seq.share_all_units_reject:.1f} % of the pseudo-labels in the sequential protocol and "
+                     f"{100 * sett.share_all_units_reject:.1f} % in Settings 1–2 (median winning score "
+                     f"{f1(seq.median_winning_score_when_all_reject).split('.')[0]} and "
+                     f"{f1(sett.median_winning_score_when_all_reject).split('.')[0]})",
+               f"right only {100 * seq.precision_all_reject:.1f} % and {100 * sett.precision_all_reject:.1f} % of the time, "
+               f"against {100 * seq.precision_winner_accepts:.1f} % and {100 * sett.precision_winner_accepts:.1f} %")
+
+
 def main() -> None:
     doc = Doc(DOC.read_text())
     pub = {(r["method"], r["setting"]): r for r in L.load_published()}
@@ -317,6 +412,8 @@ def main() -> None:
     literature_checks(doc, pub)
     confound_checks(doc)
     cost_checks(doc)
+    pseudo_label_checks(doc)
+    precision_checks(doc)
     for f in doc.failed:
         print("FAIL", f)
     print(f"{doc.n - len(doc.failed)}/{doc.n} checks of {DOC} passed")

@@ -350,6 +350,26 @@ def per_operation(res: dict, n: int, rate: float) -> dict:
     return ops
 
 
+def memory(t: dict) -> dict:
+    """RAM and flash of the library at the paper's configuration (50 labelled samples), from the Arm build:
+    the device state and readout sizes as the compiler lays them out, code size, deepest stack."""
+    probe, obj = BUILD / "state_probe.c", BUILD / "state_probe.o"
+    probe.write_text('#include "s2p.h"\nchar s2p_state_bytes[sizeof(s2p_device)];\n'
+                     'char s2p_readout_bytes[sizeof(s2p_readout)];\n')
+    subprocess.run([str(t["arm"] / "arm-none-eabi-gcc"), "-mcpu=cortex-m4", "-mthumb", "-mfpu=fpv4-sp-d16",
+                    "-mfloat-abi=hard", "-DS2P_MAX_LABELLED=50", f"-I{FIRMWARE}", "-c", "-o", str(obj), str(probe)],
+                   check=True)
+    nm = subprocess.run([str(t["arm"] / "arm-none-eabi-nm"), "-S", str(obj)], capture_output=True, text=True).stdout
+    sizes = {p[3]: int(p[1], 16) for p in (l.split() for l in nm.splitlines()) if len(p) == 4}
+    out = {"state_bytes": sizes["s2p_state_bytes"], "readout_bytes": sizes["s2p_readout_bytes"]}
+    for v in VARIANTS:
+        size = subprocess.run([str(t["arm"] / "arm-none-eabi-size"), str(BUILD / f"s2p{suffix(v)}_cm4_50.o")],
+                              capture_output=True, text=True).stdout.splitlines()[1].split()
+        out[f"code_bytes_{v}"] = int(size[0]) + int(size[1])
+        out[f"stack_bytes_{v}"] = library_stack(v)
+    return out
+
+
 def fmt_energy(joules: float) -> str:
     for scale, unit in ((1e-3, "mJ"), (1e-6, "µJ"), (1e-9, "nJ")):
         if joules >= scale:
@@ -415,6 +435,9 @@ def main() -> None:
                                     "energy_joules": j})
         print(f"{k:<58}" + "".join(cells))
     pd.DataFrame(energy_rows).to_csv(args.out.with_name("cm4_energy.csv"), index=False)
+    pd.DataFrame([{"variant": v, "instruction_class": k, "share_of_inference_cycles": x / sum(results[v]["inference"]["by_class"].values())}
+                  for v in VARIANTS for k, x in results[v]["inference"]["by_class"].items()]
+                 ).to_csv(args.out.with_name("cm4_inference_classes.csv"), index=False)
     for v in VARIANTS:
         by_class = results[v]["inference"]["by_class"]
         total = sum(by_class.values())
@@ -423,7 +446,12 @@ def main() -> None:
         print(f"{v}: library stack, deepest call chain (compiler frame sizes, 50 labelled samples): "
               f"{library_stack(v)} bytes; measured peak of the whole benchmark program: "
               f"{max(r['stack'] for r in results[v].values())} bytes")
-    print(f"\nwrote {args.out} and {args.out.with_name('cm4_energy.csv')}")
+    mem = memory(t)
+    pd.DataFrame([mem]).to_csv(args.out.with_name("cm4_memory.csv"), index=False)
+    print(f"\nMemory at 50 labelled samples: device state {mem['state_bytes']:,} bytes (readout {mem['readout_bytes']:,}); "
+          f"library code {mem['code_bytes_base']:,} bytes (reference) / {mem['code_bytes_opt']:,} (optimised); "
+          f"deepest library stack {mem['stack_bytes_base']} / {mem['stack_bytes_opt']} bytes")
+    print(f"\nwrote {args.out}, {args.out.with_name('cm4_energy.csv')} and {args.out.with_name('cm4_memory.csv')}")
 
 
 if __name__ == "__main__":

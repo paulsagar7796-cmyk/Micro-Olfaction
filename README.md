@@ -9,7 +9,7 @@ a simulated MOx sensor front end with a spiking presence detector. The results f
 
 ```bash
 python3 -m pip install -r requirements.txt   # exact versions; Python 3.13.2
-./reproduce.sh                               # ≈1.5 h on 10 cores
+./reproduce.sh                               # ≈1.5 h on 10 cores, plus ≈20 min for the C-port steps
 ```
 
 `reproduce.sh` downloads the dataset if it is missing (`fetch_data.py`) and verifies it against
@@ -19,7 +19,9 @@ python3 -m pip install -r requirements.txt   # exact versions; Python 3.13.2
 - `check_reproduction.py` compares every regenerated file with the committed version.
 - `check_paper_numbers.py` recomputes each number in `paper/comparison_tables.md` from `results/`.
 
-`./reproduce.sh confound table` reruns only the named steps; the step list is at the top of the script.
+`./reproduce.sh confound table` reruns only the named steps; the step list is at the top of the script. The C-port steps
+(the microcontroller figures) run only when the Arm tools below are installed; otherwise the committed
+results are checked as they are.
 
 With the pinned versions, every file should come out identical. Stochastic-gradient training is
 sensitive to floating-point details, so other library versions can change individual results. The

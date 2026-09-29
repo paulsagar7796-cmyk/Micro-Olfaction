@@ -1,0 +1,6 @@
+Pseudo-labels on Batches 6–10 in the paper's System 2+ runs: share taken from samples that every one-vs-rest unit rejects (all six scores < 0), and precision
+  protocol  pseudo_labels  share_all_units_reject  precision_all_reject  precision_winner_accepts  median_winning_score_when_all_reject
+sequential          79392                   0.108                 0.604                     0.956                              -151.147
+  settings          89884                   0.191                 0.543                     0.889                              -176.457
+       all         169276                   0.152                 0.564                     0.922                              -167.317
+wrote results/pseudo_label_scores.csv

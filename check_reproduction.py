@@ -25,8 +25,11 @@ OUTPUTS = [f"results/{name}" for name in (
     "system2_tuning.csv", "system2_budget_sweep.csv", "sequential_system2plus.csv", "literature_comparison.csv",
     "system2_improvements.csv",
     "system2_combined.csv", "temporal_confound.csv", "temporal_confound_file_order.csv",
-    "temporal_confound_baseline.csv", "literature_table.csv", "presence_test.csv", "presence_test_nobias.csv",
-    "presence_test_tracking.csv")]
+    "temporal_confound_baseline.csv", "literature_table.csv", "pseudo_label_scores.csv", "presence_test.csv",
+    "presence_test_nobias.csv", "presence_test_tracking.csv",
+    # the C port (regenerated only when the Arm tools are present)
+    "device_reference.csv", "firmware_check.csv", "firmware_check_opt.csv", "firmware_check_cm4.csv",
+    "firmware_check_cm4_opt.csv", "cm4_cycles.csv", "cm4_energy.csv", "cm4_memory.csv", "cm4_inference_classes.csv")]
 
 
 def check_env() -> bool:

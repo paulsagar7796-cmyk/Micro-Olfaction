@@ -1,0 +1,44 @@
+built firmware/build/elm_check
+built firmware/build/elm_check_opt
+Equivalence, optimised vs reference build, every benchmark run on the emulated Cortex-M4F (predictions and pseudo-label counts): identical
+DA-ELM on the host, 1000 samples: elm_opt.c output sums bit-identical to the NumPy mirror of elm.c: True; predictions of elm.c, elm_opt.c and the mirror identical: True
+
+Cycles per operation (P = 2; ranges P = 1–3, UDIV 2–12)
+                                                               reference     optimised  speed-up   optimised range
+front end (features + alignment), per sample                      32,866        21,576     1.52×   21,240–21,912
+scores + argmax, per sample                                       15,566         6,090     2.56×   6,019–6,161
+inference, per sample                                             48,432        27,666     1.75×   27,259–28,073
+pseudo-label confidence test, per sample                             465           397     1.17×   388–406
+pseudo-label update, per update                                   48,934        30,667     1.60×   30,049–31,285
+deployed average per sample (updates on 16.1 % of samples)        56,783        33,005     1.72×   32,490–33,521
+calibration visit, 20 labels                                  36,185,142    23,704,366     1.53×   23,192,491–24,149,741
+  of which the 50 calibration passes, 20 labels               35,490,776    23,235,776     1.53×   22,735,782–23,669,270
+calibration visit, 50 labels                                  89,410,427    58,674,099     1.52×   57,404,358–59,772,340
+  of which the 50 calibration passes, 50 labels               87,674,341    57,502,561     1.52×   56,262,589–58,571,033
+DA-ELM inference, per sample                                   1,509,850       921,316     1.64×   903,295–939,337
+DA-ELM / System 2+, reference vs reference: 30.9× (inference with the pseudo-label test), 26.6× (deployed average)
+DA-ELM / System 2+, optimised vs optimised: 32.8× (inference with the pseudo-label test), 27.9× (deployed average)
+
+Energy (cycles × datasheet run current per MHz × supply voltage; nominal cycles)
+                                                               STM32L476 reference     STM32L476 optimised  Apollo3 Blue reference  Apollo3 Blue optimised
+front end (features + alignment), per sample                               13.4 µJ                 8.80 µJ                 1.12 µJ                733.4 nJ
+scores + argmax, per sample                                                6.35 µJ                 2.48 µJ                529.1 nJ                207.0 nJ
+inference, per sample                                                      19.8 µJ                 11.3 µJ                 1.65 µJ                940.4 nJ
+pseudo-label confidence test, per sample                                  189.5 nJ                162.1 nJ                 15.8 nJ                 13.5 nJ
+pseudo-label update, per update                                            20.0 µJ                 12.5 µJ                 1.66 µJ                 1.04 µJ
+deployed average per sample (updates on 16.1 % of samples)                 23.2 µJ                 13.5 µJ                 1.93 µJ                 1.12 µJ
+calibration visit, 20 labels                                               14.8 mJ                 9.67 mJ                 1.23 mJ                805.7 µJ
+  of which the 50 calibration passes, 20 labels                            14.5 mJ                 9.48 mJ                 1.21 mJ                789.8 µJ
+calibration visit, 50 labels                                               36.5 mJ                 23.9 mJ                 3.04 mJ                 1.99 mJ
+  of which the 50 calibration passes, 50 labels                            35.8 mJ                 23.5 mJ                 2.98 mJ                 1.95 mJ
+DA-ELM inference, per sample                                              616.0 µJ                375.9 µJ                 51.3 µJ                 31.3 µJ
+
+base: inference cycles by class: FP arithmetic / move 23 %, load/store multiple 22 %, branch 21 %, FP divide / square root 15 %, load 10 %, integer 9 %, store 1 %, load/store 0 %
+base: library stack, deepest call chain (compiler frame sizes, 50 labelled samples): 864 bytes; measured peak of the whole benchmark program: 4172 bytes
+
+opt: inference cycles by class: FP arithmetic / move 39 %, FP divide / square root 26 %, load 15 %, integer 8 %, branch 5 %, load/store multiple 4 %, store 3 %, load/store 0 %
+opt: library stack, deepest call chain (compiler frame sizes, 50 labelled samples): 864 bytes; measured peak of the whole benchmark program: 4172 bytes
+
+Memory at 50 labelled samples: device state 59,780 bytes (readout 6,232); library code 2,312 bytes (reference) / 7,112 (optimised); deepest library stack 864 / 864 bytes
+
+wrote results/cm4_cycles.csv, results/cm4_energy.csv and results/cm4_memory.csv
