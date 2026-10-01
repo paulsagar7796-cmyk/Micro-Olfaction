@@ -1,0 +1,28 @@
+{
+  "_comment": "Every declared difference between a table in the manuscript and its source table. build.py applies them in this order: omitted rows (data-omit in the template), dropped columns, cut cells, then the rename. check_manuscript.py enforces them: a cut may only delete text from a cell, never add any. Rows are named by their first cell and columns by their header, both as written in the source.",
+  "rename": [
+    ["System 2+", "SOLAR+"],
+    ["System 2", "SOLAR"]
+  ],
+  "tables": {
+    "v3:5. Operational trade-offs#0": {
+      "why": "energy is left to the next paper; the cycle counts stay",
+      "drop_columns": ["STM32L476", "Apollo3 Blue"]
+    },
+    "v3:5. Operational trade-offs#1": {
+      "why": "energy is left to the next paper; the cycle counts stay",
+      "cells": [
+        {"row": "Inference per sample (optimised)", "column": "System 2+", "text": "27,666 cycles"},
+        {"row": "Inference per sample (optimised)", "column": "DAELM-S", "text": "921,316 cycles"},
+        {"row": "Adaptation per batch", "column": "System 2+", "text": "calibration visit on the chip: 23.7 M cycles at 20 labels"}
+      ]
+    },
+    "v3:5. Operational trade-offs#2": {
+      "why": "energy is left to the next paper; the cycle counts stay",
+      "cells": [
+        {"row": "System 2+", "column": "Inference cost", "text": "27,666 cycles"},
+        {"row": "DAELM-S / -T", "column": "Inference cost", "text": "921,316 cycles"}
+      ]
+    }
+  }
+}

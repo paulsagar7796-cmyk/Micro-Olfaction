@@ -1,0 +1,38 @@
+{
+  "_comment": "Everything the author decides lives here. build.py fills it into the manuscript, CITATION.cff and LICENSE; any value containing TODO blocks `build.py --final`. Remove an optional author field by leaving it empty.",
+  "title": "Micro-Olfaction: Few-Shot Streaming Drift Compensation for Gas Sensor Arrays on Microcontrollers",
+  "version": "1",
+  "date": "2026-09-29",
+  "authors": [
+    {
+      "given_names": "Sagar",
+      "family_names": "Paul",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0007-7020-8949",
+      "email": "paulsagar7796@gmail.com",
+      "corresponding": true
+    }
+  ],
+  "copyright_holder": "Sagar Paul",
+  "keywords": [
+    "gas sensor drift",
+    "electronic nose",
+    "metal-oxide gas sensors",
+    "domain adaptation",
+    "online learning",
+    "few-shot calibration",
+    "calibration transfer",
+    "microcontroller",
+    "Cortex-M4",
+    "reproducibility"
+  ],
+  "preprint_doi": "10.5281/zenodo.23074212",
+  "software_doi": "10.5281/zenodo.23074395",
+  "software_version": "paper-v3-preprint",
+  "release_tag": "paper-v3-preprint",
+  "statements": {
+    "ai_assistance": "The author drafted this manuscript, building on an earlier draft prepared with an AI assistant (Claude, Anthropic). The assistant also helped with the analysis code and the C implementation, and with correcting wording and factual errors in the author's draft. The C implementation was tested bit for bit against a reference specification, and all results are regenerated and compared with the archived ones by automated scripts. The author reviewed all code, results and text and takes complete responsibility for the integrity and conclusions of the work.",
+    "funding": "This research received no external funding.",
+    "competing_interests": "The author declares no competing financial interests or personal relationships that could have appeared to influence the work reported in this paper."
+  }
+}

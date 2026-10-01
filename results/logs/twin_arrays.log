@@ -1,0 +1,3 @@
+self-check: 640 trials; the extractor repeats exactly on 3 trials
+640 trials, 128 features each  [… s]
+wrote results/twin_arrays_features.csv

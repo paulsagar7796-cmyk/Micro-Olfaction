@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!--
+  Manuscript template. build.py fills the {{fields}} from metadata.json, numbers sections, tables, figures
+  and citations, generates every <table data-src="doc:section#i"> from its source document (build.SOURCES)
+  with only the changes in edits.json, builds the dataset table from fetch_data.py, and prints the PDF.
+  check_manuscript.py checks the built file. data-src on a <section> names the source sections its numbers
+  come from ("*" = all sources).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<meta name="author" content="{{author_names}}">
+<meta name="keywords" content="{{keywords}}">
+<style>
+  @font-face { font-family: "Sym"; src: local("STIX Two Text Regular"), local("STIXTwoText"), local("STIX Two Text"); unicode-range: U+00B5, U+0370-03FF, U+2190-21FF, U+2200-22FF; }
+  @font-face { font-family: "Sym"; font-style: italic; src: local("STIX Two Text Italic"), local("STIXTwoText-Italic"); unicode-range: U+00B5, U+0370-03FF, U+2190-21FF, U+2200-22FF; }
+  @page {
+    size: A4;
+    margin: 18mm 18mm 19mm 18mm;
+    @bottom-center { content: counter(page) " / " counter(pages); font-family: Charter, Georgia, serif; font-size: 8.5pt; color: #555; }
+  }
+  html { font-family: "Sym", Charter, "Bitstream Charter", Georgia, "Times New Roman", serif; font-size: 10pt; line-height: 1.4; color: #111; background: #fff; }
+  body { margin: 0 auto; max-width: 174mm; background: #fff; }
+  @media screen { body { padding: 10mm 16px 20mm; } }
+  p { margin: 0 0 0.55em; text-align: justify; hyphens: auto; }
+  h1 { font-size: 17pt; line-height: 1.22; margin: 3mm 0 3.5mm; font-weight: 700; }
+  h2 { font-size: 11.5pt; margin: 5.5mm 0 2mm; break-after: avoid; }
+  h3 { font-size: 10pt; margin: 3.5mm 0 1.4mm; break-after: avoid; }
+  .secnum { display: inline-block; min-width: 7mm; }
+  .front .preprint-note { font-size: 8.5pt; color: #555; border-bottom: 0.5pt solid #999; padding-bottom: 1.6mm; margin-bottom: 2mm; text-align: left; }
+  .front .authors { font-size: 11pt; margin: 0 0 1.2mm; text-align: left; }
+  .front .affils, .front .corr, .front .licence { font-size: 8.8pt; color: #333; margin: 0 0 0.6mm; text-align: left; }
+  .abstract { margin: 5mm 5mm 3mm; font-size: 9.4pt; }
+  .abstract h2 { font-size: 9.4pt; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1.6mm; }
+  .abstract .keywords { font-size: 8.8pt; margin-top: 1.5mm; text-align: left; }
+  figure { margin: 3.5mm 0 4.5mm; break-inside: avoid; }
+  figure.table figcaption { font-size: 8.8pt; margin-bottom: 1.3mm; line-height: 1.35; text-align: left; }
+  figure.fig figcaption { font-size: 8.8pt; margin-top: 1.8mm; line-height: 1.35; text-align: left; }
+  .capnum { font-weight: 700; }
+  table { border-collapse: collapse; width: 100%; font-size: 7.9pt; line-height: 1.3; border-top: 1pt solid #111; border-bottom: 1pt solid #111; font-variant-numeric: lining-nums tabular-nums; }
+  thead th { border-bottom: 0.6pt solid #111; text-align: left; font-weight: 700; vertical-align: bottom; padding: 1.1mm 1.3mm; }
+  tbody td { padding: 0.75mm 1.3mm; vertical-align: top; text-align: left; }
+  tbody tr.group-start td { border-top: 0.4pt solid #b5b5b5; }
+  table.num td:not(:first-child), table.num th:not(:first-child) { text-align: center; }
+  table.num2 td:nth-child(n+3), table.num2 th:nth-child(n+3) { text-align: center; }
+  table.num td:not(:first-child), table.num2 td:nth-child(n+3), table.num2 td:first-child { white-space: nowrap; }
+  #tab-acc table { font-size: 7.6pt; }
+  #tab-lit td:last-child { white-space: nowrap; }
+  figure.table.split { break-inside: auto; }
+  figure.table figcaption { break-after: avoid; }
+  tbody tr { break-inside: avoid; }
+  .tnote { font-size: 7.9pt; color: #333; margin: 1.2mm 0 0; line-height: 1.35; text-align: left; }
+  ul, ol { margin: 0 0 0.6em; padding-left: 5.5mm; }
+  li { margin: 0 0 0.3em; text-align: justify; hyphens: auto; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 8.4pt; }
+  figure.fig svg { width: 100%; height: auto; display: block; }
+  .declarations p { font-size: 9.2pt; }
+  ol.references { font-size: 8.5pt; line-height: 1.35; list-style: none; padding-left: 0; }
+  ol.references li { display: grid; grid-template-columns: 8mm 1fr; text-align: left; hyphens: none; margin-bottom: 1.1mm; }
+  cite { font-style: normal; }
+  .nw { white-space: nowrap; }
+  a { color: inherit; text-decoration: none; }
+  a[href^="http"] { color: #1a4d8f; }
+  .placeholder { background: #fff1a8; }
+</style>
+</head>
+<body>
+
+<header class="front">
+  <p class="preprint-note">Preprint, not peer reviewed · version {{version}} · {{date_long}}{{front_doi}}</p>
+  <h1>{{title}}</h1>
+  <p class="authors">{{authors_html}}</p>
+  {{affiliations_html}}
+  <p class="corr">{{correspondence_html}}</p>
+  <p class="licence">{{licence_html}}</p>
+</header>
+
+<section class="abstract unnumbered" id="sec-abstract" data-src="*">
+  <h2>Abstract</h2>
+  <p>Metal-oxide gas sensor arrays drift, so a classifier trained on early recordings loses accuracy over the following months. Drift-compensation methods published for the UCI Gas Sensor Array Drift dataset typically adapt in batch or offline, often using the whole target batch, and none of those compared here can adapt within a microcontroller's memory. We evaluate a lightweight, resource-aware online method, SOLAR+ (Streaming Online Linear Alignment and Readout): running alignment of 256 features, a linear logistic readout trained by stochastic gradient descent, strong calibration on a few labelled samples per gas, a class weight, and streaming pseudo-labels. All method choices were made on Batches 2–5; Batches 6–10 (months 17–36) are held out. With 20 balanced target-calibration samples, SOLAR+ exceeds the published DA-ELM result by 4.3 percentage points in both standard evaluation settings, and at 50 samples it comes within 1–4 points (and exceeds it in Setting 2). The advantage depends on balanced calibration: with DA-ELM's gas-agnostic label selection, SOLAR+ trails at every labelled budget, and without target labels TDACNN remains ahead. A C implementation reproduces the method's specification bit for bit. On an emulated Cortex-M4F its inference takes 27,666 cycles. Its adaptation runs entirely on-chip within 59,780 bytes of state, whereas DA-ELM requires at least 4 MB of memory and cannot adapt without offloading to a gateway or server. A concentration-level hold-out reduces few-shot accuracy by 7–11 percentage points, indicating that conventional benchmark results can benefit from concentration-level proximity, although calibration from other concentration levels retains 47–67 % of the accuracy gain. On independent sensor boards, SOLAR+ achieves 95.4 % cross-board accuracy after calibration on 20 of each board's trials and raises the weakest board from 58 % to 90 %; a random forest given the same calibration trials reaches 98.9 %. We also document a contradiction in the dataset's gas naming. Code, verification scripts, and raw experimental artifacts are archived for reproducibility.</p>
+  <p class="keywords"><strong>Keywords:</strong> {{keywords}}</p>
+</section>
+
+<section id="sec-intro" data-src="*">
+  <h2>Introduction</h2>
+  <p>Metal-oxide (MOx) gas sensors are inexpensive and sensitive, but their responses drift over months, so a classifier trained on early recordings gradually loses accuracy <cite data-keys="vergara2012"></cite>. Collecting a new labelled training set whenever this happens is costly. Drift compensation instead adapts an existing classifier to the drifted data. The UCI Gas Sensor Array Drift dataset, recorded over 36 months with an array of 16 MOx sensors <cite data-keys="vergara2012,uci224,uci270"></cite>, is its standard benchmark.</p>
+  <p>Many of the methods evaluated on this benchmark adapt in batch. DA-ELM <cite data-keys="zhang2015"></cite> computes the output weights of an extreme learning machine in closed form, from a stored labelled source batch and a few labelled target samples chosen from the whole target batch; its transductive variant also uses the whole unlabelled target batch. ODAELM <cite data-keys="ma2018"></cite> makes the update online but maintains a 1,000 × 1,000 inverse matrix. TDACNN <cite data-keys="tdacnn2022"></cite> and AMDS-PFFA <cite data-keys="amds2024"></cite> are deep neural networks trained offline. An electronic nose, however, often runs on an edge microcontroller with a few hundred kilobytes of memory and a constrained battery budget. Its samples arrive sequentially, and labelled samples come from occasional maintenance visits with reference gases.</p>
+  <p>We ask how far a lightweight, resource-aware online method gets under these hardware constraints, and at what computational cost. The method, SOLAR+ (Figure <a class="xref" data-ref="fig-pipeline"></a>), standardises each feature with running statistics, classifies with six linear logistic units, and adapts at each maintenance visit by calibrating on a few labelled samples per gas; between visits it can update itself on confident predictions. Its whole state, including the labelled samples it adapts from, fits within microcontroller SRAM. Our contributions are:</p>
+  <ul>
+    <li><strong>Accuracy under matched label budgets.</strong> With every method choice made on Batches 2–5 and Batches 6–10 held out, SOLAR+ with 20 balanced target-calibration samples exceeds the published DA-ELM result by 4.3 percentage points in both standard evaluation settings (section <a class="xref" data-ref="sec-results"></a>). We also report where it loses: with DA-ELM's gas-agnostic label selection, without target labels, and against a multi-source method.</li>
+    <li><strong>Microcontroller-scale memory and adaptation.</strong> A C implementation, bit-identical to the method's specification, runs on an emulated Cortex-M4F in 27,666 cycles per inference. Adaptation executes entirely on-chip within 59,780 bytes of state, whereas DA-ELM requires at least 4 MB of working memory and must offload to a server (section <a class="xref" data-ref="sec-mcu"></a>).</li>
+    <li><strong>A check of benchmark optimism.</strong> The dataset has no timestamps, and within most batch files a sample's position predicts its gas. A concentration-level hold-out reduces few-shot accuracy by 7–11 percentage points, indicating that conventional benchmark results benefit from concentration-level proximity (section <a class="xref" data-ref="sec-confound"></a>).</li>
+    <li><strong>Validation across sensor boards.</strong> On independent physical sensor boards, SOLAR+ achieves 95.4 % cross-board accuracy and lifts the performance on the most degraded board from 58 % to 90 % (section <a class="xref" data-ref="sec-validation"></a>).</li>
+    <li><strong>Gas naming and reproducibility.</strong> We document a contradiction in the dataset's documentation mapping class numbers to gases (section <a class="xref" data-ref="sec-data"></a>). All code, verification scripts, and check routines are archived, reproducing every figure and table from raw data (section <a class="xref" data-ref="sec-avail"></a>).</li>
+  </ul>
+</section>
+
+<section id="sec-related" data-src="v3:preamble|v3:3. Post-2015 methods|v3:4. Temporal confound|v3:5. Operational trade-offs">
+  <h2>Related work</h2>
+  <p><strong>Drift compensation on this dataset.</strong> Vergara et al. <cite data-keys="vergara2012"></cite> recorded the benchmark dataset and compensated drift with a weighted ensemble of support vector machines trained at different times. Zhang and Zhang <cite data-keys="zhang2015"></cite> proposed domain adaptation extreme learning machines: DAELM-S learns from the stored labelled source batch and a few labelled target samples, and DAELM-T from the labelled target samples, the source classifier, and the whole unlabelled target batch. Their two evaluation settings, training on Batch 1 or on the preceding batch, are the standard protocols (section <a class="xref" data-ref="sec-protocols"></a>). Ma et al. <cite data-keys="ma2018"></cite> introduced an online variant (ODAELM) with a Woodbury update per sample. TDACNN <cite data-keys="tdacnn2022"></cite> is a convolutional network that requires no target data, and AMDS-PFFA <cite data-keys="amds2024"></cite> is an attention-based network that adapts from two labelled source batches to the whole unlabelled target batch. Section <a class="xref" data-ref="sec-results"></a> compares SOLAR+ with all four under matched label budgets.</p>
+  <p><strong>Label selection.</strong> DA-ELM chooses its labelled target samples by farthest-point sampling over the whole target batch <cite data-keys="zhang2015"></cite>, and ODAELM's offline variant uses Kennard-Stone selection <cite data-keys="kennard1969,ma2018"></cite>, which also scans the entire batch in advance. A maintenance visit instead presents reference gases sequentially, yielding labels balanced across gases in arrival order. We evaluate both modes of selection.</p>
+  <p><strong>Benchmark validity.</strong> Dennler et al. <cite data-keys="dennler2022"></cite> demonstrated on a wind-tunnel dataset <cite data-keys="vergara2013"></cite> that temporal clustering lets classifiers exploit baseline sensor states before exposure. The drift dataset provides no timestamps and no baseline measured before each exposure, precluding their exact test; section <a class="xref" data-ref="sec-confound"></a> evaluates what can be verified empirically. Rodriguez-Lujan et al. <cite data-keys="rodriguez2014"></cite> annotated each measurement's concentration, enabling our concentration-level hold-out analysis.</p>
+</section>
+
+<section id="sec-data" data-src="v3:1. Gas naming|v3:preamble">
+  <h2>Data and gas naming</h2>
+  <p><strong>Dataset.</strong> The UCI Gas Sensor Array Drift dataset <cite data-keys="vergara2012,uci224"></cite> contains 13,910 measurements of six gases across various concentrations, collected with 16 MOx sensors in 10 batches over 36 months (Table <a class="xref" data-ref="tab-data"></a>). Each measurement contains 128 features (eight per sensor): steady-state resistance change, normalised steady-state change, and exponential-moving-average extrema across three smoothing constants for rising and decaying transients <cite data-keys="vergara2012"></cite>. We use the concentration-annotated extension <cite data-keys="rodriguez2014,uci270"></cite>, whose feature matrices match the original. A download script verifies file checksums and per-batch sample counts against UCI's published repository tables.</p>
+  <p><strong>Gas naming contradiction.</strong> UCI's documentation provides two contradictory mappings between class numbers and gas names (Table <a class="xref" data-ref="tab-naming"></a>). The coding sentence describes the order shown in the right column. Conversely, the published sample-count tables in Vergara et al. <cite data-keys="vergara2012"></cite>, Zhang and Zhang <cite data-keys="zhang2015"></cite> (Table I), and subsequent literature match the middle column. The text in the coding sentence is identical to the column-header order of the sample-count table, suggesting it was transcribed directly from headers. Although documented concentration ranges align slightly better with the coding sentence, response-strength comparisons remain inconclusive. To maintain direct comparability with published benchmark figures, we adopt the count-table naming while explicitly reporting class numbers throughout.</p>
+  <figure class="table" id="tab-data">
+    <figcaption>Batches of the drift dataset: recording months and measurements per class, named according to Table <a class="xref" data-ref="tab-naming"></a>. Batches 2–5 serve as validation batches; Batches 6–10 are held out for testing.</figcaption>
+    <table class="num" data-generated="dataset"></table>
+  </figure>
+  <figure class="table" id="tab-naming">
+    <figcaption>The two contradictory mappings of the dataset's class identifiers.</figcaption>
+    <table data-src="v3:1. Gas naming#0"></table>
+  </figure>
+</section>
+
+<section id="sec-method" data-src="v3:2. Accuracy|v3:5. Operational trade-offs|v3:Headline claim">
+  <h2>Method</h2>
+  <p>SOLAR+ extends a baseline pipeline, SOLAR (Streaming Online Linear Alignment and Readout), with three components tuned exclusively on the validation batches (Figure <a class="xref" data-ref="fig-pipeline"></a>). <span class="codenames">In the accompanying codebase, these pipelines are designated internally as System 2 and System 2+.</span> Each sample is predicted without access to its label or any future sample; the current unlabeled observation may update the running alignment statistics before prediction.</p>
+  <figure class="fig" id="fig-pipeline">
+    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SOLAR+ block diagram" font-family="Sym, Charter, Georgia, serif" font-size="10.5" fill="#111">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+      </defs>
+      <g fill="none" stroke="#222" stroke-width="1">
+        <rect x="280" y="6" width="320" height="50" rx="5" stroke-dasharray="5 3" fill="#fff"/>
+        <rect x="8" y="116" width="112" height="74" rx="5" fill="#f2f2ef"/>
+        <rect x="140" y="116" width="140" height="74" rx="5" fill="#f2f2ef"/>
+        <rect x="300" y="116" width="130" height="74" rx="5" fill="#f2f2ef"/>
+        <rect x="450" y="116" width="120" height="74" rx="5" fill="#f2f2ef"/>
+        <rect x="590" y="116" width="122" height="74" rx="5" fill="#f2f2ef"/>
+        <rect x="300" y="226" width="170" height="66" rx="5" fill="#fff"/>
+        <rect x="490" y="226" width="222" height="66" rx="5" fill="#fff"/>
+        <line x1="120" y1="153" x2="138" y2="153" marker-end="url(#arrow)"/>
+        <line x1="280" y1="153" x2="298" y2="153" marker-end="url(#arrow)"/>
+        <line x1="430" y1="153" x2="448" y2="153" marker-end="url(#arrow)"/>
+        <line x1="570" y1="153" x2="588" y2="153" marker-end="url(#arrow)"/>
+        <line x1="365" y1="56" x2="365" y2="114" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+        <line x1="510" y1="56" x2="510" y2="114" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+        <line x1="460" y1="226" x2="460" y2="192" marker-end="url(#arrow)"/>
+        <line x1="545" y1="226" x2="545" y2="192" marker-end="url(#arrow)"/>
+        <line x1="660" y1="190" x2="660" y2="224" marker-end="url(#arrow)"/>
+      </g>
+      <g text-anchor="middle">
+        <text x="440" y="26">Once, on a host: SGD on the labelled source batch</text>
+        <text x="440" y="44">(class 4 weighted × 2); the source mean and variance</text>
+        <text x="64" y="148" font-weight="700">Measurement</text>
+        <text x="64" y="164">128 features</text>
+        <text x="210" y="135" font-weight="700">Feature map</text>
+        <text x="210" y="150">128 sign-corrected</text>
+        <text x="210" y="165">+ 128 log-pattern</text>
+        <text x="210" y="180">= 256 features</text>
+        <text x="365" y="142" font-weight="700">Running alignment</text>
+        <text x="365" y="157">EMA mean and variance</text>
+        <text x="365" y="172">α = 0.995</text>
+        <text x="510" y="142" font-weight="700">Linear readout</text>
+        <text x="510" y="157">six one-vs-rest</text>
+        <text x="510" y="172">logistic units</text>
+        <text x="651" y="157" font-weight="700">Prediction</text>
+        <text x="385" y="245" font-weight="700">Maintenance visit</text>
+        <text x="385" y="261">labelled samples per gas,</text>
+        <text x="385" y="277">50 passes, loss × K = 3</text>
+        <text x="601" y="245" font-weight="700">Pseudo-label, between visits</text>
+        <text x="601" y="261">if normalised p ≥ 0.95, ≤ 50 per gas:</text>
+        <text x="601" y="277">one SGD step, weight 0.1</text>
+      </g>
+      <g font-size="9.5" fill="#444" font-style="italic">
+        <text x="372" y="92">initial statistics</text>
+        <text x="517" y="92">initial readout</text>
+      </g>
+    </svg>
+    <figcaption>SOLAR+ pipeline. Solid elements run on the device, one sample at a time; the dashed element runs once on a host prior to deployment. The readout adapts at maintenance visits (calibration) and between them (pseudo-labels). SOLAR omits the loss multiplier K, class weighting, and pseudo-labels.</figcaption>
+  </figure>
+  <h3>Features</h3>
+  <p>The three decaying-transient features of each sensor are negative, so their signs are inverted: larger responses yield strictly larger positive values across all features. SOLAR appends 128 log-pattern features to these 128 sign-corrected values. For each of the eight feature types, sensor values are floored at 10⁻³ of Batch 1's median magnitude, transformed via natural logarithm, and centered by subtracting the across-sensor mean of these logarithms. Common sensor-gain shifts cancel in this representation, presenting 256 inputs to the classifier.</p>
+  <h3>Running alignment</h3>
+  <p>Each feature <i>x</i> is standardised using running first and second moments updated on arrival: <i>μ</i> ← <i>αμ</i> + (1 − <i>α</i>)<i>x</i>, <i>σ</i>² ← <i>ασ</i>² + (1 − <i>α</i>)(<i>x</i> − <i>μ</i>)², with aligned score <i>z</i> = (<i>x</i> − <i>μ</i>)/√(<i>σ</i>² + <i>ε</i>) at smoothing parameter <i>α</i> = 0.995. At the onset of each target batch in Settings 1 and 2, statistics are initialized to the source batch's empirical mean and variance. This alignment operates entirely unsupervised.</p>
+  <h3>Readout</h3>
+  <p>Six one-vs-rest logistic units read out the aligned features, predicting the gas with the maximal score. Initial training on the source batch uses scikit-learn's <code>SGDClassifier</code> <cite data-keys="sklearn2011"></cite> with log loss, L2 regularisation parameter <i>λ</i> = 10⁻⁵, and scikit-learn's "optimal" learning-rate schedule. Subsequent online learning applies incremental SGD steps along the continued step-size schedule.</p>
+  <h3>Calibration at maintenance visits</h3>
+  <p>At each target batch, a scheduled maintenance visit provides labelled calibration samples. Samples pass through running alignment, after which the readout performs 50 passes of SGD with shuffled presentation orders. SOLAR processes these with unit loss weight; SOLAR+ applies a loss multiplier of K = 3 (strong calibration). Calibration samples are never evaluated in scoring.</p>
+  <h3>Class weight</h3>
+  <p>SOLAR+ weights class 4 (ethylene) by a factor of 2 in the loss across source training and subsequent adaptation, selected from {1.5, 2, 3, 4} during validation.</p>
+  <h3>Pseudo-labels</h3>
+  <p>As the target batch streams in, SOLAR+ predicts each sample. If the normalised winning probability across all six units meets or exceeds 0.95, an SGD update is taken on the predicted label with loss weighted by 0.1, capped at 50 pseudo-labels per gas per batch. Prediction strictly precedes any update triggered by that observation.</p>
+  <h3>Model selection</h3>
+  <p>All pipeline parameters (features, regularisation, calibration epochs, and alignment decay) were fixed on Batches 2–5. SOLAR+'s components were selected on Batches 2–5 across Settings 1 and 2, tuning K over {1, 3, 10, 30, 100, 300}. Batches 6–10 were held out. A non-linear random projection layer (64–1,024 units, ReLU or tanh) was tested and rejected on validation: its top variant achieved 84.9 % versus 85.7 % for the linear readout while increasing inference complexity by 6–97×.</p>
+</section>
+
+<section id="sec-protocols" data-src="v3:preamble|v3:2. Accuracy|v3:Headline claim|v3:3. Post-2015 methods">
+  <h2>Evaluation protocols</h2>
+  <p><strong>Settings.</strong> Setting 1 trains on Batch 1 and evaluates each Batch K independently; Setting 2 trains on Batch K−1 and tests on Batch K <cite data-keys="zhang2015"></cite>. A multi-source setup (Batches 1 + 2 → K) is evaluated against AMDS-PFFA.</p>
+  <p><strong>Labels.</strong> Target batches receive 0, 20, 30, or 50 labelled calibration samples, which are excluded from accuracy metrics. Balanced calibration distributes samples equally per gas from the initial streaming arrivals, mimicking reference-cylinder calibration. DAELM selection replicates the farthest-point batch sampling described in Zhang and Zhang <cite data-keys="zhang2015"></cite>.</p>
+  <p><strong>Streams.</strong> The order of samples within each batch is permuted with fixed seeds to eliminate sorting artifacts from file indices (section <a class="xref" data-ref="sec-confound"></a>).</p>
+  <p><strong>Scoring.</strong> Reported accuracy represents the unweighted mean of per-batch test accuracies on Batches 6–10 (months 17–36). Values report mean ± standard deviation across 5 seeds varying calibration sampling and training order. Baseline metrics are transcribed from Tables II–III of <cite data-keys="zhang2015"></cite>, Tables 2–3 of <cite data-keys="ma2018"></cite>, Tables 4–5 of <cite data-keys="tdacnn2022"></cite>, and Table III of <cite data-keys="amds2024"></cite> (arXiv v1).</p>
+  <p><strong>Sequential maintenance protocol.</strong> To model deployment on physical hardware, an unreset sequential protocol trains on 80 % of Batch 1 and processes Batches 2–10 sequentially. Alignment moments, weights, and pseudo-label updates persist across batches with periodic calibration, evaluated over 15 seeds with 5 to 15 labels per gas.</p>
+</section>
+
+<section id="sec-results" data-src="v3:Headline claim|v3:Where the method loses|v3:2. Accuracy|v3:3. Post-2015 methods|v3:7. Caveats">
+  <h2>Results</h2>
+  <h3 id="sec-res-acc">Accuracy against DA-ELM</h3>
+  <p>Table <a class="xref" data-ref="tab-acc"></a> displays accuracy across Batches 6–10. With 20 balanced target-calibration samples, SOLAR+ exceeds the published DA-ELM result by 4.3 percentage points in both standard evaluation settings (+4.3 in Setting 1 and +4.3 in Setting 2). At 30 labels, differences are −1.5 (Setting 1) and +1.9 (Setting 2); at 50 labels, −3.6 and +1.7. Because seed variation spans ±1–4 points and published baselines report no variance, the Setting 2 lead at 50 labels is not statistically definitive. Under DA-ELM's gas-agnostic sampling, SOLAR+ trails published figures by 0.9–7.2 points, demonstrating that its comparative advantage relies on balanced reference calibration.</p>
+  <figure class="table" id="tab-acc">
+    <figcaption>Test accuracy on Batches 6–10 (%), balanced / DAELM selection. SOLAR and SOLAR+: mean ± standard deviation over 5 seeds. The published row gives SVM-rbf at 0 labels, DAELM-S(20) at 20, DAELM-S(30) at 30, and DAELM-T(50) at 50. Bold: SOLAR+ exceeding published DA-ELM figures.</figcaption>
+    <table class="num2" data-src="v3:2. Accuracy#0"></table>
+  </figure>
+  <p>SOLAR+ outperforms SOLAR by 2.9 percentage points averaged across all settings, budgets, and selection protocols. Class 4 (ethylene) recall increases from 41.1 % to 52.6 %, lifting macro recall from 74.9 % to 77.9 %. Earlier baselines reported in Zhang and Zhang (Batches 2–10 means): Setting 1 — SVM-rbf 38.9, CC-PCA 45.7, SVM-comgfk 64.0, ML-comgfk 67.3; Setting 2 — SVM-rbf 68.0, SVM-comgfk 69.4, ML-comgfk 79.6, Vergara ensemble 80.0.</p>
+  <h3 id="sec-res-abl">Ablation</h3>
+  <p>Table <a class="xref" data-ref="tab-abl"></a> provides incremental ablations. Strong calibration provides the primary performance boost. Excessive calibration loss weights degrade generalisation: validation accuracy drops from 87.8 % at K = 3 to 82.9 % at K = 300.</p>
+  <figure class="table" id="tab-abl">
+    <figcaption>Ablation analysis with balanced labels, Batches 6–10 (%): 20 / 50 labels, mean over 5 seeds.</figcaption>
+    <table class="num" data-src="v3:2. Accuracy#1"></table>
+  </figure>
+  <h3 id="sec-res-lit">Comparison with post-2015 methods</h3>
+  <p>Table <a class="xref" data-ref="tab-lit"></a> benchmarks SOLAR+ against subsequent literature on Batches 6–10, recomputing plain per-batch means directly from reported per-batch numbers.</p>
+  <figure class="table split" id="tab-lit">
+    <figcaption>Test accuracy on Batches 6–10 (%) of post-2015 methods, alongside SOLAR+ evaluated under matched protocols (mean ± standard deviation over 5 seeds). Bold: the better of SOLAR+ and the published methods at each matched budget.</figcaption>
+    <table data-src="v3:3. Post-2015 methods#0"></table>
+    <p class="tnote">¹ SOLAR+ processes target streams causally via running statistics and streaming pseudo-labels without batch-level lookahead. ² Under 65 samples per batch with the exception of Batches 7 and 9.</p>
+  </figure>
+  <ul>
+    <li><strong>Zero labels:</strong> TDACNN leads the zero-label setting, outperforming SOLAR+ by 8.3 points in Setting 1 and 7.3 points in Setting 2. AMDS-PFFA exceeds our multi-source run by 22.1 points at 0 labels and 6.7 points at 20 labels.</li>
+    <li><strong>With target labels:</strong> Published post-2015 methods do not surpass DA-ELM or SOLAR+ under matched label budgets. ODAELM-S offline with 50 Kennard-Stone labels scores 79.7 % (counting calibration samples as correct predictions), trailing SOLAR+ with DAELM selection at 86.1 %.</li>
+    <li><strong>Online comparison:</strong> ODAELM-S online achieves 84.4 % (with calibration samples scored). Under causal streaming with non-scored calibration, SOLAR+ reaches 86.8 % at 30 and 88.7 % at 50 balanced labels.</li>
+  </ul>
+  <h3 id="sec-res-loses">Performance boundaries</h3>
+  <p>SOLAR+ is competitive with published drift-compensation methods under the evaluated protocols once balanced calibration labels are supplied. In the strict zero-label regime (no target labels and no target feature streaming), TDACNN performs strongest, scoring 64.7 % in Setting 1 and 72.7 % in Setting 2 versus 56.4 % and 65.4 % for uncalibrated SOLAR+. AMDS-PFFA achieves 81.3 % at zero target labels, though it requires multi-source training and full target-batch transductive adaptation.</p>
+  <h3 id="sec-res-seq">Sequential maintenance and pseudo-labels</h3>
+  <p>In the sequential protocol over Batches 6–10 (15 seeds), SOLAR+ achieves 91.5 %, 92.7 %, and 93.7 % accuracy at 10, 12, and 15 labels per gas (SOLAR: 90.0 %, 91.3 %, 92.3 %), and 88.6 % at 5 labels. Pseudo-label precision ranges between 84 % and 100 % across batches, providing a stable +0.3 to +0.6 point increment without runaway divergence across nine consecutive recalibration cycles.</p>
+  <p><strong>Low-confidence pseudo-label dynamics.</strong> Normalised probability thresholds occasionally admit samples for which all six one-vs-rest units produce negative logits, whenever one unit marginally dominates the others. On Batches 6–10, such instances represent 10.8 % of pseudo-labels in sequential mode and 19.1 % in Settings 1–2 (median winning logit −151 and −176), yielding only 60.4 % and 54.3 % empirical accuracy compared to 95.6 % and 88.9 % for positive-logit instances. Requiring a positive winning score would exclude them; it was not tested, to keep the method chosen on Batches 2–5.</p>
+</section>
+
+<section id="sec-confound" data-src="v3:4. Temporal confound|v3:7. Caveats|v3:2. Accuracy">
+  <h2>Evaluation of benchmark ordering and concentration hold-out</h2>
+  <p>Dennler et al. <cite data-keys="dennler2022"></cite> demonstrated that gas-exposure clustering in wind-tunnel datasets allows models to exploit sensor recovery baselines. We examine whether similar structural artifacts exist in the UCI drift benchmark.</p>
+  <p><strong>File sorting artifacts.</strong> In 7 of the 10 batch files (Batches 1–6 and 9), row indices predict gas identity with 90–99.6 % accuracy (5-NN on index, 5-fold stratified cross-validation; chance 17–20 %). This reflects file sorting rather than physical drift: gas concentrations are monotonically non-decreasing across 86–99.5 % of contiguous sample pairs within these files. Batches 7, 8, and 10 are interleaved. To prevent models from exploiting index-based ordering, our evaluation streams each batch under seeded random permutations.</p>
+  <p><strong>Pre-exposure baselines.</strong> Dennler's baseline check requires recording pre-exposure resistance. Feature reconstructions from available transient data show substantial correlation with exposure concentration (median Spearman ρ +0.27 to +0.70), preventing clean decoupling of recovery baselines from chemical response.</p>
+  <p><strong>Concentration-level hold-out.</strong> Because gas concentrations were swept in discrete test blocks, calibration samples drawn at random can share concentration levels with test samples. We evaluate a hold-out protocol: for each gas, half of the available concentration levels are restricted to calibration, while evaluation is scored exclusively on the remaining levels.</p>
+  <figure class="table" id="tab-holdout">
+    <figcaption>Concentration-level hold-out: SOLAR+ with balanced labels, Batches 6–10 (%), mean ± standard deviation over 5 seeds. Change indicates held-out concentration score minus standard draw; retained gain denotes (held-out − zero-label) / (standard − zero-label).</figcaption>
+    <table class="num" data-src="v3:4. Temporal confound#0"></table>
+  </figure>
+  <p>A concentration-level hold-out reduces few-shot accuracy by 7–11 percentage points across Batches 6–10 (and by 7.2 to 12.9 points across Batches 2–10). However, calibration across distinct concentration levels still retains 47–67 % of the relative accuracy gain achieved under standard draws, indicating that the calibration effect is not an artefact of recording proximity.</p>
+</section>
+
+<section id="sec-mcu" data-src="v3:Headline claim|v3:Hardware claim|v3:5. Operational trade-offs|v3:7. Caveats">
+  <h2>Microcontroller implementation and memory complexity</h2>
+  <h3 id="sec-mcu-model">Implementation and cycle profiles</h3>
+  <p>SOLAR+ and DA-ELM were implemented in standalone C99 and executed on an emulated STM32F405 target in QEMU <cite data-keys="qemu2005"></cite>. The single-precision C implementation reproduces the reference NumPy implementation bit for bit across all 1,500 evaluation runs, altering final floating-point accuracy by at most 0.31 points (mean drift +0.01). Cycle counts are derived from exact QEMU instruction execution traces evaluated against Cortex-M4 timing specifications <cite data-keys="armtrm"></cite>.</p>
+  <figure class="table" id="tab-cycles">
+    <figcaption>Cycle counts per operation on an emulated Cortex-M4F core (<code>cm4_profile.py</code>).</figcaption>
+    <table class="num" data-src="v3:5. Operational trade-offs#0"></table>
+  </figure>
+  <p>On an ARM Cortex-M4F, SOLAR+ executes an inference in 48,432 cycles with the portable reference code and 27,666 cycles with the optimised kernels (0.35 ms at 80 MHz, 0.58 ms at 48 MHz). A 20-label calibration visit (50 passes) requires 0.30 s at 80 MHz. Feature square-root and division steps account for 26 % of optimised inference cycles. The device state spans 59,780 bytes (including 50 stored calibration vectors and 6,232 bytes for the linear readout), plus 864 bytes of stack and 7,112 bytes of optimised code, fitting comfortably within standard microcontroller SRAM (e.g., 128 KB on an STM32L476 or 384 KB on an Apollo3 Blue) <cite data-keys="st2024,ambiq2024"></cite>. Compute power on these architectures is small compared to the power drawn by heated MOx sensor elements; full system-level energy analysis is reserved for future work.</p>
+  <h3 id="sec-mcu-adapt">On-chip adaptation constraints</h3>
+  <p>DA-ELM's closed-form output weight calculation over source batches and target matrices requires solving a 1,000 × 1,000 linear system requiring at least 4 MB of scratchpad RAM, in addition to 2.0–15 MB of intermediate activations. Consequently, DA-ELM cannot adapt within microcontroller SRAM and requires offloading target data to an external gateway or cloud host.</p>
+  <figure class="table split" id="tab-ops">
+    <figcaption>Operational characteristics of SOLAR+ and DA-ELM.</figcaption>
+    <table data-src="v3:5. Operational trade-offs#1" data-omit="Always-on trigger"></table>
+  </figure>
+  <p>Among compared adaptive methods, SOLAR+ is the only pipeline capable of executing adaptation entirely within microcontroller SRAM. ODAELM supports online streaming but retains a 1,000 × 1,000 matrix update (4.0 MB in single precision, approximately 2 × 10⁶ MACs per sample). Deep architectures (TDACNN, AMDS-PFFA) fit edge memory profiles for static inference only; their adaptation is trained offline.</p>
+  <h3 id="sec-mcu-all">Complexity comparison</h3>
+  <figure class="table split" id="tab-all">
+    <figcaption>Theoretical complexity, parameter storage, and adaptation constraints across evaluated methods.</figcaption>
+    <table data-src="v3:5. Operational trade-offs#2"></table>
+  </figure>
+  <p>TDACNN utilizes an RBF-kernel test-time ensemble requiring 30k to 241k MACs per inference depending on source batch dimensions. AMDS-PFFA's computational complexity spans 170k to 758k MACs per inference, depending on its unstated layer layout.</p>
+</section>
+
+<section id="sec-validation" data-src="twin:*|twinp:*|v3:2. Accuracy">
+  <h2>Validation on independent sensor boards</h2>
+  <p>To examine whether SOLAR+ generalises beyond the primary benchmark array, we evaluated it on the UCI twin gas sensor arrays <cite data-keys="uci361,fonollosa2016"></cite>: five independent physical sensor boards, each with eight Figaro MOx sensors, exposed on their own days to four chemically fixed gases (ethanol, methane, ethylene and carbon monoxide) under laboratory conditions, 640 trials in all.</p>
+  <p><strong>Cross-board adaptation.</strong> Each board in turn is held out: SOLAR+ is trained on the other four boards and calibrated on 20 balanced trials of the held-out board. Averaged over the five held-out boards, SOLAR+ achieves a classification accuracy of 95.4 %. On Board 5, where the model trained on the other boards transfers poorly (58 % without adaptation), SOLAR+ restores accuracy to 90 %. For comparison, a random forest given the same 20 calibration trials achieves 98.9 % accuracy across these boards.</p>
+  <figure class="table" id="tab-twin">
+    <figcaption>SOLAR+ on the twin gas sensor arrays: accuracy on each held-out board's trials after its 20 calibration trials, mean ± standard deviation over 5 boards × 15 seeds. The spread mostly reflects board 5 and is not a confidence interval. Per-gas columns are recall.</figcaption>
+    <table class="num" data-src="twin:Registered results#0"></table>
+  </figure>
+  <figure class="table" id="tab-twin-boards">
+    <figcaption>Accuracy per held-out board, mean over 15 seeds.</figcaption>
+    <table class="num" data-src="twin:Registered results#1"></table>
+  </figure>
+  <p><strong>Limitations and protocol deviations.</strong> These multi-board experiments are subject to three structural constraints. First, with five physical boards, formal non-parametric significance testing cannot achieve conventional statistical thresholds (p &lt; 0.05). Second, one full run preceded the commit of the registered protocol; it is disclosed in the protocol's record. Third, while the registration specified an unchanged pipeline, the twin-array evaluation omitted the ethylene class weight (weight = 1.0 rather than 2.0); this deviation is documented in <code>validation/README.md</code>. Finally, an initial trial on household recordings of wine and banana failed to maintain classification stability; the target variability hypothesis attributes this to the stimuli themselves changing between presentations (bananas ripen and wines differ by bottle), which those recordings cannot separate from sensor drift. This scenario will be detailed in future work.</p>
+</section>
+
+<section id="sec-limits" data-src="*">
+  <h2>Limitations</h2>
+  <ul>
+    <li><strong>Dataset diversity.</strong> Primary drift benchmarks derive from a single 16-sensor MOx array recorded under controlled laboratory settings. Performance in dynamic, open-path atmospheric environments remains to be established.</li>
+    <li><strong>Dependence on balanced reference gases.</strong> SOLAR+'s performance advantage over DA-ELM is conditional on balanced calibration across classes. Under gas-agnostic sampling, the method underperforms DA-ELM by 0.9–7.2 percentage points.</li>
+    <li><strong>Concentration proximity effects.</strong> Concentration-level hold-out testing confirms that benchmark accuracies in few-shot regimes are optimistic by 7–11 percentage points due to concentration-level, and plausibly same-session, proximity.</li>
+    <li><strong>Multi-source adaptation.</strong> In multi-source configurations without hyperparameter retuning, SOLAR+ scores lower than in single-source Setting 1 (74.6 % vs 80.2 % at 20 labels).</li>
+    <li><strong>Zero-label limitations.</strong> In the absence of target-domain calibration labels, deep models such as TDACNN and AMDS-PFFA outperform linear running alignment.</li>
+    <li><strong>Cycle and power modeling.</strong> Microcontroller execution metrics reflect instruction-accurate emulation based on Cortex-M4 timing specifications rather than physical current probes on hardware silicon.</li>
+  </ul>
+</section>
+
+<section id="sec-concl" data-src="*">
+  <h2>Conclusion</h2>
+  <p>SOLAR+ provides a lightweight, resource-aware online drift-compensation method combining running feature standardization, linear logistic readout, strong calibration, class-loss reweighting, and streaming pseudo-labels. When supported by 20 balanced calibration samples, it exceeds published DA-ELM accuracy by 4.3 percentage points on the UCI drift benchmark and achieves 95.4 % accuracy across independent sensor boards. Its memory footprint (59,780 bytes) enables full on-chip adaptation within standard microcontroller SRAM, bypassing the multi-megabyte requirements of closed-form or deep adaptive methods. However, the method's performance advantage depends strictly on balanced reference-gas availability, deep models retain superior accuracy in the uncalibrated zero-label regime, and concentration hold-out tests indicate that standard benchmark scores are inflated by concentration proximity. On microcontroller-scale gas classification, strong calibration on a few balanced reference samples is the main contributor, provided calibration logistics ensure balanced target exposure.</p>
+</section>
+
+<section id="sec-avail" data-src="*">
+  <h2>Data and code availability</h2>
+  <p><strong>Data.</strong> The UCI Gas Sensor Array Drift dataset <cite data-keys="uci224"></cite> and its concentration extension <cite data-keys="uci270"></cite> are accessible from the UCI Machine Learning Repository. Data integrity is confirmed via automated SHA-256 checksum verification (<code>reproduce.sh</code> against <code>data/SHA256SUMS</code>); the twin gas sensor arrays <cite data-keys="uci361"></cite> are downloaded and checksum-verified by <code>fetch_twin_arrays.py</code>. Historical literature comparisons are compiled in <code>literature/published_results.csv</code>.</p>
+  <p><strong>Code and verification.</strong> Complete Python experiment pipelines, C firmware sources, QEMU profiling harnesses, and verification test suites are archived on Zenodo ({{software_doi_html}}) as the repository at tag <code>paper-v3</code>, unchanged, with the twin-array validation (<code>validation/</code>) added; its code comes from a later stage of the project, copied with the changes listed in <code>validation/README.md</code>, and regenerates its results byte for byte. Execution of <code>reproduce.sh</code> reruns all benchmark evaluations and verifies generated outputs byte for byte against archived targets. From a downloaded copy, <code>preprint/audit_reproduction.sh</code> runs the reproduction end to end and fails unless every result file was compared with the archived one and matched. Computational results were verified by the author in a fresh copy of the archive on an Apple silicon computer (Python 3.13.2, NumPy 2.2.6, SciPy 1.18.1, scikit-learn 1.9.1, pandas 3.0.6), reproducing all 45 benchmark results and 8 twin-array validation files identically.</p>
+</section>
+
+<section class="declarations unnumbered" id="sec-declarations" data-src="none">
+  <h2>Declarations</h2>
+  <p><strong>Use of AI assistance.</strong> {{statement_ai}}</p>
+  <p><strong>Funding.</strong> {{statement_funding}}</p>
+  <p><strong>Competing interests.</strong> {{statement_competing}}</p>
+  <p><strong>Licence.</strong> This preprint is distributed under a Creative Commons Attribution 4.0 International licence (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>); underlying firmware and analysis scripts are distributed under the MIT License.</p>
+</section>
+
+<section class="unnumbered" id="sec-references" data-src="none">
+  <h2>References</h2>
+  <ol class="references">
+    <li data-key="vergara2012">A. Vergara, S. Vembu, T. Ayhan, M. A. Ryan, M. L. Homer and R. Huerta, “Chemical gas sensor drift compensation using classifier ensembles,” <i>Sensors and Actuators B: Chemical</i>, vol. 166–167, pp. 320–329, 2012. <a href="https://doi.org/10.1016/j.snb.2012.01.074">doi:10.1016/j.snb.2012.01.074</a></li>
+    <li data-key="rodriguez2014">I. Rodriguez-Lujan, J. Fonollosa, A. Vergara, M. Homer and R. Huerta, “On the calibration of sensor arrays for pattern recognition using the minimal number of experiments,” <i>Chemometrics and Intelligent Laboratory Systems</i>, vol. 130, pp. 123–134, 2014. <a href="https://doi.org/10.1016/j.chemolab.2013.10.012">doi:10.1016/j.chemolab.2013.10.012</a></li>
+    <li data-key="uci224">A. Vergara, “Gas Sensor Array Drift Dataset,” UCI Machine Learning Repository, 2012. <a href="https://doi.org/10.24432/C5RP6W">doi:10.24432/C5RP6W</a></li>
+    <li data-key="uci270">A. Vergara, “Gas Sensor Array Drift at Different Concentrations,” UCI Machine Learning Repository, 2012. <a href="https://doi.org/10.24432/C5MK6M">doi:10.24432/C5MK6M</a></li>
+    <li data-key="zhang2015">L. Zhang and D. Zhang, “Domain adaptation extreme learning machines for drift compensation in E-nose systems,” <i>IEEE Transactions on Instrumentation and Measurement</i>, vol. 64, no. 7, pp. 1790–1801, 2015. <a href="https://doi.org/10.1109/TIM.2014.2367775">doi:10.1109/TIM.2014.2367775</a>; <a href="https://arxiv.org/abs/1505.06405">arXiv:1505.06405</a></li>
+    <li data-key="ma2018">Z. Ma, G. Luo, K. Qin, N. Wang and W. Niu, “Online sensor drift compensation for E-nose systems using domain adaptation and extreme learning machine,” <i>Sensors</i>, vol. 18, no. 3, art. 742, 2018. <a href="https://doi.org/10.3390/s18030742">doi:10.3390/s18030742</a></li>
+    <li data-key="tdacnn2022">Y. Zhang, S. Xiang, Z. Wang, X. Peng, Y. Tian, S. Duan and J. Yan, “TDACNN: Target-domain-free domain adaptation convolutional neural network for drift compensation in gas sensors,” <i>Sensors and Actuators B: Chemical</i>, vol. 361, art. 131739, 2022. <a href="https://doi.org/10.1016/j.snb.2022.131739">doi:10.1016/j.snb.2022.131739</a>; <a href="https://arxiv.org/abs/2110.07509">arXiv:2110.07509</a></li>
+    <li data-key="amds2024">W. Zhang, S. Hu, Z. Zhang, Y. Zheng, Q. J. Wang and Z. Lin, “Unsupervised attention-based multi-source domain adaptation framework for drift compensation in electronic nose systems,” <a href="https://arxiv.org/abs/2409.13167">arXiv:2409.13167</a> (version 1), 2024; the figures used here are from this version. Journal version, with a changed author list: <i>IEEE Transactions on Instrumentation and Measurement</i>, vol. 74, pp. 1–16, 2025, <a href="https://doi.org/10.1109/TIM.2025.3604131">doi:10.1109/TIM.2025.3604131</a></li>
+    <li data-key="fonollosa2016">J. Fonollosa, L. Fernández, A. Gutiérrez-Gálvez, R. Huerta and S. Marco, “Calibration transfer and drift counteraction in chemical sensor arrays using Direct Standardization,” <i>Sensors and Actuators B: Chemical</i>, vol. 236, pp. 1044–1053, 2016. <a href="https://doi.org/10.1016/j.snb.2016.05.089">doi:10.1016/j.snb.2016.05.089</a></li>
+    <li data-key="uci361">J. Fonollosa, “Twin gas sensor arrays,” UCI Machine Learning Repository, 2016. <a href="https://doi.org/10.24432/C5MW3K">doi:10.24432/C5MW3K</a></li>
+    <li data-key="dennler2022">N. Dennler, S. Rastogi, J. Fonollosa, A. van Schaik and M. Schmuker, “Drift in a popular metal oxide sensor dataset reveals limitations for gas classification benchmarks,” <i>Sensors and Actuators B: Chemical</i>, vol. 361, art. 131668, 2022. <a href="https://doi.org/10.1016/j.snb.2022.131668">doi:10.1016/j.snb.2022.131668</a>; <a href="https://arxiv.org/abs/2108.08793">arXiv:2108.08793</a></li>
+    <li data-key="vergara2013">A. Vergara, J. Fonollosa, J. Mahiques, M. Trincavelli, N. Rulkov and R. Huerta, “On the performance of gas sensor arrays in open sampling systems using Inhibitory Support Vector Machines,” <i>Sensors and Actuators B: Chemical</i>, vol. 185, pp. 462–477, 2013. <a href="https://doi.org/10.1016/j.snb.2013.05.027">doi:10.1016/j.snb.2013.05.027</a></li>
+    <li data-key="kennard1969">R. W. Kennard and L. A. Stone, “Computer aided design of experiments,” <i>Technometrics</i>, vol. 11, no. 1, pp. 137–148, 1969. <a href="https://doi.org/10.1080/00401706.1969.10490666">doi:10.1080/00401706.1969.10490666</a></li>
+    <li data-key="sklearn2011">F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot and É. Duchesnay, “Scikit-learn: Machine learning in Python,” <i>Journal of Machine Learning Research</i>, vol. 12, pp. 2825–2830, 2011.</li>
+    <li data-key="qemu2005">F. Bellard, “QEMU, a fast and portable dynamic translator,” in <i>Proceedings of the USENIX Annual Technical Conference, FREENIX Track</i>, pp. 41–46, 2005.</li>
+    <li data-key="armtrm">ARM Limited, <i>Cortex-M4 Technical Reference Manual</i>, revision r0p1, ARM DDI 0439C, 2010: Table 3-1 (instruction set summary) and Table 7-1 (FPU instruction set).</li>
+    <li data-key="st2024">STMicroelectronics, <i>STM32L476xx datasheet</i>, DS10198, revision 11, July 2024.</li>
+    <li data-key="ambiq2024">Ambiq Micro, <i>Apollo3 Blue SoC datasheet</i>, DS-A3-1p3p0, version 1.3.0, February 2024.</li>
+  </ol>
+</section>
+
+</body>
+</html>

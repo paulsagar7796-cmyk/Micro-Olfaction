@@ -1,0 +1,45 @@
+self-check: 5 folds, each with 20 calibration trials (5 per gas at levels (10, 30, 50, 70, 90), repetition 1), no source/target overlap, full coverage
+640 trials, 5 boards; leave-one-board-out, 20 calibration trials per fold, 15 seeds
+board 1 done  [… s]
+board 2 done  [… s]
+board 3 done  [… s]
+board 4 done  [… s]
+board 5 done  [… s]
+
+method                                 balanced accuracy  accuracy    carbon    ethano    ethyle    methan
+System 2+                                  0.954 ± 0.047     0.954     0.919     0.981     0.919     0.996
+System 2+ without pseudo-labels            0.953 ± 0.047     0.953     0.913     0.981     0.920     0.996
+System 2                                   0.872 ± 0.151     0.872     0.820     0.828     0.850     0.991
+random forest                              0.989 ± 0.009     0.989     1.000     0.982     0.980     0.994
+
+per-board accuracy (mean over seeds), System 2+ and System 2:
+  board 1: System 2+ 0.983, System 2 0.957, diff +0.026
+  board 2: System 2+ 0.978, System 2 0.956, diff +0.022
+  board 3: System 2+ 0.923, System 2 0.909, diff +0.014
+  board 4: System 2+ 0.983, System 2 0.956, diff +0.028
+  board 5: System 2+ 0.900, System 2 0.584, diff +0.316
+
+System 2+ confusion (truth -> prediction, mean counts over seeds, calibration trials excluded):
+  carbon monoxide carbon monoxide: 128.1  ethanol: 0.1  ethylene: 1.2  methane: 5.5
+  ethanol         carbon monoxide: 1.1  ethanol: 133.0  ethylene: 0.8  methane: 0.1
+  ethylene        carbon monoxide: 0.3  ethanol: 0.0  ethylene: 121.3  methane: 13.3
+  methane         carbon monoxide: 0.0  ethanol: 0.0  ethylene: 0.7  methane: 134.3
+
+HD1 (System 2+ beats System 2 by >= 5 points, Wilcoxon over 5 folds p < 0.05): NOT MET (+8.1 points, p = 0.0625)
+HD2 (System 2+ accuracy >= 0.80, chance = 0.25): MET (0.954)
+
+S1 (exploratory): accuracy against calibration budget, board 1 target, System 2+, 5 seeds
+                      mean    std
+calibration_per_gas              
+5                    0.986  0.000
+10                   0.975  0.008
+20                   0.962  0.018
+
+S2 (exploratory, pre-v4 audit): per-board seed consistency, and a label-independent stream order
+  board 1: System 2+ beats System 2 in 13/15 seeds; System 2+ 0.983 in the registered (gas-sorted) order, 0.977 in a random order; unadapted 0.957
+  board 2: System 2+ beats System 2 in 13/15 seeds; System 2+ 0.978 in the registered (gas-sorted) order, 0.982 in a random order; unadapted 0.956
+  board 3: System 2+ beats System 2 in 10/15 seeds; System 2+ 0.923 in the registered (gas-sorted) order, 0.923 in a random order; unadapted 0.909
+  board 4: System 2+ beats System 2 in 12/15 seeds; System 2+ 0.983 in the registered (gas-sorted) order, 0.983 in a random order; unadapted 0.956
+  board 5: System 2+ beats System 2 in 15/15 seeds; System 2+ 0.900 in the registered (gas-sorted) order, 0.883 in a random order; unadapted 0.584
+
+wrote results/system2_compounds.csv, results/system2_compounds_folds.csv, results/system2_compounds_budget.csv, results/system2_compounds_seeds.csv and results/system2_compounds_exploratory.csv  [… s]
