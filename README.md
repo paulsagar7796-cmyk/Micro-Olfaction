@@ -1,9 +1,32 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23074395.svg)](https://doi.org/10.5281/zenodo.23074395)
+
 # Olfactory simulation
 
-Drift-robust gas classification on the UCI Gas Sensor Array Drift dataset ("System 2+": running
-feature alignment and an online linear readout, calibrated with a few labelled samples per gas), plus
-a simulated MOx sensor front end with a spiking presence detector. The results for the paper are in
-[paper/comparison_tables.md](paper/comparison_tables.md).
+Drift-robust gas classification on the UCI Gas Sensor Array Drift dataset ("System 2+", called SOLAR+ in
+the preprint below: running feature alignment and an online linear readout, calibrated with a few
+labelled samples per gas), plus a simulated MOx sensor front end with a spiking presence detector. The
+results for the paper are in [paper/comparison_tables.md](paper/comparison_tables.md).
+
+**Preprint:** [Micro-Olfaction: Few-Shot Streaming Drift Compensation for Gas Sensor Arrays on
+Microcontrollers (PDF)](https://doi.org/10.5281/zenodo.23074212), Sagar Paul, 2026.
+
+## Citation
+
+If you use this code or cite the preprint, please use:
+
+```bibtex
+@misc{paul2026microolfaction,
+  author    = {Paul, Sagar},
+  title     = {Micro-Olfaction: Few-Shot Streaming Drift Compensation for
+               Gas Sensor Arrays on Microcontrollers},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23074212},
+  url       = {https://doi.org/10.5281/zenodo.23074212}
+}
+```
+
+The code and results archive has its own DOI: `10.5281/zenodo.23074395` (see `CITATION.cff`).
 
 ## Reproducing the paper's numbers
 
