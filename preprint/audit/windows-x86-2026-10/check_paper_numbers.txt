@@ -1,0 +1,60 @@
+FAIL [2.] missing “| System 2 | 56.9 ± 1.6 | 75.4 / 69.5 | 78.1 / 72.9 | 80.0 / 81.9 |”
+FAIL [2.] missing “80.3 ± 2.5”
+FAIL [2.] missing “71.9 ± 1.1”
+FAIL [2.] missing “82.0 ± 3.0”
+FAIL [2.] missing “77.3 ± 2.1”
+FAIL [2.] missing “83.2 ± 1.6”
+FAIL [2.] missing “85.2 ± 1.7”
+FAIL [2.] missing “| System 2 | 64.7 ± 2.5 | 79.3 / 72.4 | 81.7 / 80.4 | 84.3 / 81.8 |”
+FAIL [2.] missing “65.3 ± 4.4”
+FAIL [2.] missing “83.9 ± 1.6”
+FAIL [2.] missing “73.4 ± 0.8”
+FAIL [2.] missing “87.1 ± 2.1”
+FAIL [2.] missing “89.3 ± 2.9”
+FAIL [2.] missing “85.5 ± 1.7”
+FAIL [2.] missing “+4.4 (Setting 1) and +4.9 (Setting 2) at 20 labels; −1.6 and +2.2 at 30; −3.8 and +2.3 at 50”
+FAIL [Headline] missing “by 4.4 points in both standard settings”
+FAIL headline: the 20-label lead is no longer equal in both settings
+FAIL [2.] missing “exceeds 87.0 on 4 of 5 seeds”
+FAIL [2.] missing “by 1.5–6.3 points”
+FAIL [2.] missing “+3.1 points”
+FAIL [2.] missing “recall 41.1 % → 52.8 %”
+FAIL [2.] missing “macro recall 74.8 % → 77.9 %”
+FAIL [2.] missing “87.7 % at K = 3 to 83.0 % at K = 300”
+FAIL [2.] missing “| System 2 | 75.4 / 80.0 | 79.3 / 84.3 |”
+FAIL [2.] missing “| + class weight + pseudo-labels | 76.9 / 81.2 | 81.7 / 85.3 |”
+FAIL [2.] missing “| + strong calibration (K = 3) | 79.3 / 81.8 | 84.5 / 88.3 |”
+FAIL [2.] missing “| + strong calibration + pseudo-labels | 80.4 / 82.8 | 84.8 / 89.0 |”
+FAIL [2.] missing “| + strong calibration + class weight | 79.3 / 82.1 | 83.7 / 88.7 |”
+FAIL [2.] missing “| System 2+ (all three) | 80.3 / 83.2 | 83.9 / 89.3 |”
+FAIL [2.] missing “best 85.1 % vs 85.8 % without, and 6–97×”
+FAIL [2.] missing “Batches 6–10 (15 seeds): System 2+ reaches 91.7 / 93.0 / 94.0 % at 10 / 12 / 15 labels per gas”
+FAIL [2.] missing “(System 2: 90.0 / 91.3 / 92.2 %)”
+FAIL [2.] missing “88.5 % at 5”
+FAIL [2.] missing “85–100 % of pseudo-labels are correct in each batch”
+FAIL [2.] missing “their effect (+0.4 to +0.8 points) does not decline”
+FAIL [3. table] Setting 1 | System 2+, balanced | 20: document 80.2 ± 2.5, results 80.3 ± 2.5
+FAIL [3. table] Setting 1 | System 2+, balanced / DAELM selection | 50: document 83.4 ± 1.4 / 85.2 ± 1.9, results 83.2 ± 1.6 / 85.2 ± 1.7
+FAIL [3. table] Setting 2 | System 2+ | 0: document 65.4 ± 4.1, results 65.3 ± 4.4
+FAIL [3. table] Setting 2 | System 2+, balanced | 20: document 83.3 ± 1.8, results 83.9 ± 1.6
+FAIL [3. table] Setting 2 | System 2+, balanced / DAELM selection | 50: document 88.7 ± 3.1 / 86.1 ± 1.9, results 89.3 ± 2.9 / 85.5 ± 1.7
+FAIL [3. table] Batches 1 + 2 → K | System 2+ | 0: document 59.2 ± 1.3, results 59.7 ± 1.4
+FAIL [3. table] Batches 1 + 2 → K | System 2+, balanced | 20: document 74.6 ± 1.7, results 74.7 ± 1.8
+FAIL [3.] missing “by 8.3 (Setting 1) and 7.4 (Setting 2) points”
+FAIL [3.] missing “by 21.6 points at 0 labels”
+FAIL [3.] missing “by 6.6 at 20 labels”
+FAIL [3.] missing “(85.5)”
+FAIL [3.] missing “gets 87.1 at 30 and 89.3 at 50”
+FAIL [Where] missing “against 56.4 % and 65.3 %”
+FAIL [4.] missing “| 1 | 20 | 63.1 ± 2.8 | 83.3 ± 2.2 | 72.5 ± 10.1 | −10.8 | 46 % |”
+FAIL [4.] missing “| 1 | 50 | 63.1 ± 2.8 | 83.1 ± 1.8 | 76.8 ± 6.3 | −6.3 | 68 % |”
+FAIL [4.] missing “| 2 | 20 | 64.3 ± 4.8 | 82.8 ± 2.3 | 75.3 ± 5.8 | −7.5 | 59 % |”
+FAIL [4.] missing “| 2 | 50 | 64.6 ± 4.8 | 89.7 ± 2.0 | 79.6 ± 5.2 | −10.1 | 60 % |”
+FAIL [4.] missing “the change is −6.5 to −12.9 points and 46–63 %”
+FAIL [4.] missing “on 18 of 20 seed × setting × budget”
+FAIL [4.] missing “(46–68 %)”
+FAIL [7.] missing “optimistic by an estimated 6–11 points”
+FAIL [2.] missing “10.5 % of the pseudo-labels in the sequential protocol and 19.1 % in Settings 1–2 (median winning score −148 and −173)”
+FAIL [2.] missing “right only 60.9 % and 54.5 % of the time, against 95.5 % and 89.1 %”
+FAIL [5.] missing “at most 0.85 points (mean -0.07)”
+96/155 checks of paper\comparison_tables.md passed

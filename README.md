@@ -46,9 +46,16 @@ python3 -m pip install -r requirements.txt   # exact versions; Python 3.13.2
 (the microcontroller figures) run only when the Arm tools below are installed; otherwise the committed
 results are checked as they are.
 
-With the pinned versions, every file should come out identical. Stochastic-gradient training is
-sensitive to floating-point details, so other library versions can change individual results. The
-seed spreads reported in the paper indicate how large such changes can be.
+On the same platform as the committed run (macOS, Apple silicon) and with the pinned versions, every
+file should come out identical. **On a different CPU architecture the pinned versions are not
+sufficient.** Stochastic-gradient training is sensitive to floating-point details, and a different
+instruction set or BLAS implementation (for example OpenBLAS on x86-64 against Apple Accelerate on
+arm64) rounds the same operations differently, which is enough to send individual runs onto
+different trajectories. An independent reproduction on Windows x86-64 with identical package
+versions regenerated 5 of 14 files identically and 9 with small differences; the paper's table
+values moved by at most 0.6 points, inside the reported seed spreads
+([preprint/audit/windows-x86-2026-10.md](preprint/audit/windows-x86-2026-10.md)). The seed spreads
+reported in the paper indicate how large such changes can be.
 
 ## Layout
 

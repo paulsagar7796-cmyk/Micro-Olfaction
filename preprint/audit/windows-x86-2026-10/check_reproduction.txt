@@ -1,0 +1,46 @@
+DIFFERS     results/system2_tuning.csv: column accuracy: 2647 values differ (first at row 0: np.float64(0.9333333333333332) vs committed np.float64(0.9666666666666668))
+DIFFERS     results/system2_budget_sweep.csv: column accuracy: 451 values differ (first at row 2: np.float64(0.9560155239327296) vs committed np.float64(0.9586028460543338))
+DIFFERS     results/sequential_system2plus.csv: column accuracy: 916 values differ (first at row 1: np.float64(0.9500320307495196) vs committed np.float64(0.9596412556053812))
+DIFFERS     results/literature_comparison.csv: column batch_2: 17 values differ (first at row 0: np.float64(76.86) vs committed np.float64(76.77))
+DIFFERS     results/system2_improvements.csv: column accuracy: 36334 values differ (first at row 0: np.float64(0.6473844450595073) vs committed np.float64(0.6471076667589261))
+DIFFERS     results/system2_combined.csv: column accuracy: 5963 values differ (first at row 0: np.float64(0.8183279742765274) vs committed np.float64(0.822347266881029))
+DIFFERS     results/temporal_confound.csv: column accuracy: 143 values differ (first at row 0: np.float64(0.9052823315118396) vs committed np.float64(0.9089253187613844))
+identical   results/temporal_confound_file_order.csv
+identical   results/temporal_confound_baseline.csv
+DIFFERS     results/literature_table.csv: column batch_2: 12 values differ (first at row 12: np.float64(77.93) vs committed np.float64(77.96))
+DIFFERS     results/pseudo_label_scores.csv: column pseudo_labels: 3 values differ (first at row 0: np.float64(79326.0) vs committed np.float64(79392.0))
+equal       results/presence_test.csv (numbers within 1e-9, formatting differs)
+equal       results/presence_test_nobias.csv (numbers within 1e-9, formatting differs)
+equal       results/presence_test_tracking.csv (numbers within 1e-9, formatting differs)
+identical   results/device_reference.csv
+identical   results/firmware_check.csv
+identical   results/firmware_check_opt.csv
+identical   results/firmware_check_cm4.csv
+identical   results/firmware_check_cm4_opt.csv
+identical   results/cm4_cycles.csv
+identical   results/cm4_energy.csv
+identical   results/cm4_memory.csv
+identical   results/cm4_inference_classes.csv
+new         results\logs\budget.log (not committed yet)
+new         results\logs\cm4_profile.log (not committed yet)
+new         results\logs\combine.log (not committed yet)
+new         results\logs\confound.log (not committed yet)
+new         results\logs\costs.log (not committed yet)
+new         results\logs\device_reference.log (not committed yet)
+new         results\logs\energy.log (not committed yet)
+new         results\logs\firmware_cm4.log (not committed yet)
+new         results\logs\firmware_cm4_opt.log (not committed yet)
+new         results\logs\firmware_host.log (not committed yet)
+new         results\logs\firmware_host_opt.log (not committed yet)
+new         results\logs\improve.log (not committed yet)
+new         results\logs\literature.log (not committed yet)
+new         results\logs\presence.log (not committed yet)
+new         results\logs\presence_nobias.log (not committed yet)
+new         results\logs\presence_tracking.log (not committed yet)
+new         results\logs\pseudo_labels.log (not committed yet)
+new         results\logs\sequential.log (not committed yet)
+new         results\logs\system2_compounds.log (not committed yet)
+new         results\logs\table.log (not committed yet)
+new         results\logs\tune.log (not committed yet)
+new         results\logs\twin_arrays.log (not committed yet)
+some results differ from the committed ones

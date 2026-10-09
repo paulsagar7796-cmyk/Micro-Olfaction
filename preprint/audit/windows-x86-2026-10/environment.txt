@@ -1,0 +1,16 @@
+43ff630083be307f9d756a7e9376553991afdce4
+Python 3.13.15
+certifi==2026.7.22
+cloudpickle==3.1.2
+joblib==1.6.0
+narwhals==2.26.0
+numpy==2.2.6
+pandas==3.0.6
+python-dateutil==2.9.0.post0
+scikit-learn==1.9.1
+scipy==1.18.1
+six==1.17.0
+threadpoolctl==3.7.0
+tzdata==2026.5
+ucimlrepo==0.0.7
+Windows AMD64, 4 workers (MAX_CPUS=4), ALLOW_ENV_MISMATCH=1
